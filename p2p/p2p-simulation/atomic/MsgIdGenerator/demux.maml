@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> demux@Demux &#xd;</components>
+    <out> out_1&#xd;</out>
+    <out> out_2&#xd;</out>
+    <out> out_3&#xd;</out>
+    <out> out_4&#xd;</out>
+    <out> out_5&#xd;</out>
+    <out> out_6&#xd;</out>
+    <out> out_7&#xd;</out>
+    <out> out_8&#xd;</out>
+    <out> out_9&#xd;</out>
+    <out> out_10&#xd;</out>
+    <in> msg_in table_in connect_in&#xd;</in>
+    <Link> msg_in msg_in@demux&#xd;</Link>
+    <Link> connect_in connect_in@demux&#xd;</Link>
+    <Link> table_in table_in@demux&#xd;</Link>
+    <Link> out_1@demux out_1&#xd;</Link>
+    <Link> out_2@demux out_2&#xd;</Link>
+    <Link> out_3@demux out_3&#xd;</Link>
+    <Link> out_4@demux out_4&#xd;</Link>
+    <Link> out_5@demux out_5&#xd;</Link>
+    <Link> out_6@demux out_6&#xd;</Link>
+    <Link> out_7@demux out_7&#xd;</Link>
+    <Link> out_8@demux out_8&#xd;</Link>
+    <Link> out_9@demux out_9&#xd;</Link>
+    <Link> out_10@demux out_10&#xd;</Link>
+  </top>
+</CDPlusPlus_Builder_Version_1.0.0>

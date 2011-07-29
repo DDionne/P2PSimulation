@@ -1,0 +1,18 @@
+	// table to associate message Ids to peers (conceptually for routing responses back to the peer that originated the query).
+	map<int,int > routingTable;
+
+	bool routing; // if we're routing a queryhit
+	bool connecting; // if we're routing a connect/ disconnect
+	set<int> to_peers; //the set of peers that the next output is meant for
+	int nextOutput; // next output
+
+	//map<float, Time> a time stamp for the last seen message for a given id : the idea is that after a while we're not routing the message anymore and can forget about which nodes the message has visited.
+
+	//Time lastpurge // stores the time of the last purge. If this occured more than <purgeinterval> ago we should re-purge the routingtable of old messages
+
+
+
+};	// class Demux
+
+
+#endif    //__DEMUX_H

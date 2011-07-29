@@ -1,0 +1,57 @@
+/*******************************************************************
+*
+*  DESCRIPTION: Atomic Model : Demultiplexer : gets a message on its single input and
+*  forwards it to one of its numerous outputs according to a routing table.
+*
+*  AUTHOR: Alan
+*
+*
+*******************************************************************/
+/*handle duplicate inclusion of this header*/
+#ifndef __DEMUX_H
+#define __DEMUX_H
+#define VERBOSE false
+
+/** include files **/
+#include "atomic.h"  // class Atomic
+#include "..\complexmessages.h" // functions to manage "coded" messages between components
+//#include "NetGraph.h"
+//#include "IntSet.h"
+
+#include <map>
+#include <set>
+
+//#include "EventQueue.h"
+//#include <queue> //STL for queue template class
+//#include <set>
+/** declarations **/
+class Demux: public Atomic
+{
+public:
+
+
+	Demux( const string &name = "Demux" ) ;	 // Default constructor
+
+	~Demux();					// Destructor
+
+	virtual string className() const
+		{return "Demux";};
+
+
+protected:
+	Model &initFunction()
+		{
+		return *this;
+		};
+
+	Model &externalFunction( const ExternalMessage & );
+
+	Model &internalFunction( const InternalMessage & );
+
+	Model &outputFunction( const InternalMessage & );
+
+private:
+
+    const Port &msg_in ; // for getting messages
+	const Port &table_in; // for updating the routing table
+	const Port &connect_in; // for connection / disconnection messages

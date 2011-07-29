@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> Network IdGen@msgIdGen log@Logger Linker@LinkFinder Peer0 Peer1 Peer2 Peer3 Peer4&#xd;</components>
+    <Link> LinkFind@Peer0 in_q@Linker&#xd;</Link>
+    <Link> LinkFind@Peer1 in_q@Linker&#xd;</Link>
+    <Link> LinkFind@Peer2 in_q@Linker&#xd;</Link>
+    <Link> LinkFind@Peer3 in_q@Linker&#xd;</Link>
+    <Link> LinkFind@Peer4 in_q@Linker&#xd;</Link>
+    <Link> q_out0@Linker Link_in@Peer0&#xd;</Link>
+    <Link> q_out1@Linker Link_in@Peer1&#xd;</Link>
+    <Link> q_out2@Linker Link_in@Peer2&#xd;</Link>
+    <Link> q_out3@Linker Link_in@Peer3&#xd;</Link>
+    <Link> q_out4@Linker Link_in@Peer4&#xd;</Link>
+    <Link> queryhit@Peer0 qhit_in@log&#xd;</Link>
+    <Link> queryhit@Peer1 qhit_in@log&#xd;</Link>
+    <Link> queryhit@Peer2 qhit_in@log&#xd;</Link>
+    <Link> queryhit@Peer3 qhit_in@log&#xd;</Link>
+    <Link> queryhit@Peer4 qhit_in@log&#xd;</Link>
+    <Link> disconnect@Peer0 in_disconnect@log&#xd;</Link>
+    <Link> disconnect@Peer1 in_disconnect@log&#xd;</Link>
+    <Link> disconnect@Peer2 in_disconnect@log&#xd;</Link>
+    <Link> disconnect@Peer3 in_disconnect@log&#xd;</Link>
+    <Link> disconnect@Peer4 in_disconnect@log&#xd;</Link>
+    <Link> connect@Peer0 in_connect@log&#xd;</Link>
+    <Link> connect@Peer1 in_connect@log&#xd;</Link>
+    <Link> connect@Peer2 in_connect@log&#xd;</Link>
+    <Link> connect@Peer3 in_connect@log&#xd;</Link>
+    <Link> connect@Peer4 in_connect@log&#xd;</Link>
+    <Link> out_0@IdGen in_query@log&#xd;</Link>
+    <Link> out_1@IdGen in_query@log&#xd;</Link>
+    <Link> out_2@IdGen in_query@log&#xd;</Link>
+    <Link> out_3@IdGen in_query@log&#xd;</Link>
+    <Link> out_4@IdGen in_query@log&#xd;</Link>
+    <Link> publish@Peer0 in_publish@log&#xd;</Link>
+    <Link> publish@Peer1 in_publish@log&#xd;</Link>
+    <Link> publish@Peer2 in_publish@log&#xd;</Link>
+    <Link> publish@Peer3 in_publish@log&#xd;</Link>
+    <Link> publish@Peer4 in_publish@log&#xd;</Link>
+    <Link> online@Peer0 in_online@Network&#xd;</Link>
+    <Link> online@Peer1 in_online@Network&#xd;</Link>
+    <Link> online@Peer2 in_online@Network&#xd;</Link>
+    <Link> online@Peer3 in_online@Network&#xd;</Link>
+    <Link> online@Peer4 in_online@Network&#xd;</Link>
+    <Link> online@Peer0 in_online@log&#xd;</Link>
+    <Link> online@Peer1 in_online@log&#xd;</Link>
+    <Link> online@Peer2 in_online@log&#xd;</Link>
+    <Link> online@Peer3 in_online@log&#xd;</Link>
+    <Link> online@Peer4 in_online@log&#xd;</Link>
+    <Link> offline@Peer0 in_offline@log&#xd;</Link>
+    <Link> offline@Peer1 in_offline@log&#xd;</Link>
+    <Link> offline@Peer2 in_offline@log&#xd;</Link>
+    <Link> offline@Peer3 in_offline@log&#xd;</Link>
+    <Link> offline@Peer4 in_offline@log&#xd;</Link>
+    <Link> offline@Peer0 in_offline@Network&#xd;</Link>
+    <Link> offline@Peer1 in_offline@Network&#xd;</Link>
+    <Link> offline@Peer2 in_offline@Network&#xd;</Link>
+    <Link> offline@Peer3 in_offline@Network&#xd;</Link>
+    <Link> offline@Peer4 in_offline@Network&#xd;</Link>
+    <Link> connect_out@Peer0 peer_connect@Network&#xd;</Link>
+    <Link> connect_out@Peer1 peer_connect@Network&#xd;</Link>
+    <Link> connect_out@Peer2 peer_connect@Network&#xd;</Link>
+    <Link> connect_out@Peer3 peer_connect@Network&#xd;</Link>
+    <Link> connect_out@Peer4 peer_connect@Network&#xd;</Link>
+    <Link> disconnect_out@Peer0 peer_disconnect@Network&#xd;</Link>
+    <Link> disconnect_out@Peer1 peer_disconnect@Network&#xd;</Link>
+    <Link> disconnect_out@Peer2 peer_disconnect@Network&#xd;</Link>
+    <Link> disconnect_out@Peer3 peer_disconnect@Network&#xd;</Link>
+    <Link> disconnect_out@Peer4 peer_disconnect@Network&#xd;</Link>
+    <Link> c_out0@Network connect_in@Peer0&#xd;</Link>
+    <Link> c_out1@Network connect_in@Peer1&#xd;</Link>
+    <Link> c_out2@Network connect_in@Peer2&#xd;</Link>
+    <Link> c_out3@Network connect_in@Peer3&#xd;</Link>
+    <Link> c_out4@Network connect_in@Peer4&#xd;</Link>
+    <Link> query_out@Peer0 msg_in@IdGen&#xd;</Link>
+    <Link> query_out@Peer1 msg_in@IdGen&#xd;</Link>
+    <Link> query_out@Peer2 msg_in@IdGen&#xd;</Link>
+    <Link> query_out@Peer3 msg_in@IdGen&#xd;</Link>
+    <Link> query_out@Peer4 msg_in@IdGen&#xd;</Link>
+    <Link> out_0@IdGen query_in@Peer0&#xd;</Link>
+    <Link> out_1@IdGen query_in@Peer1&#xd;</Link>
+    <Link> out_2@IdGen query_in@Peer2&#xd;</Link>
+    <Link> out_3@IdGen query_in@Peer3&#xd;</Link>
+    <Link> out_4@IdGen query_in@Peer4&#xd;</Link>
+    <Link> q_out@Peer0 inroute@Network&#xd;</Link>
+    <Link> q_out@Peer1 inroute@Network&#xd;</Link>
+    <Link> q_out@Peer2 inroute@Network&#xd;</Link>
+    <Link> q_out@Peer3 inroute@Network&#xd;</Link>
+    <Link> q_out@Peer4 inroute@Network&#xd;</Link>
+    <Link> route_out0@Network q_in@Peer0&#xd;</Link>
+    <Link> route_out1@Network q_in@Peer1&#xd;</Link>
+    <Link> route_out2@Network q_in@Peer2&#xd;</Link>
+    <Link> route_out3@Network q_in@Peer3&#xd;</Link>
+    <Link> route_out4@Network q_in@Peer4&#xd;</Link>
+    <Link> queryreachespeer@Peer0 queryReached@log&#xd;</Link>
+    <Link> queryreachespeer@Peer1 queryReached@log&#xd;</Link>
+    <Link> queryreachespeer@Peer2 queryReached@log&#xd;</Link>
+    <Link> queryreachespeer@Peer3 queryReached@log&#xd;</Link>
+    <Link> queryreachespeer@Peer4 queryReached@log&#xd;</Link>
+  </top>
+  <Linker>
+    <datafile> serverdoc.dat&#xd;</datafile>
+  </Linker>
+  <Peer0>
+    <components> session0@RandomSurfer connector0@ConnectionManager gnut0@PeerGnutella server0@Server&#xd;</components>
+    <out> query_out&#xd;</out>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> disconnect&#xd;</out>
+    <out> connect&#xd;</out>
+    <out> queryhit&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> queryreachespeer&#xd;</out>
+    <out> LinkFind&#xd;</out>
+    <in> query_in &#xd;</in>
+    <in> q_in&#xd;</in>
+    <in> connect_in&#xd;</in>
+    <in> Link_in&#xd;</in>
+    <Link> online@session0 in_online@connector0&#xd;</Link>
+    <Link> online@session0 online&#xd;</Link>
+    <Link> offline@session0 in_offline@connector0&#xd;</Link>
+    <Link> out_offline@connector0 offline&#xd;</Link>
+    <Link> query@session0 query_out&#xd;</Link>
+    <Link> query@session0 publish@server0&#xd;</Link>
+    <Link> publish@session0 publish@server0&#xd;</Link>
+    <Link> p_out@server0 publish&#xd;</Link>
+    <Link> link@server0 LinkFind&#xd;</Link>
+    <Link> remove@session0 remove@server0&#xd;</Link>
+    <Link> out_connect@connector0 connect_out&#xd;</Link>
+    <Link> out_disconnect@connector0 disconnect_out&#xd;</Link>
+    <Link> connect_in in_connect@connector0&#xd;</Link>
+    <Link> connect_in connections@gnut0&#xd;</Link>
+    <Link> q_in q_in@gnut0&#xd;</Link>
+    <Link> q_out@gnut0 q_out&#xd;</Link>
+    <Link> localOut@gnut0 peer_in@server0&#xd;</Link>
+    <Link> Link_in peer_in@server0&#xd;</Link>
+    <Link> localOut@gnut0 queryreachespeer&#xd;</Link>
+    <Link> queryhit@server0 q_in@gnut0&#xd;</Link>
+    <Link> queryhit@server0 queryhit&#xd;</Link>
+    <Link> query_in query@gnut0&#xd;</Link>
+    <Link> connect_out@gnut0 connect&#xd;</Link>
+    <Link> disconnect_out@gnut0 disconnect&#xd;</Link>
+    <Link> qhit_out@gnut0 queryhit@session0&#xd;</Link>
+  </Peer0>
+  <session0>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 3&#xd;</beforequerymean>
+    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <NumQueries> 20&#xd;</NumQueries>
+    <doclist> 1,2,3&#xd;</doclist>
+    <whoAmI> 0&#xd;</whoAmI>
+  </session0>
+  <connector0>
+    <friendlist> 1,2,3&#xd;</friendlist>
+    <whoAmI> 0 &#xd;</whoAmI>
+  </connector0>
+  <Peer1>
+    <components> session1@RandomSurfer connector1@ConnectionManager gnut1@PeerGnutella server1@Server&#xd;</components>
+    <out> query_out&#xd;</out>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> disconnect&#xd;</out>
+    <out> connect&#xd;</out>
+    <out> queryhit&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> queryreachespeer&#xd;</out>
+    <out> LinkFind&#xd;</out>
+    <in> query_in &#xd;</in>
+    <in> q_in&#xd;</in>
+    <in> connect_in&#xd;</in>
+    <in> Link_in&#xd;</in>
+    <Link> online@session1 in_online@connector1&#xd;</Link>
+    <Link> online@session1 online&#xd;</Link>
+    <Link> offline@session1 in_offline@connector1&#xd;</Link>
+    <Link> out_offline@connector1 offline&#xd;</Link>
+    <Link> query@session1 query_out&#xd;</Link>
+    <Link> query@session1 publish@server1&#xd;</Link>
+    <Link> publish@session1 publish@server1&#xd;</Link>
+    <Link> p_out@server1 publish&#xd;</Link>
+    <Link> link@server1 LinkFind&#xd;</Link>
+    <Link> remove@session1 remove@server1&#xd;</Link>
+    <Link> out_connect@connector1 connect_out&#xd;</Link>
+    <Link> out_disconnect@connector1 disconnect_out&#xd;</Link>
+    <Link> connect_in in_connect@connector1&#xd;</Link>
+    <Link> connect_in connections@gnut1&#xd;</Link>
+    <Link> q_in q_in@gnut1&#xd;</Link>
+    <Link> q_out@gnut1 q_out&#xd;</Link>
+    <Link> localOut@gnut1 peer_in@server1&#xd;</Link>
+    <Link> Link_in peer_in@server1&#xd;</Link>
+    <Link> localOut@gnut1 queryreachespeer&#xd;</Link>
+    <Link> queryhit@server1 q_in@gnut1&#xd;</Link>
+    <Link> queryhit@server1 queryhit&#xd;</Link>
+    <Link> query_in query@gnut1&#xd;</Link>
+    <Link> connect_out@gnut1 connect&#xd;</Link>
+    <Link> disconnect_out@gnut1 disconnect&#xd;</Link>
+    <Link> qhit_out@gnut1 queryhit@session1&#xd;</Link>
+  </Peer1>
+  <session1>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 3&#xd;</beforequerymean>
+    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <NumQueries> 20&#xd;</NumQueries>
+    <doclist> 4,5,6&#xd;</doclist>
+    <whoAmI> 1&#xd;</whoAmI>
+  </session1>
+  <connector1>
+    <friendlist> 0,2,3&#xd;</friendlist>
+    <whoAmI> 1 &#xd;</whoAmI>
+  </connector1>
+  <Peer2>
+    <components> session2@RandomSurfer connector2@ConnectionManager gnut2@PeerGnutella server2@Server&#xd;</components>
+    <out> query_out&#xd;</out>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> disconnect&#xd;</out>
+    <out> connect&#xd;</out>
+    <out> queryhit&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> queryreachespeer&#xd;</out>
+    <out> LinkFind&#xd;</out>
+    <in> query_in &#xd;</in>
+    <in> q_in&#xd;</in>
+    <in> connect_in&#xd;</in>
+    <in> Link_in&#xd;</in>
+    <Link> online@session2 in_online@connector2&#xd;</Link>
+    <Link> online@session2 online&#xd;</Link>
+    <Link> offline@session2 in_offline@connector2&#xd;</Link>
+    <Link> out_offline@connector2 offline&#xd;</Link>
+    <Link> query@session2 query_out&#xd;</Link>
+    <Link> query@session2 publish@server2&#xd;</Link>
+    <Link> publish@session2 publish@server2&#xd;</Link>
+    <Link> p_out@server2 publish&#xd;</Link>
+    <Link> link@server2 LinkFind&#xd;</Link>
+    <Link> remove@session2 remove@server2&#xd;</Link>
+    <Link> out_connect@connector2 connect_out&#xd;</Link>
+    <Link> out_disconnect@connector2 disconnect_out&#xd;</Link>
+    <Link> connect_in in_connect@connector2&#xd;</Link>
+    <Link> connect_in connections@gnut2&#xd;</Link>
+    <Link> q_in q_in@gnut2&#xd;</Link>
+    <Link> q_out@gnut2 q_out&#xd;</Link>
+    <Link> localOut@gnut2 peer_in@server2&#xd;</Link>
+    <Link> Link_in peer_in@server2&#xd;</Link>
+    <Link> localOut@gnut2 queryreachespeer&#xd;</Link>
+    <Link> queryhit@server2 q_in@gnut2&#xd;</Link>
+    <Link> queryhit@server2 queryhit&#xd;</Link>
+    <Link> query_in query@gnut2&#xd;</Link>
+    <Link> connect_out@gnut2 connect&#xd;</Link>
+    <Link> disconnect_out@gnut2 disconnect&#xd;</Link>
+    <Link> qhit_out@gnut2 queryhit@session2&#xd;</Link>
+  </Peer2>
+  <session2>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 3&#xd;</beforequerymean>
+    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <NumQueries> 20&#xd;</NumQueries>
+    <doclist> 7,8,9&#xd;</doclist>
+    <whoAmI> 2&#xd;</whoAmI>
+  </session2>
+  <connector2>
+    <friendlist> 0,1,3,4&#xd;</friendlist>
+    <whoAmI> 2 &#xd;</whoAmI>
+  </connector2>
+  <Peer3>
+    <components> session3@RandomSurfer connector3@ConnectionManager gnut3@PeerGnutella server3@Server&#xd;</components>
+    <out> query_out&#xd;</out>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> disconnect&#xd;</out>
+    <out> connect&#xd;</out>
+    <out> queryhit&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> queryreachespeer&#xd;</out>
+    <out> LinkFind&#xd;</out>
+    <in> query_in &#xd;</in>
+    <in> q_in&#xd;</in>
+    <in> connect_in&#xd;</in>
+    <in> Link_in&#xd;</in>
+    <Link> online@session3 in_online@connector3&#xd;</Link>
+    <Link> online@session3 online&#xd;</Link>
+    <Link> offline@session3 in_offline@connector3&#xd;</Link>
+    <Link> out_offline@connector3 offline&#xd;</Link>
+    <Link> query@session3 query_out&#xd;</Link>
+    <Link> query@session3 publish@server3&#xd;</Link>
+    <Link> publish@session3 publish@server3&#xd;</Link>
+    <Link> p_out@server3 publish&#xd;</Link>
+    <Link> link@server3 LinkFind&#xd;</Link>
+    <Link> remove@session3 remove@server3&#xd;</Link>
+    <Link> out_connect@connector3 connect_out&#xd;</Link>
+    <Link> out_disconnect@connector3 disconnect_out&#xd;</Link>
+    <Link> connect_in in_connect@connector3&#xd;</Link>
+    <Link> connect_in connections@gnut3&#xd;</Link>
+    <Link> q_in q_in@gnut3&#xd;</Link>
+    <Link> q_out@gnut3 q_out&#xd;</Link>
+    <Link> localOut@gnut3 peer_in@server3&#xd;</Link>
+    <Link> Link_in peer_in@server3&#xd;</Link>
+    <Link> localOut@gnut3 queryreachespeer&#xd;</Link>
+    <Link> queryhit@server3 q_in@gnut3&#xd;</Link>
+    <Link> queryhit@server3 queryhit&#xd;</Link>
+    <Link> query_in query@gnut3&#xd;</Link>
+    <Link> connect_out@gnut3 connect&#xd;</Link>
+    <Link> disconnect_out@gnut3 disconnect&#xd;</Link>
+    <Link> qhit_out@gnut3 queryhit@session3&#xd;</Link>
+  </Peer3>
+  <session3>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 3&#xd;</beforequerymean>
+    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <NumQueries> 20&#xd;</NumQueries>
+    <doclist> 10,11,12&#xd;</doclist>
+    <whoAmI> 3&#xd;</whoAmI>
+  </session3>
+  <connector3>
+    <friendlist> 0,1,2,4&#xd;</friendlist>
+    <whoAmI> 3 &#xd;</whoAmI>
+  </connector3>
+  <Peer4>
+    <components> session4@RandomSurfer connector4@ConnectionManager gnut4@PeerGnutella server4@Server&#xd;</components>
+    <out> query_out&#xd;</out>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> disconnect&#xd;</out>
+    <out> connect&#xd;</out>
+    <out> queryhit&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> queryreachespeer&#xd;</out>
+    <out> LinkFind&#xd;</out>
+    <in> query_in &#xd;</in>
+    <in> q_in&#xd;</in>
+    <in> connect_in&#xd;</in>
+    <in> Link_in&#xd;</in>
+    <Link> online@session4 in_online@connector4&#xd;</Link>
+    <Link> online@session4 online&#xd;</Link>
+    <Link> offline@session4 in_offline@connector4&#xd;</Link>
+    <Link> out_offline@connector4 offline&#xd;</Link>
+    <Link> query@session4 query_out&#xd;</Link>
+    <Link> query@session4 publish@server4&#xd;</Link>
+    <Link> publish@session4 publish@server4&#xd;</Link>
+    <Link> p_out@server4 publish&#xd;</Link>
+    <Link> link@server4 LinkFind&#xd;</Link>
+    <Link> remove@session4 remove@server4&#xd;</Link>
+    <Link> out_connect@connector4 connect_out&#xd;</Link>
+    <Link> out_disconnect@connector4 disconnect_out&#xd;</Link>
+    <Link> connect_in in_connect@connector4&#xd;</Link>
+    <Link> connect_in connections@gnut4&#xd;</Link>
+    <Link> q_in q_in@gnut4&#xd;</Link>
+    <Link> q_out@gnut4 q_out&#xd;</Link>
+    <Link> localOut@gnut4 peer_in@server4&#xd;</Link>
+    <Link> Link_in peer_in@server4&#xd;</Link>
+    <Link> localOut@gnut4 queryreachespeer&#xd;</Link>
+    <Link> queryhit@server4 q_in@gnut4&#xd;</Link>
+    <Link> queryhit@server4 queryhit&#xd;</Link>
+    <Link> query_in query@gnut4&#xd;</Link>
+    <Link> connect_out@gnut4 connect&#xd;</Link>
+    <Link> disconnect_out@gnut4 disconnect&#xd;</Link>
+    <Link> qhit_out@gnut4 queryhit@session4&#xd;</Link>
+  </Peer4>
+  <session4>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 3&#xd;</beforequerymean>
+    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <NumQueries> 20&#xd;</NumQueries>
+    <doclist> 13,14,15&#xd;</doclist>
+    <whoAmI> 4&#xd;</whoAmI>
+  </session4>
+  <connector4>
+    <friendlist> 2,3&#xd;</friendlist>
+    <whoAmI> 4 &#xd;</whoAmI>
+  </connector4>
+  <Network>
+    <components> net@SimpleDemux LTS@LTSNetwork&#xd;</components>
+    <out> c_out0&#xd;</out>
+    <out> c_out1&#xd;</out>
+    <out> c_out2&#xd;</out>
+    <out> c_out3&#xd;</out>
+    <out> c_out4&#xd;</out>
+    <out> route_out0&#xd;</out>
+    <out> route_out1&#xd;</out>
+    <out> route_out2&#xd;</out>
+    <out> route_out3&#xd;</out>
+    <out> route_out4&#xd;</out>
+    <in> peer_connect&#xd;</in>
+    <in> peer_disconnect&#xd;</in>
+    <in> inroute&#xd;</in>
+    <in> in_online&#xd;</in>
+    <in> in_offline&#xd;</in>
+    <Link> peer_connect connect_in@LTS&#xd;</Link>
+    <Link> peer_disconnect disconnect_in@LTS&#xd;</Link>
+    <Link> in_online peer_online@LTS&#xd;</Link>
+    <Link> in_offline peer_offline@LTS&#xd;</Link>
+    <Link> inroute inroute@net&#xd;</Link>
+    <Link> c_out0@LTS c_out0&#xd;</Link>
+    <Link> c_out1@LTS c_out1&#xd;</Link>
+    <Link> c_out2@LTS c_out2&#xd;</Link>
+    <Link> c_out3@LTS c_out3&#xd;</Link>
+    <Link> c_out4@LTS c_out4&#xd;</Link>
+    <Link> route_out0@net route_out0&#xd;</Link>
+    <Link> route_out1@net route_out1&#xd;</Link>
+    <Link> route_out2@net route_out2&#xd;</Link>
+    <Link> route_out3@net route_out3&#xd;</Link>
+    <Link> route_out4@net route_out4&#xd;</Link>
+  </Network>
+</CDPlusPlus_Builder_Version_1.0.0>

@@ -1,0 +1,16 @@
+00:00:32:001 out_connect 1.003e+06
+00:00:33:001 out_connect 1.001e+06
+00:00:34:041 out_connect 1.006e+06
+00:00:34:091 out_connect 1.008e+06
+00:00:35:019 route_out 7.00601e+06
+00:00:35:059 route_out 7.00301e+06
+00:00:35:067 route_out 7.00101e+06
+00:00:35:073 route_out 7.00801e+06
+00:00:36:011 out_connect 1.00801e+06
+00:00:37:001 out_disconnect 2001
+00:00:38:001 out_connect 1.006e+06
+00:01:09:001 route_out 6.00302e+06
+00:01:09:014 route_out 6.00202e+06
+00:01:09:099 route_out 6.00802e+06
+00:01:36:001 out_disconnect 2003
+00:01:36:002 out_disconnect 6003

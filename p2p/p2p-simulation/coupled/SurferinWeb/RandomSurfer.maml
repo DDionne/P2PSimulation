@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> session@RandomSurfer server@Server &#xd;</components>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> remove&#xd;</out>
+    <Link> online@session online&#xd;</Link>
+    <Link> offline@session offline&#xd;</Link>
+    <Link> query@session query_in@server&#xd;</Link>
+    <Link> publish@session publish&#xd;</Link>
+    <Link> publish@session peer_in@server&#xd;</Link>
+    <Link> remove@session remove&#xd;</Link>
+    <Link> queryhit@server queryhit@session&#xd;</Link>
+  </top>
+  <session>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 3&#xd;</beforequerymean>
+    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <afterquerydistribution> lognormal&#xd;</afterquerydistribution>
+    <afterquerymean> 3&#xd;</afterquerymean>
+    <afterquerydeviation> 5.8&#xd;</afterquerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <inactivesessionlengthdistribution> weibull&#xd;</inactivesessionlengthdistribution>
+    <inactivesessionlengthshape> 0.5&#xd;</inactivesessionlengthshape>
+    <inactivesessionlengthscale> 2000&#xd;</inactivesessionlengthscale>
+    <NumQueries> 965&#xd;</NumQueries>
+    <doclist> 845&#xd;</doclist>
+    <whoAmI> 31&#xd;</whoAmI>
+  </session>
+</CDPlusPlus_Builder_Version_1.0.0>

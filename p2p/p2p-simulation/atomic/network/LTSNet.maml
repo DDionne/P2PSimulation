@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> netwk@LTSNetwork &#xd;</components>
+    <out> route_out out_connect out_disconnect&#xd;</out>
+    <in> peer_online peer_offline peer_connect peer_disconnect inroute&#xd;</in>
+    <Link> peer_online peer_online@netwk&#xd;</Link>
+    <Link> peer_offline peer_offline@netwk&#xd;</Link>
+    <Link> peer_connect peer_connect@netwk&#xd;</Link>
+    <Link> peer_disconnect peer_disconnect@netwk&#xd;</Link>
+    <Link> inroute inroute@netwk&#xd;</Link>
+    <Link> route_out@netwk route_out&#xd;</Link>
+    <Link> out_connect@netwk out_connect&#xd;</Link>
+    <Link> out_disconnect@netwk out_disconnect&#xd;</Link>
+  </top>
+  <netwk>
+    <distribution> exponential&#xd;</distribution>
+    <mean> 0.12&#xd;</mean>
+  </netwk>
+</CDPlusPlus_Builder_Version_1.0.0>

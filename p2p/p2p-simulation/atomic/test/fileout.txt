@@ -1,0 +1,21 @@
+N-CD++: A Tool to Implement n-Dimensional Cell-DEVS models
+----------------------------------------------------------
+Version 2.0-R.45 December-1999
+Daniel Rodriguez, Gabriel Wainer, Amir Barylko, Jorge Beyoglonian
+Departamento de Computacion. Facultad de Ciencias Exactas y Naturales.
+Universidad de Buenos Aires. Argentina.
+
+Loading models from Server.MA
+Loading events from 
+Message log: /dev/null
+Output to: databaseOUT.out
+Tolerance set to: 1e-08
+Configuration to show real numbers: Width = 12 - Precision = 5
+Quantum: Not used
+Evaluate Debug Mode = OFF
+Flat Cell Debug Mode = OFF
+Debug Cell Rules Mode = OFF
+Temporary File created by Preprocessor = /tmp/tcd4.1
+Printing parser information = OFF
+
+Starting simulation. Stop at time: 02:00:00:000

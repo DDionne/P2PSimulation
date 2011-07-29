@@ -1,0 +1,13 @@
+			default :
+
+				cout<<"error : output port `to_peer' not set"<<endl;
+			}//end switch
+		}//end for
+	}//end if
+	return *this;
+}
+
+Demux::~Demux()
+{
+	//do nothing
+}

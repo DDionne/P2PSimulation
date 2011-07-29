@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> db@Database demux@Demux disp@Dispatcher gnut@Gnutella netwk@LTSNetwork   &#xd;</components>
+    <out> out_1&#xd;</out>
+    <out> out_2&#xd;</out>
+    <out> out_3&#xd;</out>
+    <out> out_4&#xd;</out>
+    <out> out_5&#xd;</out>
+    <in> publish remove query peer_online peer_offline peer_connect peer_disconnect &#xd;</in>
+    <Link> query msg_in@disp&#xd;</Link>
+    <Link> publish publish@db&#xd;</Link>
+    <Link> remove remove@db&#xd;</Link>
+    <Link> peer_online peer_online@netwk&#xd;</Link>
+    <Link> peer_offline peer_offline@netwk&#xd;</Link>
+    <Link> peer_connect peer_connect@netwk&#xd;</Link>
+    <Link> peer_disconnect peer_disconnect@netwk&#xd;</Link>
+    <Link> peer_id@disp table_in@demux&#xd;</Link>
+    <Link> query_id@disp query_in@db&#xd;</Link>
+    <Link> route_out@gnut peer_in@db&#xd;</Link>
+    <Link> queryhit@db msg_in@demux&#xd;</Link>
+    <Link> out_n@gnut inroute@netwk&#xd;</Link>
+    <Link> route_out@netwk in_n@gnut &#xd;</Link>
+    <Link> peer_id@disp route_in@gnut&#xd;</Link>
+    <Link> out_1@demux out_1&#xd;</Link>
+    <Link> out_2@demux out_2&#xd;</Link>
+    <Link> out_3@demux out_3&#xd;</Link>
+    <Link> out_4@demux out_4&#xd;</Link>
+    <Link> out_5@demux out_5&#xd;</Link>
+  </top>
+</CDPlusPlus_Builder_Version_1.0.0>

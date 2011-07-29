@@ -1,0 +1,11 @@
+		default :
+
+			cout<<"error : output port `to_peer' not set"<<endl;
+			//ERROR
+		}
+
+
+	} else if(connecting) {
+		for (set<int>::iterator it= to_peers.begin();it!=to_peers.end();it++){
+			//NextOutput contains the next message to be output, to_peer the integer identifying the peer that the message is for
+			switch ( *it ) {

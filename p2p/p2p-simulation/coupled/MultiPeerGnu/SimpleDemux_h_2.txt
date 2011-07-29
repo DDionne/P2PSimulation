@@ -1,0 +1,5 @@
+EventQueue EvQ; //queue of events (for now time / id are not used)
+};	// class SimpleDemux
+
+
+#endif    //__NETWORK_H
