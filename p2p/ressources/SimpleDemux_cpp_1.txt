@@ -1,0 +1,29 @@
+/*******************************************************************
+*
+*  DESCRIPTION: Atomic Model : Simple demultiplexer
+*
+*  AUTHOR: Alan
+*
+*
+*  DATE: November 2010
+*
+*******************************************************************/
+
+/** include files **/
+#include <math.h>            // fabs( ... )
+#include <stdlib.h>
+#include "randlib.h"         // Random numbers library
+#include "SimpleDemux.h"  // base header
+#include "message.h"       // InternalMessage ....
+#include "mainsimu.h"      // class MainSimulator
+#include "strutil.h"       // str2float( ... )
+
+
+
+/*******************************************************************
+* Function Name: LTSNetwork
+* Description: constructor
+********************************************************************/
+SimpleDemux::SimpleDemux( const string &name )
+: Atomic( name )
+, inroute( addInputPort( "inroute" ) )

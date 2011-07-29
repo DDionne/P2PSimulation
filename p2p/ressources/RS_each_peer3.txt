@@ -1,0 +1,68 @@
+
+[Peer{num}]
+components : session{num}@RandomSurfer connector{num}@ConnectionManager gnut{num}@PeerGnutella server{num}@Server
+out : query_out
+out : q_out
+out : connect_out
+out : disconnect_out
+out : online
+out : offline
+out : disconnect
+out : connect
+out : queryhit
+out : publish
+out : queryreachespeer
+out : LinkFind
+in : query_in 
+in : q_in
+in : connect_in
+in : Link_in
+Link : online@session{num} in_online@connector{num}
+Link : online@session{num} online
+Link : offline@session{num} in_offline@connector{num}
+Link : out_offline@connector{num} offline
+Link : query@session{num} query_out
+Link : query@session{num} publish@server{num}
+Link : publish@session{num} publish@server{num}
+Link : p_out@server{num} publish
+Link : link@server{num} LinkFind
+Link : remove@session{num} remove@server{num}
+Link : out_connect@connector{num} connect_out
+Link : out_disconnect@connector{num} disconnect_out
+Link : connect_in in_connect@connector{num}
+Link : connect_in connections@gnut{num}
+Link : q_in q_in@gnut{num}
+Link : q_out@gnut{num} q_out
+Link : localOut@gnut{num} peer_in@server{num}
+Link : Link_in peer_in@server{num}
+Link : localOut@gnut{num} queryreachespeer
+Link : queryhit@server{num} q_in@gnut{num}
+Link : queryhit@server{num} queryhit
+Link : query_in query@gnut{num}
+Link : connect_out@gnut{num} connect
+Link : disconnect_out@gnut{num} disconnect
+Link : qhit_out@gnut{num} queryhit@session{num}
+
+[session{num}]
+probabilityofactivity : 0.7
+probabilityToIgnore : 0.15
+
+betweenquerydistribution : lognormal
+betweenquerymean : 2.63
+betweenquerydeviation : 3.35
+
+beforequerydistribution : lognormal 
+beforequerymean : 8
+beforequerydeviation : 0.3
+
+offlinetimedistribution : exponential
+offlinetimemean : 2000
+
+NumQueries : 965
+doclist : {dlist}
+whoAmI : {num}
+
+[connector{num}]
+friendlist : {flist}
+whoAmI : {num} 
+

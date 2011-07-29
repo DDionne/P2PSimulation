@@ -152,16 +152,16 @@
     <betweenquerymean> 2.63&#xd;</betweenquerymean>
     <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
     <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
-    <beforequerymean> 3&#xd;</beforequerymean>
-    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <beforequerymean> 8&#xd;</beforequerymean>
+    <beforequerydeviation> 0.3&#xd;</beforequerydeviation>
     <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
     <offlinetimemean> 2000&#xd;</offlinetimemean>
-    <NumQueries> 20&#xd;</NumQueries>
+    <NumQueries> 15&#xd;</NumQueries>
     <doclist> 1,2,3&#xd;</doclist>
     <whoAmI> 0&#xd;</whoAmI>
   </session0>
   <connector0>
-    <friendlist> 1,2,3&#xd;</friendlist>
+    <friendlist> 1,2,3,4&#xd;</friendlist>
     <whoAmI> 0 &#xd;</whoAmI>
   </connector0>
   <Peer1>
@@ -215,12 +215,12 @@
     <betweenquerymean> 2.63&#xd;</betweenquerymean>
     <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
     <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
-    <beforequerymean> 3&#xd;</beforequerymean>
-    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <beforequerymean> 8&#xd;</beforequerymean>
+    <beforequerydeviation> 0.3&#xd;</beforequerydeviation>
     <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
     <offlinetimemean> 2000&#xd;</offlinetimemean>
-    <NumQueries> 20&#xd;</NumQueries>
-    <doclist> 4,5,6&#xd;</doclist>
+    <NumQueries> 15&#xd;</NumQueries>
+    <doclist> 3,4,5&#xd;</doclist>
     <whoAmI> 1&#xd;</whoAmI>
   </session1>
   <connector1>
@@ -278,16 +278,16 @@
     <betweenquerymean> 2.63&#xd;</betweenquerymean>
     <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
     <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
-    <beforequerymean> 3&#xd;</beforequerymean>
-    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <beforequerymean> 8&#xd;</beforequerymean>
+    <beforequerydeviation> 0.3&#xd;</beforequerydeviation>
     <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
     <offlinetimemean> 2000&#xd;</offlinetimemean>
-    <NumQueries> 20&#xd;</NumQueries>
-    <doclist> 7,8,9&#xd;</doclist>
+    <NumQueries> 15&#xd;</NumQueries>
+    <doclist> 6,7,8&#xd;</doclist>
     <whoAmI> 2&#xd;</whoAmI>
   </session2>
   <connector2>
-    <friendlist> 0,1,3,4&#xd;</friendlist>
+    <friendlist> 0,1,3&#xd;</friendlist>
     <whoAmI> 2 &#xd;</whoAmI>
   </connector2>
   <Peer3>
@@ -341,16 +341,16 @@
     <betweenquerymean> 2.63&#xd;</betweenquerymean>
     <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
     <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
-    <beforequerymean> 3&#xd;</beforequerymean>
-    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <beforequerymean> 8&#xd;</beforequerymean>
+    <beforequerydeviation> 0.3&#xd;</beforequerydeviation>
     <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
     <offlinetimemean> 2000&#xd;</offlinetimemean>
-    <NumQueries> 20&#xd;</NumQueries>
-    <doclist> 10,11,12&#xd;</doclist>
+    <NumQueries> 15&#xd;</NumQueries>
+    <doclist> 9,10,11&#xd;</doclist>
     <whoAmI> 3&#xd;</whoAmI>
   </session3>
   <connector3>
-    <friendlist> 0,1,2,4&#xd;</friendlist>
+    <friendlist> 0,2,1&#xd;</friendlist>
     <whoAmI> 3 &#xd;</whoAmI>
   </connector3>
   <Peer4>
@@ -404,16 +404,16 @@
     <betweenquerymean> 2.63&#xd;</betweenquerymean>
     <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
     <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
-    <beforequerymean> 3&#xd;</beforequerymean>
-    <beforequerydeviation> 6&#xd;</beforequerydeviation>
+    <beforequerymean> 8&#xd;</beforequerymean>
+    <beforequerydeviation> 0.3&#xd;</beforequerydeviation>
     <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
     <offlinetimemean> 2000&#xd;</offlinetimemean>
-    <NumQueries> 20&#xd;</NumQueries>
-    <doclist> 13,14,15&#xd;</doclist>
+    <NumQueries> 15&#xd;</NumQueries>
+    <doclist> 12,13,14,15&#xd;</doclist>
     <whoAmI> 4&#xd;</whoAmI>
   </session4>
   <connector4>
-    <friendlist> 2,3&#xd;</friendlist>
+    <friendlist> 0&#xd;</friendlist>
     <whoAmI> 4 &#xd;</whoAmI>
   </connector4>
   <Network>

@@ -1,0 +1,60 @@
+/*******************************************************************
+*
+*  DESCRIPTION: Atomic Model : Network
+*  Modeled as a labeled transition system.
+*
+*  AUTHOR: Alan
+*
+*
+*******************************************************************/
+/*handle duplicate inclusion of this header*/
+#ifndef __NETWORK_H
+#define __NETWORK_H
+#define VERBOSE false
+/** include files **/
+#include "atomic.h"  // class Atomic
+#include "NetEvent.h"
+#include "..\complexmessages.h" // static functions to manipulate "coded" messages in a consistent way across components
+#include "..\complexmessages2.h"
+
+//#include "EventQueue.h"
+#include <queue> //STL for queue template class
+//#include <set>
+/** declarations **/
+class SimpleDemux: public Atomic
+{
+public:
+
+
+	SimpleDemux( const string &name = "Network" ) ;	 // Default constructor
+
+	~SimpleDemux();					// Destructor
+
+	virtual string className() const
+	{return "Network";};
+
+
+
+	//a queue of networks events as defined in NetEvent.h [just a struct], using the Standard Template Library
+	//for now no real use in defining this...
+	class EventQueue : public queue<netevent> {
+	public :
+		EventQueue(){
+
+		}
+	};
+
+	protected:
+		Model &initFunction()
+		{
+			return *this;
+		};
+
+		Model &externalFunction( const ExternalMessage & );
+
+		Model &internalFunction( const InternalMessage & );
+
+		Model &outputFunction( const InternalMessage & );
+
+	private:
+		const Port &inroute ;

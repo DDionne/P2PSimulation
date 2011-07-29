@@ -1,0 +1,18 @@
+				default :
+
+					cout<<"error : output port `to_peer' not set"<<endl;
+
+				}
+
+
+        EvQ.pop(); //remove val from queue
+
+        }
+
+	return *this;
+}
+
+SimpleDemux::~SimpleDemux()
+{
+	//do nothing
+}

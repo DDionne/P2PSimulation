@@ -1,0 +1,139 @@
+
+{
+	//create a new Graph. Nothing else... ?
+	thegraph= new GraphInt();
+
+
+}
+
+/*******************************************************************
+* Function Name: externalFunction
+* Description: the Network gets input from outside
+********************************************************************/
+Model &LTSNetwork::externalFunction( const ExternalMessage &msg ){
+	//if(VERBOSE) cout<<"coucou\n";
+ // if ( this->state() == passive) // in fact all this should happen whatever the state ! TODO !!
+ // {
+    if (msg.port() == peer_online)
+     {
+
+       thegraph->online(msg.value());   //adds a node to the graph with the given value
+       onlinePeers.insert(msg.value());
+       if(VERBOSE) cout<<"node "<<msg.value()<<" inserted\n";
+       //holdIn( active, Time(0.00f));
+     }
+    else if (msg.port() == peer_offline){
+    	set<int> connectedNodes = thegraph->getConnectedNodes(msg.value());
+    	set<int>::iterator connections;
+    	for(connections = connectedNodes.begin();connections != connectedNodes.end();connections++){
+    		thegraph->disconnect(msg.value(),*connections);
+    		long long tosend = buildNewMessage(0,0,*connections,msg.value(),0);
+    		DCQueue.push(tosend);
+    	}
+    	thegraph->offline(msg.value());
+    	onlinePeers.erase(msg.value());
+    	connectNodes.clear();
+    	if(VERBOSE) cout<<"node "<<msg.value()<<" removed\n";
+    	//holdIn( active, Time(0.00f));
+    }
+    else if (msg.port() == connect_in){
+    	int fromId = getFourthField(msg.value());
+    	int toId = getThirdField(msg.value());
+		if(onlinePeers.find(toId) != onlinePeers.end()){
+			thegraph->connect(fromId,toId);
+			long long tosend = buildNewMessage(0,0,toId,fromId,1);
+			DCQueue.push(tosend);
+		}
+
+
+
+        	//holdIn( active, Time(0.00f));
+        }
+//    else if (msg.port() == peer_disconnect){
+//            	int twonumbers, from, to;
+//            	twonumbers = msg.value();
+//            	from = floor(twonumbers /1000);
+//            	to = twonumbers%1000;
+//            	if(VERBOSE) cout<<"disconnecting "<<from<<" and "<< to<<"\n";
+//
+//            	thegraph->disconnect(from, to);
+//
+//            	//holdIn( active, Time(0.00f));
+//            }
+//    else if (msg.port() == inroute){
+//    	//routing=true;
+//    	int inpeer, TTL, messageId;
+//    	inpeer = getPeerId(msg.value());
+//    	TTL= getTTL(msg.value());
+//    	messageId = getMessageId(msg.value());
+//
+//    	if(VERBOSE) cout<<"LTS --- about to route a message from "<<inpeer<<"\n";
+//
+//    	//get all the connected nodes and enqueue the "arrival of the message" event for all these new nodes
+//    	//find the nodes connected to this one
+//    	cout<<"LTS --- about to get Connected peers  : \n";
+//
+//    	/*thegraph->getConnectedNodes(inpeer);
+//    	cout<<"getConnectedpeers (1) passed\n about to declare another intbag\n";*/
+//    	set<int> connected;
+//    	//cout<<"ok--Intbag Declared----------------\nabout to get connected peers again";
+//    	connected = thegraph->getConnectedNodes(inpeer);
+//    	//cout<<"ok--after connected peers----------------\n";
+//
+//
+//    	if(VERBOSE) cout<<"LTS --- loop for enqueuing nodes :"<<connected.size()<<" nodes to enqueue\n";
+//    	set<int>::iterator sit;
+//
+//    	  if(VERBOSE) cout << "LTS --- connected nodes contains:";
+//    	  for ( sit=connected.begin() ; sit != connected.end(); sit++ ){
+//    	    if(VERBOSE) cout<<*sit<<";";
+////    		EvQ.push(makeNetworkEvent(messageId, *sit, TTL, 0.0f)); //enqueue a network event with the "*sit" peer (the other parts are not used for now)
+//
+//    	//holdIn( active, Time(0.01f));
+//			}
+//    	  if(VERBOSE) cout<<endl;
+
+  //}
+
+  if (!DCQueue.empty()) { // if we were or now are in the process of routing messages
+
+    	holdIn( active, Time(0.03f)); // we wait 0.03s to dequeue
+
+   } else {
+    	holdIn( active, Time(0.00f)); // we just passivate immediately
+   }
+
+
+
+	return *this ;
+ }
+}
+
+/*******************************************************************
+* Function Name: internalFunction
+********************************************************************/
+Model &LTSNetwork::internalFunction( const InternalMessage & ){
+
+
+	   if (!DCQueue()) { // if we were or now are in the process of routing messages
+	    	holdIn( active, Time(0.01f)); // we wait 0.01s to dequeue
+	    	// that is, we only have a useless fixed timing between two messages getting through the network
+	    } else {
+	    	passivate(); // we just passivate immediately
+	    }
+
+
+	return *this;
+}
+
+/*******************************************************************
+* Function Name: outputFunction
+********************************************************************/
+Model &LTSNetwork::outputFunction( const InternalMessage &msg )
+{
+	//if(VERBOSE) cout<<"output coming...\n";
+	if ( !DCQueue.empty() ) // if we have messages to dequeue
+        {
+		long message = DCQueue.front();
+		int peer = getThirdField(DCQueue.front());
+				switch ( peer ) {

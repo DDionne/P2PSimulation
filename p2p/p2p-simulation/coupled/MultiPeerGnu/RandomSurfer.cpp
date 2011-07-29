@@ -163,8 +163,8 @@ Model &RandomSurfer::initFunction()
 
 
 	if(PVERBOSE) cout<<endl<<"Peer"<<whoAmI<<" about to start with waiting time: "<<t<<endl;;
-//	Time toto = makeTimefromSeconds( t );
-	Time toto = Time(0,0,0,1);
+	Time toto = makeTimefromSeconds( t );
+//	Time toto = Time(0,0,0,1);
 	if(PVERBOSE) cout<<"formatted time: "<<toto<<endl;;
 
 
@@ -267,7 +267,7 @@ Model &RandomSurfer::internalFunction( const InternalMessage &im )
 
 			t = max(static_cast<float>( distribution(SESSION).get() ), 0.0f);
 			start = makeTimefromSeconds(t);
-			cout << "session time: "<<start<<endl;
+			//cout << "session time: "<<start<<endl;
 			stop = im.time() + start;
 			holdIn(active, Time(0,0,5,0));
 

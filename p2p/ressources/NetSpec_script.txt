@@ -1,0 +1,10 @@
+in : peer_connect
+in : peer_disconnect
+in : inroute
+in : in_online
+in : in_offline
+Link : peer_connect connect_in@LTS
+Link : peer_disconnect disconnect_in@LTS
+Link : in_online peer_online@LTS
+Link : in_offline peer_offline@LTS
+Link : inroute inroute@net

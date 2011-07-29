@@ -1,0 +1,14 @@
+
+
+		GraphInt* thegraph;
+		queue<long long> DCQueue;
+		set<int> onlinePeers;
+
+
+		//visitor thevisitor; //todo : at some point we may want a list of visitors
+
+
+};	// class LTSNetwork
+
+
+#endif    //__NETWORK_H

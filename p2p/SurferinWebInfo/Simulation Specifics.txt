@@ -1,0 +1,23 @@
+The random surfer model used for this simulation starts offline. He then goes online and picks a random web page. He 
+then determines whether or not he's going to ignore all the links on tha page or pick one at random. If he doesn't follow a 
+link, he jumps to another random page.
+
+Currently this Model is choosing links taken from the server model which in turn reads it's links from the following file:
+	links-sample-1k.txt
+
+Everytime he gets to a web page, the percentage chance of him ignoring the links and jumping is 15%.
+
+the probabilities of the random surfer reaching certain pages can be calculated with the python
+file named: LinkProbabilityCalculator.py   . This file can also be used to calculate the total amount of times a 
+specific web page has been reached (the format of the files it reads is shown in the python file).
+
+This python file then generates two files:
+-  a file named "Simu1Frequency.txt" which lists which web pages were the most frequent(from less frequent to most frequent)
+   during the simulation.
+
+-  a file named "LinkProbability.txt" which displays in order from less probable to most probable the web pages along with 
+   there respective probabilities out of 1.
+
+The freq_prob.png file is a graph which plots the frequency versus the probability with data acquired from the simulation.
+
+

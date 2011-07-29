@@ -1,0 +1,32 @@
+/*******************************************************************
+*
+*  DESCRIPTION: Atomic Model : Demultiplexer : gets a message on its single input and
+*  forwards it to one of its numerous outputs according to a routing table.
+*
+*  AUTHOR: Alan
+*
+*
+*  DATE: November 2010
+*
+*******************************************************************/
+
+/** include files **/
+#include <math.h>            // fabs( ... )
+#include <stdlib.h>
+#include "randlib.h"         // Random numbers library
+#include "msgIdGen.h"  // base header
+#include "message.h"       // InternalMessage ....
+//#include "..\..\lib\graph-c++.h"        // class graph
+//#include "NetGraph.h"        // basic undirected graph with integers
+#include "mainsimu.h"      // class MainSimulator
+#include "strutil.h"       // str2float( ... )
+
+
+
+/*******************************************************************
+* Function Name: Demux
+* Description: constructor
+********************************************************************/
+msgIdGen::msgIdGen( const string &name )
+: Atomic( name )
+, msg_in( addInputPort( "msg_in" ) )

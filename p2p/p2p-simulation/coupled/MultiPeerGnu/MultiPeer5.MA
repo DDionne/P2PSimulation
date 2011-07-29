@@ -151,18 +151,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
-NumQueries : 20
+NumQueries : 15
 doclist : 1,2,3
 whoAmI : 0
 
 [connector0]
-friendlist : 1,2,3
+friendlist : 1,2,3,4
 whoAmI : 0 
 
 
@@ -219,14 +219,14 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
-NumQueries : 20
-doclist : 4,5,6
+NumQueries : 15
+doclist : 3,4,5
 whoAmI : 1
 
 [connector1]
@@ -287,18 +287,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
-NumQueries : 20
-doclist : 7,8,9
+NumQueries : 15
+doclist : 6,7,8
 whoAmI : 2
 
 [connector2]
-friendlist : 0,1,3,4
+friendlist : 0,1,3
 whoAmI : 2 
 
 
@@ -355,18 +355,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
-NumQueries : 20
-doclist : 10,11,12
+NumQueries : 15
+doclist : 9,10,11
 whoAmI : 3
 
 [connector3]
-friendlist : 0,1,2,4
+friendlist : 0,2,1
 whoAmI : 3 
 
 
@@ -423,18 +423,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
-NumQueries : 20
-doclist : 13,14,15
+NumQueries : 15
+doclist : 12,13,14,15
 whoAmI : 4
 
 [connector4]
-friendlist : 2,3
+friendlist : 0
 whoAmI : 4 
 
 

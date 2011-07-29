@@ -3856,18 +3856,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 69,155,267,319,359,381,408,449,506,556,621,668,756,825,890
 whoAmI : 0
 
 [connector0]
-friendlist : 1,2,3,4,5,7,9,12,17,37,59,96,156
+friendlist : 1,2,3,6,27,31,32,35,42,79
 whoAmI : 0 
 
 
@@ -3924,18 +3924,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 194,276,310,346,396,525,566,609,624,719,770,811
 whoAmI : 1
 
 [connector1]
-friendlist : 0,2,3,4,30,85,110,116,149
+friendlist : 0,38,155
 whoAmI : 1 
 
 
@@ -3992,18 +3992,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 117,187,218,232,322,404,521,576,605,626,749,753
 whoAmI : 2
 
 [connector2]
-friendlist : 1,0,3,4,6,12,15,16,22,24,37,105,109,157,166,175
+friendlist : 0,6,7,10,11,27,31,37,42,79,83
 whoAmI : 2 
 
 
@@ -4060,18 +4060,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 158,216,388,423,536,563,671,850
 whoAmI : 3
 
 [connector3]
-friendlist : 0,2,1,4,6,8,21,31,37,110,116
+friendlist : 0,4,5,8,9,12,17,26,43,58,74,131,167
 whoAmI : 3 
 
 
@@ -4128,18 +4128,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 19,106,685,718,769,827,828,880,908
 whoAmI : 4
 
 [connector4]
-friendlist : 3,2,1,0,5,12,96,110,143,168
+friendlist : 3,5,8,9,13,20,23,43,74,105,118,185
 whoAmI : 4 
 
 
@@ -4196,18 +4196,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 62,77,250,345,362,520,632,727,737,809
 whoAmI : 5
 
 [connector5]
-friendlist : 4,0,12,163,168
+friendlist : 4,3,8,12,43,53,87,94,118
 whoAmI : 5 
 
 
@@ -4264,18 +4264,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 28,39,111,167,401,430,510,560,566,900
 whoAmI : 6
 
 [connector6]
-friendlist : 2,3,27,138,145
+friendlist : 2,0,27,42,67,72,77,130,156,177
 whoAmI : 6 
 
 
@@ -4332,18 +4332,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 268,352,354,523,537,608,612,616,684
 whoAmI : 7
 
 [connector7]
-friendlist : 0,9,17,39,56,80,82,102,182
+friendlist : 2,11,22,37,44,60,64,75,83,138,150
 whoAmI : 7 
 
 
@@ -4400,18 +4400,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 164,332,415,459,527,603,624,699,716,754,843,867
 whoAmI : 8
 
 [connector8]
-friendlist : 3,31,48,83,141
+friendlist : 4,5,3,12,13,16,17,23,36,46,58,94
 whoAmI : 8 
 
 
@@ -4468,18 +4468,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 168,229,278,347,357,419,428,484,698,735,781,820,841,870,891
 whoAmI : 9
 
 [connector9]
-friendlist : 7,0,10,14,17,78,156,176,187
+friendlist : 4,3,14,17,18,58,105
 whoAmI : 9 
 
 
@@ -4536,18 +4536,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 162,312,406,486,513,560,570,717,786
 whoAmI : 10
 
 [connector10]
-friendlist : 9,11,13,18,89,98
+friendlist : 2,81,108,127,159
 whoAmI : 10 
 
 
@@ -4604,18 +4604,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 77,110,127,145,248,331,414,681,809,914,941,954
 whoAmI : 11
 
 [connector11]
-friendlist : 10,13,28,98
+friendlist : 2,7,37,60,75,99,115,138,142,144,150
 whoAmI : 11 
 
 
@@ -4672,18 +4672,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 164,410,495,558
 whoAmI : 12
 
 [connector12]
-friendlist : 4,2,0,5,24,96
+friendlist : 5,3,8,15,30,74,107
 whoAmI : 12 
 
 
@@ -4740,18 +4740,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 48,96,186,368,411,434,446,532,569,731,858
 whoAmI : 13
 
 [connector13]
-friendlist : 10,11,18,20,25,32,54,57,89,95,130
+friendlist : 8,4,23,25,29,47,128
 whoAmI : 13 
 
 
@@ -4808,18 +4808,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 18,102,216,253,297,328,415,665,670,685,695,730,796
 whoAmI : 14
 
 [connector14]
-friendlist : 9,78,104,129
+friendlist : 9,19,41,165,198
 whoAmI : 14 
 
 
@@ -4876,18 +4876,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 9
+doclist : 74,165,168,641,817,882,892
 whoAmI : 15
 
 [connector15]
-friendlist : 2,22,36,42,51,69,75,103,132,139,170,183,192
+friendlist : 12,30
 whoAmI : 15 
 
 
@@ -4944,18 +4944,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 4,34,37,93,142,170,374,599
 whoAmI : 16
 
 [connector16]
-friendlist : 2,26,43,53,79
+friendlist : 8,28,36,173
 whoAmI : 16 
 
 
@@ -5012,18 +5012,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 30,173,295,355,442,452,454,490,497,511,512,547,694,726,743,813,850,882
 whoAmI : 17
 
 [connector17]
-friendlist : 7,0,9,19,39,78,90,99
+friendlist : 3,9,8,58,135
 whoAmI : 17 
 
 
@@ -5080,18 +5080,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 11
+doclist : 46,393,445,473,743,829
 whoAmI : 18
 
 [connector18]
-friendlist : 13,10,89
+friendlist : 9,21,40,181
 whoAmI : 18 
 
 
@@ -5148,18 +5148,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 16,292,302,441,511,564,629,855,891
 whoAmI : 19
 
 [connector19]
-friendlist : 17,90,123,160
+friendlist : 14,53,168,198
 whoAmI : 19 
 
 
@@ -5216,18 +5216,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 2,177,349,386,720
 whoAmI : 20
 
 [connector20]
-friendlist : 13,25,28,95,130
+friendlist : 4,43,51,89,146,179
 whoAmI : 20 
 
 
@@ -5284,18 +5284,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 26,472,544,878
 whoAmI : 21
 
 [connector21]
-friendlist : 3,29,38,84,162
+friendlist : 18
 whoAmI : 21 
 
 
@@ -5352,18 +5352,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 6,33,92,135,169,221,263,322,357,881
 whoAmI : 22
 
 [connector22]
-friendlist : 15,2,23,75,192
+friendlist : 7,37,44,70,97,166,182,193
 whoAmI : 22 
 
 
@@ -5420,18 +5420,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 136,238,469,621,748,805,888
 whoAmI : 23
 
 [connector23]
-friendlist : 22,40,49,55,77,128
+friendlist : 13,8,4,24,34,49,62,118,140
 whoAmI : 23 
 
 
@@ -5488,18 +5488,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 5
+doclist : 33,134,311,330,330,437,553,603,684,706,754,942
 whoAmI : 24
 
 [connector24]
-friendlist : 2,12,101,177,198
+friendlist : 23,34,55,62,126,140
 whoAmI : 24 
 
 
@@ -5556,18 +5556,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 188,242,302,373,475,546,646,796,818,889,937,951
 whoAmI : 25
 
 [connector25]
-friendlist : 20,13,32,56,57,80,82,136
+friendlist : 13,29,82
 whoAmI : 25 
 
 
@@ -5624,18 +5624,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 12,95,216,222,240,259,375,455,574,950,964
 whoAmI : 26
 
 [connector26]
-friendlist : 16,47,71,114
+friendlist : 3,74,139
 whoAmI : 26 
 
 
@@ -5692,18 +5692,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 49,70,352,425,642,799,918
 whoAmI : 27
 
 [connector27]
-friendlist : 6,164
+friendlist : 6,2,0,54,63
 whoAmI : 27 
 
 
@@ -5760,18 +5760,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 29,71,82,152,171,220,334,381,405,462,467,586,644,931,960
 whoAmI : 28
 
 [connector28]
-friendlist : 20,11,36,67,92,95,130,148,169,199
+friendlist : 16,33,36,109,117,125,133,149,190
 whoAmI : 28 
 
 
@@ -5828,18 +5828,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 108,198,258,360,377,448,613,618,628,700,802
 whoAmI : 29
 
 [connector29]
-friendlist : 21,84,92
+friendlist : 13,25,45,47,186
 whoAmI : 29 
 
 
@@ -5896,18 +5896,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 138,203,353,514,673,899,936
 whoAmI : 30
 
 [connector30]
-friendlist : 1,34,45,50,52,85,111
+friendlist : 12,15,85,110
 whoAmI : 30 
 
 
@@ -5964,18 +5964,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 257,399,434,769,938
 whoAmI : 31
 
 [connector31]
-friendlist : 8,3,35,41,46,48,65,83
+friendlist : 2,0,48,79,114,129,143
 whoAmI : 31 
 
 
@@ -6032,18 +6032,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 137,176,180,258,259,477,497,541,630,812,873
 whoAmI : 32
 
 [connector32]
-friendlist : 25,13,33,44,178,179
+friendlist : 0,35,39,65,101,111
 whoAmI : 32 
 
 
@@ -6100,18 +6100,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 11
+doclist : 27,171,299,393,400,501,530,623,764,766
 whoAmI : 33
 
 [connector33]
-friendlist : 32,38,44
+friendlist : 28,117
 whoAmI : 33 
 
 
@@ -6168,18 +6168,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 61,128,214,215,502,600,844,917
 whoAmI : 34
 
 [connector34]
-friendlist : 30,45,50,52,58,61,66,85,88,197
+friendlist : 24,23,49,55,126
 whoAmI : 34 
 
 
@@ -6236,18 +6236,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 35,49,59,321,444,652,702,928
 whoAmI : 35
 
 [connector35]
-friendlist : 31,48,60
+friendlist : 32,0,39,71,100
 whoAmI : 35 
 
 
@@ -6304,18 +6304,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 12
+doclist : 2,19,31,167,173,179,365,393,499,535,801,873,898,958,958
 whoAmI : 36
 
 [connector36]
-friendlist : 28,15,42,69,137,172
+friendlist : 16,28,8,73,78,80,124,173,174
 whoAmI : 36 
 
 
@@ -6372,18 +6372,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 229,237,301,317,373,559,578,771,922
 whoAmI : 37
 
 [connector37]
-friendlist : 3,0,2,59
+friendlist : 7,2,11,22,44,52,60,64,85,110,134,138,150,161
 whoAmI : 37 
 
 
@@ -6440,18 +6440,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 178,449,463,703,848,897,911
 whoAmI : 38
 
 [connector38]
-friendlist : 33,21,44,113
+friendlist : 1,131
 whoAmI : 38 
 
 
@@ -6508,18 +6508,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 147,195,323,423,473,580,690,746,848
 whoAmI : 39
 
 [connector39]
-friendlist : 7,17,63,100,125
+friendlist : 32,35,65,89,164
 whoAmI : 39 
 
 
@@ -6576,18 +6576,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 243,472,492,545,587,767,778,937
 whoAmI : 40
 
 [connector40]
-friendlist : 23,49,86,119,193
+friendlist : 18,195
 whoAmI : 40 
 
 
@@ -6644,18 +6644,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 10
+doclist : 46,69,144,164,205,283,542,682,747,880
 whoAmI : 41
 
 [connector41]
-friendlist : 31,93
+friendlist : 14
 whoAmI : 41 
 
 
@@ -6712,18 +6712,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 96,152,348,502,765,780,800,920,931
 whoAmI : 42
 
 [connector42]
-friendlist : 15,36,69,153,158
+friendlist : 6,2,0,56,57,76,88,98,106,130
 whoAmI : 42 
 
 
@@ -6780,18 +6780,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 14,97,204,636,645,661,864,941
 whoAmI : 43
 
 [connector43]
-friendlist : 16,53,79,81,142
+friendlist : 4,20,3,5,50,66,121,179
 whoAmI : 43 
 
 
@@ -6848,18 +6848,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 39,160,202,283,500,642,938
 whoAmI : 44
 
 [connector44]
-friendlist : 33,32,38,154
+friendlist : 22,7,37,97
 whoAmI : 44 
 
 
@@ -6916,18 +6916,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 15
+doclist : 79,254,256,281,611,780,783,839
 whoAmI : 45
 
 [connector45]
-friendlist : 34,30,50,52,85,122,134
+friendlist : 29,186
 whoAmI : 45 
 
 
@@ -6984,18 +6984,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 64,124,264,493,864,890,936
 whoAmI : 46
 
 [connector46]
-friendlist : 31,48,65,104,147,161
+friendlist : 8,69,96,169,191
 whoAmI : 46 
 
 
@@ -7052,18 +7052,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 50,139,504,552,719,774,902
 whoAmI : 47
 
 [connector47]
-friendlist : 26,135,150
+friendlist : 13,29,95,158,186
 whoAmI : 47 
 
 
@@ -7120,18 +7120,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 371,918
 whoAmI : 48
 
 [connector48]
-friendlist : 31,46,35,8,64,72
+friendlist : 31
 whoAmI : 48 
 
 
@@ -7188,18 +7188,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 92,131,200,271,499,595
 whoAmI : 49
 
 [connector49]
-friendlist : 40,23,74,86,108
+friendlist : 34,23
 whoAmI : 49 
 
 
@@ -7256,18 +7256,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 151,455,581,584,908,943,959,961
 whoAmI : 50
 
 [connector50]
-friendlist : 34,30,45,85
+friendlist : 43
 whoAmI : 50 
 
 
@@ -7324,18 +7324,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 9,63,292,306,491,586,701,705,953
 whoAmI : 51
 
 [connector51]
-friendlist : 15,170
+friendlist : 20,146,172
 whoAmI : 51 
 
 
@@ -7392,18 +7392,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 272,408,515,518,550,559,670,927
 whoAmI : 52
 
 [connector52]
-friendlist : 30,45,34,58,61,68,85,126,131,197
+friendlist : 37,91,134,141,160,161
 whoAmI : 52 
 
 
@@ -7460,18 +7460,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 121,338,344,385,419,459,509,588,595,634,670,734,814,872,881
 whoAmI : 53
 
 [connector53]
-friendlist : 43,16,73,79,81,140
+friendlist : 5,19
 whoAmI : 53 
 
 
@@ -7528,18 +7528,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 43,47,225,309,383,748,761
 whoAmI : 54
 
 [connector54]
-friendlist : 13,57,188
+friendlist : 27
 whoAmI : 54 
 
 
@@ -7596,18 +7596,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 103,117,199,282,418,755,758
 whoAmI : 55
 
 [connector55]
-friendlist : 23,128
+friendlist : 24,34,59,126,140
 whoAmI : 55 
 
 
@@ -7664,18 +7664,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 36,50,94,202,394,537,759
 whoAmI : 56
 
 [connector56]
-friendlist : 25,7,80,82,102
+friendlist : 42,57,88
 whoAmI : 56 
 
 
@@ -7732,18 +7732,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 99,139,208,227,357,399,457,576,836,905
 whoAmI : 57
 
 [connector57]
-friendlist : 13,25,54,150
+friendlist : 56,42,88
 whoAmI : 57 
 
 
@@ -7800,18 +7800,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 3
+doclist : 8,121,319,446,461,901
 whoAmI : 58
 
 [connector58]
-friendlist : 34,52,61,68,197
+friendlist : 17,3,9,8
 whoAmI : 58 
 
 
@@ -7868,18 +7868,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 205,267,336,416,652,760,803,827,847,920
 whoAmI : 59
 
 [connector59]
-friendlist : 37,0,76,87,112,121,171
+friendlist : 55,126
 whoAmI : 59 
 
 
@@ -7936,18 +7936,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 24,75,103,150,177,204,217,305,599,646,651,725,747,910,914
 whoAmI : 60
 
 [connector60]
-friendlist : 35,72
+friendlist : 11,7,37,61,64,68,75,171
 whoAmI : 60 
 
 
@@ -8004,18 +8004,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 1,4
+doclist : 20,48,202,336,413,415,633,694,760,852,854,856
 whoAmI : 61
 
 [connector61]
-friendlist : 58,34,52,62,66,68,70,88,131,146
+friendlist : 60
 whoAmI : 61 
 
 
@@ -8072,18 +8072,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 11,38,47,200,277,326,442,508,526,558,821,888
 whoAmI : 62
 
 [connector62]
-friendlist : 61,66
+friendlist : 24,23,187
 whoAmI : 62 
 
 
@@ -8140,18 +8140,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 134,787,802,906,917
 whoAmI : 63
 
 [connector63]
-friendlist : 39
+friendlist : 27
 whoAmI : 63 
 
 
@@ -8208,18 +8208,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 37,68,87,122,140,341,380,644,899
 whoAmI : 64
 
 [connector64]
-friendlist : 48,118
+friendlist : 37,7,60,68,103,116
 whoAmI : 64 
 
 
@@ -8276,18 +8276,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 32,85,159,192,291,385,490,572,860,888
 whoAmI : 65
 
 [connector65]
-friendlist : 46,31,181
+friendlist : 32,39,78,163
 whoAmI : 65 
 
 
@@ -8344,18 +8344,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 29,54,452,460,584,597,738,807,808,843,925
 whoAmI : 66
 
 [connector66]
-friendlist : 61,34,62,159,167
+friendlist : 43,121
 whoAmI : 66 
 
 
@@ -8412,18 +8412,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 8
+doclist : 191,374,487,513,529,543,557,564,712,845
 whoAmI : 67
 
 [connector67]
-friendlist : 28,169
+friendlist : 6,86
 whoAmI : 67 
 
 
@@ -8480,18 +8480,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 35,210,235,871
 whoAmI : 68
 
 [connector68]
-friendlist : 61,52,58,88,131
+friendlist : 64,60,171
 whoAmI : 68 
 
 
@@ -8548,18 +8548,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 83,120,137,172,193,261,374,480,516,569,678,843,876
 whoAmI : 69
 
 [connector69]
-friendlist : 42,15,36
+friendlist : 46,169
 whoAmI : 69 
 
 
@@ -8616,18 +8616,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 44,59,217,251,254,300,330,480,640,653,755,772
 whoAmI : 70
 
 [connector70]
-friendlist : 61,120,189
+friendlist : 22,166
 whoAmI : 70 
 
 
@@ -8684,18 +8684,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 52,113,125,144,320,350,676,717,868,876,955
 whoAmI : 71
 
 [connector71]
-friendlist : 26
+friendlist : 35,100
 whoAmI : 71 
 
 
@@ -8752,18 +8752,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 48,92,94,147,417,459,709,716,735,765,778,788,857,859,898,912
 whoAmI : 72
 
 [connector72]
-friendlist : 60,48
+friendlist : 6,192
 whoAmI : 72 
 
 
@@ -8820,18 +8820,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 14
+doclist : 245,457,489,518,607,662,721,786
 whoAmI : 73
 
 [connector73]
-friendlist : 53,120,174
+friendlist : 36,124,174
 whoAmI : 73 
 
 
@@ -8888,18 +8888,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 51,78,87,90,337,347,365,543,817,826,900,962
 whoAmI : 74
 
 [connector74]
-friendlist : 49,108
+friendlist : 3,12,4,26,152
 whoAmI : 74 
 
 
@@ -8956,18 +8956,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 32,138,355,507,723,785,817,831,855,859
 whoAmI : 75
 
 [connector75]
-friendlist : 22,15,192
+friendlist : 11,7,60,144
 whoAmI : 75 
 
 
@@ -9024,18 +9024,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 60,98,208,247,301,447,615,717,851,885,919
 whoAmI : 76
 
 [connector76]
-friendlist : 59
+friendlist : 42,98,106
 whoAmI : 76 
 
 
@@ -9092,18 +9092,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 223,325,325,334,424,443,478,495,594,638,795
 whoAmI : 77
 
 [connector77]
-friendlist : 23,184
+friendlist : 6,156,177,178
 whoAmI : 77 
 
 
@@ -9160,18 +9160,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 95,169,207,250,274,286,331,412,520,589,815
 whoAmI : 78
 
 [connector78]
-friendlist : 9,14,17,156,165
+friendlist : 36,65,84,102,112,127,163
 whoAmI : 78 
 
 
@@ -9228,18 +9228,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 3
+doclist : 13,27,51,122,172,213,365,389,548,671,732,778,878
 whoAmI : 79
 
 [connector79]
-friendlist : 43,16,53,81,140,191
+friendlist : 31,2,0,92,132,194
 whoAmI : 79 
 
 
@@ -9296,18 +9296,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 74,193,237,279,335,351,486,524,539,648,669,734,761,940
 whoAmI : 80
 
 [connector80]
-friendlist : 56,7,25,82,102
+friendlist : 36,173
 whoAmI : 80 
 
 
@@ -9364,18 +9364,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 90,383,446,500,631
 whoAmI : 81
 
 [connector81]
-friendlist : 53,43,79
+friendlist : 10,108,148,157
 whoAmI : 81 
 
 
@@ -9432,18 +9432,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 5
+doclist : 7,86,255,285,327,527,589,597,658,875,879
 whoAmI : 82
 
 [connector82]
-friendlist : 80,7,56,25,102
+friendlist : 25
 whoAmI : 82 
 
 
@@ -9500,18 +9500,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 10,111,224,238,249,523,591,602,836,886,900,939
 whoAmI : 83
 
 [connector83]
-friendlist : 8,31,94
+friendlist : 2,7
 whoAmI : 83 
 
 
@@ -9568,18 +9568,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 118,286,329,583,779,947
 whoAmI : 84
 
 [connector84]
-friendlist : 29,21,103,113,183
+friendlist : 78,90,102,112,137
 whoAmI : 84 
 
 
@@ -9636,18 +9636,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 141,148,172,307,324,373,540,567,623,665,683,824,913,940
 whoAmI : 85
 
 [connector85]
-friendlist : 30,52,50,45,1,34,144,155
+friendlist : 37,30,110,123,170
 whoAmI : 85 
 
 
@@ -9704,18 +9704,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 156,156,165,228,292,505,556,577,612,887
 whoAmI : 86
 
 [connector86]
-friendlist : 49,40,119,193
+friendlist : 67
 whoAmI : 86 
 
 
@@ -9772,18 +9772,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 2,72,288,320,327,340,407,424,649,769
 whoAmI : 87
 
 [connector87]
-friendlist : 59,111,112,121
+friendlist : 5
 whoAmI : 87 
 
 
@@ -9840,18 +9840,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 93,146,269,315,553,592,740,756,833,845
 whoAmI : 88
 
 [connector88]
-friendlist : 61,68,34,131
+friendlist : 56,57,42
 whoAmI : 88 
 
 
@@ -9908,18 +9908,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 129,183,392,437,528,575,639,729,945
 whoAmI : 89
 
 [connector89]
-friendlist : 10,13,18,91,97
+friendlist : 39,20,164,196
 whoAmI : 89 
 
 
@@ -9976,18 +9976,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 131,390,470,631,732,822,950
 whoAmI : 90
 
 [connector90]
-friendlist : 19,17
+friendlist : 84
 whoAmI : 90 
 
 
@@ -10044,18 +10044,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 5,12,36,61,209,236,239,311,422,463,520,675,816
 whoAmI : 91
 
 [connector91]
-friendlist : 89,97
+friendlist : 52,134,161
 whoAmI : 91 
 
 
@@ -10112,18 +10112,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 4,47,170,242,313,358,412,561,571,832,869,877,884,917
 whoAmI : 92
 
 [connector92]
-friendlist : 28,29
+friendlist : 79,93,132,194
 whoAmI : 92 
 
 
@@ -10180,18 +10180,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 333,691,705,762,869
 whoAmI : 93
 
 [connector93]
-friendlist : 41
+friendlist : 92
 whoAmI : 93 
 
 
@@ -10248,18 +10248,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 162,417,435,474,489,563,763,919,944
 whoAmI : 94
 
 [connector94]
-friendlist : 83
+friendlist : 8,5
 whoAmI : 94 
 
 
@@ -10316,18 +10316,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 22,59,72,79,132,184,230,432,591,644,710,771,798,964
 whoAmI : 95
 
 [connector95]
-friendlist : 20,13,28,130,199
+friendlist : 47,113
 whoAmI : 95 
 
 
@@ -10384,18 +10384,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 7,226,262,453,509,525,601,617,726,870,940,945
 whoAmI : 96
 
 [connector96]
-friendlist : 4,0,12
+friendlist : 46
 whoAmI : 96 
 
 
@@ -10452,18 +10452,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 53,100,224,301,377,383,635,695,697,787
 whoAmI : 97
 
 [connector97]
-friendlist : 91,89,194
+friendlist : 22,44
 whoAmI : 97 
 
 
@@ -10520,18 +10520,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 248,269,280,283,643,894,947
 whoAmI : 98
 
 [connector98]
-friendlist : 11,10
+friendlist : 76,42
 whoAmI : 98 
 
 
@@ -10588,18 +10588,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 6
+doclist : 232,408,481,529,757
 whoAmI : 99
 
 [connector99]
-friendlist : 17
+friendlist : 11,144
 whoAmI : 99 
 
 
@@ -10656,18 +10656,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 50,126,143,293,324,339,390,398,528,547,673,690
 whoAmI : 100
 
 [connector100]
-friendlist : 39,107,125,136
+friendlist : 71,35,119
 whoAmI : 100 
 
 
@@ -10724,18 +10724,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 141,481,542,637,656,709,738,866,874,897,957
 whoAmI : 101
 
 [connector101]
-friendlist : 24,177
+friendlist : 32
 whoAmI : 101 
 
 
@@ -10792,18 +10792,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 1,266,323,378,693,741,935
 whoAmI : 102
 
 [connector102]
-friendlist : 80,82,7,56
+friendlist : 84,78,104,136
 whoAmI : 102 
 
 
@@ -10860,18 +10860,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 13,85,233,241,400,616,623,703,773,883
 whoAmI : 103
 
 [connector103]
-friendlist : 84,15,183
+friendlist : 64,116
 whoAmI : 103 
 
 
@@ -10928,18 +10928,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 15,23,35,144,145,240,407,471,557,664,707,708
 whoAmI : 104
 
 [connector104]
-friendlist : 14,46,106,161
+friendlist : 102,120,136
 whoAmI : 104 
 
 
@@ -10996,18 +10996,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 239,364,573
 whoAmI : 105
 
 [connector105]
-friendlist : 2,195
+friendlist : 4,9
 whoAmI : 105 
 
 
@@ -11064,18 +11064,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 207,267,277,351,351,376,465,509,531,643
 whoAmI : 106
 
 [connector106]
-friendlist : 104
+friendlist : 76,42,122,154
 whoAmI : 106 
 
 
@@ -11132,18 +11132,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 188,226,782,806,916
 whoAmI : 107
 
 [connector107]
-friendlist : 100
+friendlist : 12
 whoAmI : 107 
 
 
@@ -11200,18 +11200,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 72,167,197,244,640,788
 whoAmI : 108
 
 [connector108]
-friendlist : 74,49,115,196
+friendlist : 10,81,157
 whoAmI : 108 
 
 
@@ -11268,18 +11268,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 19,43,69,154,187,231,308,338,570,580,628,681,712,865,884
 whoAmI : 109
 
 [connector109]
-friendlist : 2
+friendlist : 28,133,190
 whoAmI : 109 
 
 
@@ -11336,18 +11336,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 13
+doclist : 115,147,196,203,277,302,316,356,375,652,697,895,953
 whoAmI : 110
 
 [connector110]
-friendlist : 1,3,4,116,143,149
+friendlist : 85,30,37,142
 whoAmI : 110 
 
 
@@ -11404,18 +11404,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 54,89,91,113,188,249,491,667,726,749,822,918
 whoAmI : 111
 
 [connector111]
-friendlist : 30,87,112,117,121,127
+friendlist : 32
 whoAmI : 111 
 
 
@@ -11472,18 +11472,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 14
+doclist : 183,265,278,336,350,414,553,619,643,671,711,713,928
 whoAmI : 112
 
 [connector112]
-friendlist : 87,59,111,121
+friendlist : 78,84
 whoAmI : 112 
 
 
@@ -11540,18 +11540,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 178,182,200,212,322,533,792,815,872
 whoAmI : 113
 
 [connector113]
-friendlist : 84,38
+friendlist : 95
 whoAmI : 113 
 
 
@@ -11608,18 +11608,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 8,210,275,290,323,363,433,634,701,734,957
 whoAmI : 114
 
 [connector114]
-friendlist : 26,124
+friendlist : 31
 whoAmI : 114 
 
 
@@ -11676,18 +11676,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 15
+doclist : 38,334,460,535,609,648,691,823,854,942
 whoAmI : 115
 
 [connector115]
-friendlist : 108
+friendlist : 11
 whoAmI : 115 
 
 
@@ -11744,18 +11744,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 9
+doclist : 26,115,130,139,401,660,834,839,871,963
 whoAmI : 116
 
 [connector116]
-friendlist : 110,1,3
+friendlist : 103,64
 whoAmI : 116 
 
 
@@ -11812,18 +11812,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 64,128,201,270,341,484,496,549,823,912
 whoAmI : 117
 
 [connector117]
-friendlist : 111
+friendlist : 28,33
 whoAmI : 117 
 
 
@@ -11880,18 +11880,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 62,76,130,135,364,429,460,464,471,582,593,752,808,953,959
 whoAmI : 118
 
 [connector118]
-friendlist : 64
+friendlist : 4,23,5,185
 whoAmI : 118 
 
 
@@ -11948,18 +11948,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 101,421,427,507,533,913
 whoAmI : 119
 
 [connector119]
-friendlist : 86,40,193
+friendlist : 100
 whoAmI : 119 
 
 
@@ -12016,18 +12016,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 11,263,467,530,598,679,727,809,842,915
 whoAmI : 120
 
 [connector120]
-friendlist : 73,70,160
+friendlist : 104,136
 whoAmI : 120 
 
 
@@ -12084,18 +12084,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 201,312,314,349,420,483,650,663,669,736
 whoAmI : 121
 
 [connector121]
-friendlist : 87,111,112,59,133,162
+friendlist : 66,43
 whoAmI : 121 
 
 
@@ -12152,18 +12152,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 12,55,123,266,359,400,441,752,755,923,942
 whoAmI : 122
 
 [connector122]
-friendlist : 45,134
+friendlist : 106,154,197
 whoAmI : 122 
 
 
@@ -12220,18 +12220,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 55,88,160,176,389,493,765,766,909,932
 whoAmI : 123
 
 [connector123]
-friendlist : 19
+friendlist : 85,170
 whoAmI : 123 
 
 
@@ -12288,18 +12288,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 89,93,203,243,251,386,525,602,872
 whoAmI : 124
 
 [connector124]
-friendlist : 114,180
+friendlist : 73,36,174
 whoAmI : 124 
 
 
@@ -12356,18 +12356,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 5
+doclist : 39,171,360,384,430,487,511,741,744,763,783,860
 whoAmI : 125
 
 [connector125]
-friendlist : 100,39
+friendlist : 28
 whoAmI : 125 
 
 
@@ -12424,18 +12424,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 269,438,442,752,849,948
 whoAmI : 126
 
 [connector126]
-friendlist : 52,151,190
+friendlist : 55,34,24,59,145,176
 whoAmI : 126 
 
 
@@ -12492,18 +12492,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 67,217,528,590,647,878
 whoAmI : 127
 
 [connector127]
-friendlist : 111
+friendlist : 78,10
 whoAmI : 127 
 
 
@@ -12560,18 +12560,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 57,174,271,498,513,739,880,906,915,949,955
 whoAmI : 128
 
 [connector128]
-friendlist : 55,23,152
+friendlist : 13
 whoAmI : 128 
 
 
@@ -12628,18 +12628,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 118,335,510,532,658,724
 whoAmI : 129
 
 [connector129]
-friendlist : 14
+friendlist : 31,143
 whoAmI : 129 
 
 
@@ -12696,18 +12696,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 31,102,116,189,342,501,656,791,875
 whoAmI : 130
 
 [connector130]
-friendlist : 95,13,20,28
+friendlist : 6,42
 whoAmI : 130 
 
 
@@ -12764,18 +12764,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 195,204,211,321,379,439,468,488,618,661,668,687,851,860,863,964
 whoAmI : 131
 
 [connector131]
-friendlist : 68,61,88,52,146
+friendlist : 3,38,162,167,175
 whoAmI : 131 
 
 
@@ -12832,18 +12832,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 56,149,418,503,535,555,690,741
 whoAmI : 132
 
 [connector132]
-friendlist : 15,139
+friendlist : 92,79,194
 whoAmI : 132 
 
 
@@ -12900,18 +12900,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 58,251,253,312,434,789,911,955
 whoAmI : 133
 
 [connector133]
-friendlist : 121
+friendlist : 109,28,190
 whoAmI : 133 
 
 
@@ -12968,18 +12968,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 66,119,285,438,499,608,711,868
 whoAmI : 134
 
 [connector134]
-friendlist : 122,45
+friendlist : 52,37,91,160,192
 whoAmI : 134 
 
 
@@ -13036,18 +13036,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 155,190,436,534,541,631,659,704,801,921,962
 whoAmI : 135
 
 [connector135]
-friendlist : 47
+friendlist : 17
 whoAmI : 135 
 
 
@@ -13104,18 +13104,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 45,73,232,450,656,692,742,848
 whoAmI : 136
 
 [connector136]
-friendlist : 25,100
+friendlist : 104,102,120,147
 whoAmI : 136 
 
 
@@ -13172,18 +13172,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 257,454,554,768,870,914,949
 whoAmI : 137
 
 [connector137]
-friendlist : 36,172
+friendlist : 84
 whoAmI : 137 
 
 
@@ -13240,18 +13240,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 82,118,237,402,411,649,720,770,802,850,893
 whoAmI : 138
 
 [connector138]
-friendlist : 6
+friendlist : 7,37,11,144,150
 whoAmI : 138 
 
 
@@ -13308,18 +13308,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 169,181,252,369,428,500,876,915
 whoAmI : 139
 
 [connector139]
-friendlist : 132,15
+friendlist : 26
 whoAmI : 139 
 
 
@@ -13376,18 +13376,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 15,179,303,387,733,758,916
 whoAmI : 140
 
 [connector140]
-friendlist : 79,53
+friendlist : 24,55,23
 whoAmI : 140 
 
 
@@ -13444,18 +13444,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 65,85,255,295
 whoAmI : 141
 
 [connector141]
-friendlist : 8
+friendlist : 52
 whoAmI : 141 
 
 
@@ -13512,18 +13512,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 9
+doclist : 41,106,193,321,358,372,519,568,576,678,701,706,735,772,804
 whoAmI : 142
 
 [connector142]
-friendlist : 43
+friendlist : 11,110
 whoAmI : 142 
 
 
@@ -13580,18 +13580,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 80,196,254,318,366,713,776,782,815
 whoAmI : 143
 
 [connector143]
-friendlist : 110,4
+friendlist : 129,31
 whoAmI : 143 
 
 
@@ -13648,18 +13648,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 10,11,49,127,156,431,437,587,674,704
 whoAmI : 144
 
 [connector144]
-friendlist : 85,151,155
+friendlist : 11,138,99,75,150,151
 whoAmI : 144 
 
 
@@ -13716,18 +13716,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 107,433,444,467,479,522,675,789,814,901
 whoAmI : 145
 
 [connector145]
-friendlist : 6,186
+friendlist : 126,176
 whoAmI : 145 
 
 
@@ -13784,18 +13784,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 186,226,453,469,482,550,612,742,794,930
 whoAmI : 146
 
 [connector146]
-friendlist : 131,61
+friendlist : 20,51,153
 whoAmI : 146 
 
 
@@ -13852,18 +13852,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 7
+doclist : 17,42,249,304,337,343,397,651,853,859,893,904
 whoAmI : 147
 
 [connector147]
-friendlist : 46
+friendlist : 136
 whoAmI : 147 
 
 
@@ -13920,18 +13920,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 157,303,604,856
 whoAmI : 148
 
 [connector148]
-friendlist : 28
+friendlist : 81
 whoAmI : 148 
 
 
@@ -13988,18 +13988,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 45,272,307,461,638,669,706,740,863,875,901,929
 whoAmI : 149
 
 [connector149]
-friendlist : 1,110
+friendlist : 28,183
 whoAmI : 149 
 
 
@@ -14056,18 +14056,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 4,151,287,305,341,488,494,522,580,630,636,808
 whoAmI : 150
 
 [connector150]
-friendlist : 57,47
+friendlist : 138,37,144,11,7
 whoAmI : 150 
 
 
@@ -14124,18 +14124,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 70,177,268,299,402,426,473,579,592,638,683,904
 whoAmI : 151
 
 [connector151]
-friendlist : 144,126
+friendlist : 144
 whoAmI : 151 
 
 
@@ -14192,18 +14192,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 38,44,175,220,352,538,661,704,903
 whoAmI : 152
 
 [connector152]
-friendlist : 128
+friendlist : 74
 whoAmI : 152 
 
 
@@ -14260,18 +14260,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 386,395,409,639,689,819,828
 whoAmI : 153
 
 [connector153]
-friendlist : 42
+friendlist : 146
 whoAmI : 153 
 
 
@@ -14328,18 +14328,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 68,112,124,291,454,484,544,565,614,793
 whoAmI : 154
 
 [connector154]
-friendlist : 44
+friendlist : 106,122
 whoAmI : 154 
 
 
@@ -14396,18 +14396,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 208,388,392,567,666,683
 whoAmI : 155
 
 [connector155]
-friendlist : 144,85
+friendlist : 1
 whoAmI : 155 
 
 
@@ -14464,18 +14464,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 4
+doclist : 185,194,209,307,391,478,611,635,654,744,745,821,896,899
 whoAmI : 156
 
 [connector156]
-friendlist : 9,78,0
+friendlist : 77,6,177,184
 whoAmI : 156 
 
 
@@ -14532,18 +14532,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 25,189,291,367,472,575,611,655,785,826,902,930,954,957,958
 whoAmI : 157
 
 [connector157]
-friendlist : 2
+friendlist : 108,81
 whoAmI : 157 
 
 
@@ -14600,18 +14600,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 1
+doclist : 98,111,250,282,285,457,571,667
 whoAmI : 158
 
 [connector158]
-friendlist : 42
+friendlist : 47
 whoAmI : 158 
 
 
@@ -14668,18 +14668,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 113,369,438,554,625,641,705,801
 whoAmI : 159
 
 [connector159]
-friendlist : 66
+friendlist : 10
 whoAmI : 159 
 
 
@@ -14736,18 +14736,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 3,575,596,606,641,680,714,743,745,831,916,919
 whoAmI : 160
 
 [connector160]
-friendlist : 19,120
+friendlist : 134,52
 whoAmI : 160 
 
 
@@ -14804,18 +14804,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 60,110,440,483,722
 whoAmI : 161
 
 [connector161]
-friendlist : 104,46
+friendlist : 52,37,91
 whoAmI : 161 
 
 
@@ -14872,18 +14872,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 65,378,432,585,588,636
 whoAmI : 162
 
 [connector162]
-friendlist : 21,121
+friendlist : 131,175
 whoAmI : 162 
 
 
@@ -14940,18 +14940,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 11
+doclist : 18,572,622,710,742,773,949
 whoAmI : 163
 
 [connector163]
-friendlist : 5
+friendlist : 78,65
 whoAmI : 163 
 
 
@@ -15008,18 +15008,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 15
+doclist : 96,99,198,206,284,331,596,667,754,813,840,956
 whoAmI : 164
 
 [connector164]
-friendlist : 27
+friendlist : 89,39
 whoAmI : 164 
 
 
@@ -15076,18 +15076,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 133,191,372,381,441,443,476,556,627,672,862,920,943
 whoAmI : 165
 
 [connector165]
-friendlist : 78
+friendlist : 14
 whoAmI : 165 
 
 
@@ -15144,18 +15144,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 84,133,191,198,260,329,354,838
 whoAmI : 166
 
 [connector166]
-friendlist : 2
+friendlist : 22,70,188
 whoAmI : 166 
 
 
@@ -15212,18 +15212,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 458,579,606,645,692,698,893,894,904,921
 whoAmI : 167
 
 [connector167]
-friendlist : 66
+friendlist : 131,3,175
 whoAmI : 167 
 
 
@@ -15280,18 +15280,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 44,168,300,418,429,544,664,677,777,912
 whoAmI : 168
 
 [connector168]
-friendlist : 5,4
+friendlist : 19
 whoAmI : 168 
 
 
@@ -15348,18 +15348,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 45,143,210,361,380,416,503
 whoAmI : 169
 
 [connector169]
-friendlist : 67,28,173
+friendlist : 69,46,191
 whoAmI : 169 
 
 
@@ -15416,18 +15416,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 508,541,564,610,616,724,751,773,849
 whoAmI : 170
 
 [connector170]
-friendlist : 51,15
+friendlist : 123,85
 whoAmI : 170 
 
 
@@ -15484,18 +15484,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 13,212,339,369,427,646,715,775,846,928
 whoAmI : 171
 
 [connector171]
-friendlist : 59,185
+friendlist : 60,68
 whoAmI : 171 
 
 
@@ -15552,18 +15552,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 26,67,77,179,189,396,526,566,721,797,798,837,939
 whoAmI : 172
 
 [connector172]
-friendlist : 36,137
+friendlist : 51
 whoAmI : 172 
 
 
@@ -15620,18 +15620,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 182,211,781,934,961
 whoAmI : 173
 
 [connector173]
-friendlist : 169
+friendlist : 36,80,16
 whoAmI : 173 
 
 
@@ -15688,18 +15688,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 141,298,329,554,617,771,796,836,851,861,905,922
 whoAmI : 174
 
 [connector174]
-friendlist : 73
+friendlist : 124,73,36
 whoAmI : 174 
 
 
@@ -15756,18 +15756,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 6
+doclist : 558,570,595,751,827,845,963
 whoAmI : 175
 
 [connector175]
-friendlist : 2
+friendlist : 131,167,162
 whoAmI : 175 
 
 
@@ -15824,18 +15824,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 491,571,581,627,792,954
 whoAmI : 176
 
 [connector176]
-friendlist : 9
+friendlist : 145,126,182
 whoAmI : 176 
 
 
@@ -15892,18 +15892,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 17,108,114,136,160,185,218,224,309,380,485,560,586,672,688,847,965
 whoAmI : 177
 
 [connector177]
-friendlist : 101,24
+friendlist : 77,156,6,178,180,199
 whoAmI : 177 
 
 
@@ -15960,18 +15960,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 56,368,514,658,716,890
 whoAmI : 178
 
 [connector178]
-friendlist : 32
+friendlist : 77,177,180
 whoAmI : 178 
 
 
@@ -16028,18 +16028,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 54,146,236,296,394,551,624,648
 whoAmI : 179
 
 [connector179]
-friendlist : 32
+friendlist : 20,43,189
 whoAmI : 179 
 
 
@@ -16096,18 +16096,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 153,294,348,444,495,593,779,950
 whoAmI : 180
 
 [connector180]
-friendlist : 124
+friendlist : 178,177
 whoAmI : 180 
 
 
@@ -16164,18 +16164,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 101,105,119,120,246,284,379,451,456,527,549,625,696,781,830
 whoAmI : 181
 
 [connector181]
-friendlist : 65
+friendlist : 18
 whoAmI : 181 
 
 
@@ -16232,18 +16232,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 24,104,190,207,227,313,342,417,482,514,678,750,777,903,907
 whoAmI : 182
 
 [connector182]
-friendlist : 7
+friendlist : 176,22
 whoAmI : 182 
 
 
@@ -16300,18 +16300,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 2
+doclist : 131,273,461,517,562,579,687
 whoAmI : 183
 
 [connector183]
-friendlist : 103,15,84
+friendlist : 149
 whoAmI : 183 
 
 
@@ -16368,18 +16368,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 21,40,60,71,161,346,401,410,414,634,698,783,788,794,952
 whoAmI : 184
 
 [connector184]
-friendlist : 77
+friendlist : 156
 whoAmI : 184 
 
 
@@ -16436,18 +16436,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 166,295,394,581,639,787
 whoAmI : 185
 
 [connector185]
-friendlist : 171
+friendlist : 118,4
 whoAmI : 185 
 
 
@@ -16504,18 +16504,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 145,225,233,234,272,282,532,654,673,818,825,885,944
 whoAmI : 186
 
 [connector186]
-friendlist : 145
+friendlist : 29,45,47
 whoAmI : 186 
 
 
@@ -16572,18 +16572,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 162,320,464,475,477,592,637,930,944
 whoAmI : 187
 
 [connector187]
-friendlist : 9
+friendlist : 62
 whoAmI : 187 
 
 
@@ -16640,18 +16640,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 4
+doclist : 68,388,635,811,832,945
 whoAmI : 188
 
 [connector188]
-friendlist : 54
+friendlist : 166
 whoAmI : 188 
 
 
@@ -16708,18 +16708,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 344,360,428,465,510,686,790
 whoAmI : 189
 
 [connector189]
-friendlist : 70
+friendlist : 179
 whoAmI : 189 
 
 
@@ -16776,18 +16776,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 81,239,288,289,370,526,610,896,926,946
 whoAmI : 190
 
 [connector190]
-friendlist : 126
+friendlist : 109,133,28
 whoAmI : 190 
 
 
@@ -16844,18 +16844,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 165,219,264,468,486,508,530,714,798,886,903,924
 whoAmI : 191
 
 [connector191]
-friendlist : 79
+friendlist : 169,46
 whoAmI : 191 
 
 
@@ -16912,18 +16912,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 304,375,427,600,659,865,886
 whoAmI : 192
 
 [connector192]
-friendlist : 75,22,15
+friendlist : 134,72
 whoAmI : 192 
 
 
@@ -16980,18 +16980,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 219,240,340,447,657,749,750,762,785
 whoAmI : 193
 
 [connector193]
-friendlist : 119,86,40
+friendlist : 22
 whoAmI : 193 
 
 
@@ -17048,18 +17048,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 28,152,194,284,354,382,447,477,537,728,830,933
 whoAmI : 194
 
 [connector194]
-friendlist : 97
+friendlist : 132,92,79
 whoAmI : 194 
 
 
@@ -17116,18 +17116,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 13
+doclist : 31,83,219,298,344,475,620
 whoAmI : 195
 
 [connector195]
-friendlist : 105
+friendlist : 40
 whoAmI : 195 
 
 
@@ -17184,18 +17184,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 317,318,449,567,613,832,854,871,906
 whoAmI : 196
 
 [connector196]
-friendlist : 108
+friendlist : 89
 whoAmI : 196 
 
 
@@ -17252,18 +17252,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 67,149,462,523,578,684,829,835,926
 whoAmI : 197
 
 [connector197]
-friendlist : 52,58,34
+friendlist : 122
 whoAmI : 197 
 
 
@@ -17320,18 +17320,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 78,119,319,463,466,568,654,959
 whoAmI : 198
 
 [connector198]
-friendlist : 24
+friendlist : 14,19
 whoAmI : 198 
 
 
@@ -17388,18 +17388,18 @@ betweenquerymean : 2.63
 betweenquerydeviation : 3.35
 
 beforequerydistribution : lognormal 
-beforequerymean : 3
-beforequerydeviation : 6
+beforequerymean : 8
+beforequerydeviation : 0.3
 
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : -1
+doclist : 109,163,182,376,379,392,396,403,503,572,593,691,784,810,852
 whoAmI : 199
 
 [connector199]
-friendlist : 28,95
+friendlist : 177
 whoAmI : 199 
 
 

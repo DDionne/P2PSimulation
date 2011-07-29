@@ -1,0 +1,21 @@
+			default:
+				cout<<"error : output port `to_peer' not set"<<endl;
+
+			}
+
+         DCQueue.pop(); //remove val from queue
+
+        }
+      else
+        {
+    	 // sendOutput( msg.time(), route_out, 999 );
+    	  //(no output for graph construction)
+    	}
+	return *this;
+}
+
+LTSNetwork::~LTSNetwork()
+{
+	delete thegraph;
+	//delete EvQ; not a pointer, doesn't need to be deleted manually
+}

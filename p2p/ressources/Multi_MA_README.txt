@@ -1,0 +1,1 @@
+This MA file generator is for the MultiPeerGnu coupled model.

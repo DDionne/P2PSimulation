@@ -1,0 +1,56 @@
+/*******************************************************************
+*
+*  DESCRIPTION: Atomic Model : Demultiplexer : gets a message on its single input and
+*  forwards it to one of its numerous outputs according to a routing table.
+*
+*  AUTHOR: Alan
+*
+*
+*******************************************************************/
+/*handle duplicate inclusion of this header*/
+#ifndef __MSGIDGEN_H
+#define __MSGIDGEN_H
+#define VERBOSE true
+#define MAXID 1000
+
+/** include files **/
+#include "atomic.h"  // class Atomic
+#include "..\complexmessages2.h" // functions to manage "coded" messages between components
+//#include "NetGraph.h"
+//#include "IntSet.h"
+
+#include <map>
+#include <set>
+
+//#include "EventQueue.h"
+//#include <queue> //STL for queue template class
+//#include <set>
+/** declarations **/
+class msgIdGen: public Atomic
+{
+public:
+
+
+	msgIdGen( const string &name = "msgIdGen" ) ;	 // Default constructor
+
+	~msgIdGen();					// Destructor
+
+	virtual string className() const
+		{return "msgIdGen";};
+
+
+protected:
+	Model &initFunction()
+		{
+		return *this;
+		};
+
+	Model &externalFunction( const ExternalMessage & );
+
+	Model &internalFunction( const InternalMessage & );
+
+	Model &outputFunction( const InternalMessage & );
+
+private:
+
+    const Port &msg_in ; // for getting messages

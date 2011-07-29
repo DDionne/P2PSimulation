@@ -42,7 +42,7 @@ DEBUGFLAGS=
 LDFLAGS+=-L. -g
 #^|
 EXAMPLESOBJS=  ConnectionManager.o DBGraph.o LTSNetwork.o LinkFinder.o Logger.o NetGraph.o PeerGnutella.o RandomSurfer.o SGraph.o Server.o SimpleDemux.o msgIdGen.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
-#K
+#L
 
 LIBNAME=simu
 LIBS=-lsimu
@@ -97,31 +97,31 @@ backup:
 .cpp.o:
 	${CPP} -c ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $<
 #^|
-ConnectionManager.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.cpp
+ConnectionManager.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-DBGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.cpp
+DBGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-LTSNetwork.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.cpp
+LTSNetwork.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-LinkFinder.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.cpp
+LinkFinder.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-Logger.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.cpp
+Logger.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-NetGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.cpp
+NetGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-PeerGnutella.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.cpp
+PeerGnutella.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-RandomSurfer.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.cpp
+RandomSurfer.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-SGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.cpp
+SGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-Server.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.cpp
+Server.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-SimpleDemux.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.cpp
+SimpleDemux.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-msgIdGen.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.cpp
+msgIdGen.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-register.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/register.cpp
+register.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/register.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 #
 generat.o: generat.cpp
@@ -191,9 +191,9 @@ mainsimu.o: mainsimu.cpp
 # DO NOT DELETE
 #^|
 ConnectionManager.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -213,7 +213,7 @@ ConnectionManager.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/distri.h \
@@ -224,14 +224,14 @@ ConnectionManager.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 DBGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h
 LTSNetwork.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -251,11 +251,11 @@ LTSNetwork.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -265,9 +265,9 @@ LTSNetwork.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 LinkFinder.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -287,13 +287,13 @@ LinkFinder.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -303,9 +303,9 @@ LinkFinder.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 Logger.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -325,7 +325,7 @@ Logger.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/distri.h \
@@ -336,14 +336,14 @@ Logger.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 NetGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h
 PeerGnutella.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -363,7 +363,7 @@ PeerGnutella.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -373,9 +373,9 @@ PeerGnutella.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 RandomSurfer.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -395,8 +395,8 @@ RandomSurfer.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/distri.h \
@@ -407,15 +407,15 @@ RandomSurfer.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 SGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/../../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/../../lib/graph-c++-comp.h
 Server.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -435,13 +435,13 @@ Server.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -451,9 +451,9 @@ Server.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 SimpleDemux.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -473,9 +473,9 @@ SimpleDemux.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetEvent.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetEvent.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -485,9 +485,9 @@ SimpleDemux.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 msgIdGen.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -507,8 +507,8 @@ msgIdGen.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -518,7 +518,7 @@ msgIdGen.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 register.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/register.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/register.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modeladm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
@@ -544,25 +544,25 @@ register.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/PeerGnutella.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetEvent.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/RandomSurfer.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/msgIdGen.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SimpleDemux.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetEvent.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LTSNetwork.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/NetGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/ConnectionManager.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Logger.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/Server.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/MultiPeerGnu/LinkFinder.h
 #
 #include $(OBJS:.cpp=.d)
 queue.o: queue.h atomic.h model.h port.h modelid.h mytime.h portlist.h real.h

@@ -1,0 +1,33 @@
+/*******************************************************************
+*
+*  DESCRIPTION: Atomic Model : Network (LTS system)
+*
+*  AUTHOR: Alan
+*
+*
+*  DATE: November 2010
+*
+*******************************************************************/
+
+/** include files **/
+#include <math.h>            // fabs( ... )
+#include <stdlib.h>
+#include "randlib.h"         // Random numbers library
+#include "LTSNetwork.h"  // base header
+#include "message.h"       // InternalMessage ....
+//#include "..\..\lib\graph-c++.h"        // class graph
+//#include "NetGraph.h"        // basic undirected graph with integers
+#include "mainsimu.h"      // class MainSimulator
+#include "strutil.h"       // str2float( ... )
+
+
+
+/*******************************************************************
+* Function Name: LTSNetwork
+* Description: constructor
+********************************************************************/
+LTSNetwork::LTSNetwork( const string &name )
+: Atomic( name )
+, peer_online( addInputPort( "peer_online" ) )
+, peer_offline( addInputPort( "peer_offline" ) )
+, connect_in( addInputPort( "connect_in" ) )
