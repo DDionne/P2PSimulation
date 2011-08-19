@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> Network IdGen@msgIdGen log@Logger Linker@LinkFinder Peer0&#xd;</components>
+    <Link> LinkFind@Peer0 in_q@Linker&#xd;</Link>
+    <Link> q_out0@Linker Link_in@Peer0&#xd;</Link>
+    <Link> queryhit@Peer0 qhit_in@log&#xd;</Link>
+    <Link> disconnect@Peer0 in_disconnect@log&#xd;</Link>
+    <Link> connect@Peer0 in_connect@log&#xd;</Link>
+    <Link> out_0@IdGen in_query@log&#xd;</Link>
+    <Link> publish@Peer0 in_publish@log&#xd;</Link>
+    <Link> online@Peer0 in_online@Network&#xd;</Link>
+    <Link> online@Peer0 in_online@log&#xd;</Link>
+    <Link> offline@Peer0 in_offline@log&#xd;</Link>
+    <Link> offline@Peer0 in_offline@Network&#xd;</Link>
+    <Link> connect_out@Peer0 peer_connect@Network&#xd;</Link>
+    <Link> disconnect_out@Peer0 peer_disconnect@Network&#xd;</Link>
+    <Link> c_out0@Network connect_in@Peer0&#xd;</Link>
+    <Link> query_out@Peer0 msg_in@IdGen&#xd;</Link>
+    <Link> out_0@IdGen query_in@Peer0&#xd;</Link>
+    <Link> q_out@Peer0 inroute@Network&#xd;</Link>
+    <Link> route_out0@Network q_in@Peer0&#xd;</Link>
+    <Link> queryreachespeer@Peer0 queryReached@log&#xd;</Link>
+  </top>
+  <Linker>
+    <datafile> serverdoc.dat&#xd;</datafile>
+  </Linker>
+  <Peer0>
+    <components> session0@RandomSurfer connector0@ConnectionManager gnut0@PeerGnutella server0@Server&#xd;</components>
+    <out> query_out&#xd;</out>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <out> online&#xd;</out>
+    <out> offline&#xd;</out>
+    <out> disconnect&#xd;</out>
+    <out> connect&#xd;</out>
+    <out> queryhit&#xd;</out>
+    <out> publish&#xd;</out>
+    <out> queryreachespeer&#xd;</out>
+    <out> LinkFind&#xd;</out>
+    <in> query_in &#xd;</in>
+    <in> q_in&#xd;</in>
+    <in> connect_in&#xd;</in>
+    <in> Link_in&#xd;</in>
+    <Link> online@session0 in_online@connector0&#xd;</Link>
+    <Link> online@session0 online&#xd;</Link>
+    <Link> offline@session0 in_offline@connector0&#xd;</Link>
+    <Link> out_offline@connector0 offline&#xd;</Link>
+    <Link> query@session0 query_out&#xd;</Link>
+    <Link> query@session0 publish@server0&#xd;</Link>
+    <Link> publish@session0 publish@server0&#xd;</Link>
+    <Link> p_out@server0 publish&#xd;</Link>
+    <Link> link@server0 LinkFind&#xd;</Link>
+    <Link> remove@session0 remove@server0&#xd;</Link>
+    <Link> out_connect@connector0 connect_out&#xd;</Link>
+    <Link> out_disconnect@connector0 disconnect_out&#xd;</Link>
+    <Link> connect_in in_connect@connector0&#xd;</Link>
+    <Link> connect_in connections@gnut0&#xd;</Link>
+    <Link> q_in q_in@gnut0&#xd;</Link>
+    <Link> q_out@gnut0 q_out&#xd;</Link>
+    <Link> localOut@gnut0 peer_in@server0&#xd;</Link>
+    <Link> Link_in peer_in@server0&#xd;</Link>
+    <Link> localOut@gnut0 queryreachespeer&#xd;</Link>
+    <Link> queryhit@server0 q_in@gnut0&#xd;</Link>
+    <Link> queryhit@server0 queryhit&#xd;</Link>
+    <Link> query_in query@gnut0&#xd;</Link>
+    <Link> connect_out@gnut0 connect&#xd;</Link>
+    <Link> disconnect_out@gnut0 disconnect&#xd;</Link>
+    <Link> qhit_out@gnut0 queryhit@session0&#xd;</Link>
+  </Peer0>
+  <session0>
+    <probabilityofactivity> 0.7&#xd;</probabilityofactivity>
+    <probabilityToIgnore> 0.15&#xd;</probabilityToIgnore>
+    <betweenquerydistribution> lognormal&#xd;</betweenquerydistribution>
+    <betweenquerymean> 2.63&#xd;</betweenquerymean>
+    <betweenquerydeviation> 3.35&#xd;</betweenquerydeviation>
+    <beforequerydistribution> lognormal &#xd;</beforequerydistribution>
+    <beforequerymean> 8&#xd;</beforequerymean>
+    <beforequerydeviation> 0.3&#xd;</beforequerydeviation>
+    <offlinetimedistribution> exponential&#xd;</offlinetimedistribution>
+    <offlinetimemean> 2000&#xd;</offlinetimemean>
+    <NumQueries> 965&#xd;</NumQueries>
+    <doclist> 1,1,1,2,3,3,3,4,4,4,5,5,6,7,8,8,9,10,10,10,11,11,12,13,13,14,14,15,15,15&#xd;</doclist>
+    <whoAmI> 0&#xd;</whoAmI>
+  </session0>
+  <connector0>
+    <friendlist> -1&#xd;</friendlist>
+    <whoAmI> 0 &#xd;</whoAmI>
+  </connector0>
+  <Network>
+    <components> net@SimpleDemux LTS@LTSNetwork&#xd;</components>
+    <out> c_out0&#xd;</out>
+    <out> route_out0&#xd;</out>
+    <in> peer_connect&#xd;</in>
+    <in> peer_disconnect&#xd;</in>
+    <in> inroute&#xd;</in>
+    <in> in_online&#xd;</in>
+    <in> in_offline&#xd;</in>
+    <Link> peer_connect connect_in@LTS&#xd;</Link>
+    <Link> peer_disconnect disconnect_in@LTS&#xd;</Link>
+    <Link> in_online peer_online@LTS&#xd;</Link>
+    <Link> in_offline peer_offline@LTS&#xd;</Link>
+    <Link> inroute inroute@net&#xd;</Link>
+    <Link> c_out0@LTS c_out0&#xd;</Link>
+    <Link> route_out0@net route_out0&#xd;</Link>
+  </Network>
+</CDPlusPlus_Builder_Version_1.0.0>
