@@ -110,7 +110,7 @@ Model &Server::externalFunction( const ExternalMessage &msg ){
 				//cout << "hello, qhit == 0"<<endl;
 				docCheckQ.push(output);
 			}
-			else if(qhit = 1){
+			else if(qhit == 1){
 
 				if(currentDocs.find(docID) != currentDocs.end()){
 					output = buildNewMessage(docID, 1, msgId, myId, 0, 0);
