@@ -186,7 +186,7 @@
     <whoAmI> 1&#xd;</whoAmI>
   </session1>
   <connector1>
-    <friendlist> 2&#xd;</friendlist>
+    <friendlist> 0,2&#xd;</friendlist>
     <whoAmI> 1 &#xd;</whoAmI>
   </connector1>
   <Peer2>
@@ -246,7 +246,7 @@
     <offlinetimemean> 2000&#xd;</offlinetimemean>
     <NumQueries> 9&#xd;</NumQueries>
     <doclist> 7,8,9&#xd;</doclist>
-    <whoAmI> 1&#xd;</whoAmI>
+    <whoAmI> 2&#xd;</whoAmI>
   </session2>
   <connector2>
     <friendlist> 0,1&#xd;</friendlist>

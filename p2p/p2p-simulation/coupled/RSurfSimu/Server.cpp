@@ -128,26 +128,29 @@ Model &Server::externalFunction( const ExternalMessage &msg ){
 //					cout<< "Size of List: "<<currentDocs.size()<<endl;
 					currentDocs.push_front(docID);
 					if(currentDocs.size() > MAXDOCS){
+						int docremove = currentDocs.back();
 						currentDocs.pop_back();
+						long long rOutput = buildNewMessage(docremove,0,0,myId,0,0);
+						cout << msg.time() << " remove "<< rOutput<<endl;
 					}
-//					list<int>::iterator p;
-//					cout << "new docList: ";
+//					list<int>::iterator p; //start
+//					cout << "new docList for Peer "<<myId<<":[ ";
 //					for(p = currentDocs.begin(); p != currentDocs.end();p++){
 //						cout << *p << " ";
 //					}
-//					cout << endl;
+//					cout <<"]"<< endl; //end
 
 					publishQ.push(buildNewMessage(docID,0,msgId,myId,0,0));
 				}
 				else{
 					currentDocs.remove(docID);
 					currentDocs.push_front(docID);
-//					list<int>::iterator p;
-//					cout << "new docList: ";
+//					list<int>::iterator p;  //start
+//					cout << "new docList for Peer "<<myId<<":[ ";
 //					for(p = currentDocs.begin(); p != currentDocs.end();p++){
 //						cout << *p << " ";
 //					}
-//					cout << endl;
+//					cout <<"]"<< endl;  //end
 				}
 				currentDocs.unique();
 			}

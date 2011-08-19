@@ -192,7 +192,7 @@ doclist : 4,5,6
 whoAmI : 1
 
 [connector1]
-friendlist : 2
+friendlist : 0,2
 whoAmI : 1 
 
 
@@ -257,7 +257,7 @@ offlinetimemean : 2000
 
 NumQueries : 9
 doclist : 7,8,9
-whoAmI : 1
+whoAmI : 2
 
 [connector2]
 friendlist : 0,1
