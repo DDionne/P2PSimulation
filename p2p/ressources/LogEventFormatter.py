@@ -10,8 +10,8 @@ Takes a text file with a text format like this example:
 This file is taken from the randomSurfer p2p network simulation. However lines not of the proper format must be removed
 along with any empty lines (there might be one at the end).
 """
-fi = open("fileout.txt","r")
-fileout = open("5Peer2hourLogEvents.txt","w")
+fi = open("fileout.txt.txt","r")
+fileout = open("logEvents.txt","w")
 f = fi.readlines()
 for line in f:
     time = 0
@@ -48,6 +48,19 @@ for line in f:
         if p == "":
             p = "0"
         fileout.write( str(time) + ":" + currentLine[1] + ":" + p + ":" + doc + "\n")
+    elif ("remove" in line):
+        peer = currentLine[2][:-8]
+        if(len(peer) != 0):
+            i = -3
+            docId = ""
+            while i < 0:
+                docId += currentLine[2][i]
+                i += 1
+            doc = docId.lstrip('0')
+        else:
+            peer = "0"
+            doc = currentLine[2]
+        fileout.write( str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc + "\n")
     elif (" queryhit " in line):
         peer = currentLine[2][:-8]
         if(len(peer) != 0):
