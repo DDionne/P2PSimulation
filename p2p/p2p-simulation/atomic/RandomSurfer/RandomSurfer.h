@@ -10,12 +10,6 @@
 #ifndef __SESSMANAGER_H
 #define __SESSMANAGER_H
 #define PVERBOSE false
-
-//#define BEFOREQUERY 0
-//#define INTERQUERY 1
-//#define AFTERQUERY 2
-//#define OFFLINETIME 3
-//#define INACTIVETIME 4
 #define OFFLINE 0
 #define SESSION 1
 #define QUERYHIT 2
@@ -24,6 +18,7 @@
 #include "atomic.h"  // class Atomic
 #include <set>
 #include "..\complexmessages.h" // functions to manage "coded" messages between components
+#include "..\complexmessages2.h"
 
 /** forward declarations **/
 class Distribution ;
@@ -56,19 +51,15 @@ private:
     Port & publish;
     Port & remove;
 
+    int TTL;
     int whoAmI;
-    int identifier;
-    int hitsLeft;
     Time nextchange;
-    int mystate; //can be passive, offline, activebeforequery, activebetweenquery, activeafterquery, inactivesession
+    int mystate; //can be passive, offline, session or queryhit
     bool officiallyonline;//have I output a message announcing myself to be online / offline ?
 
-    set<int> querylist;
     int maxQuery;
     Time start;
     Time stop;
-    bool isactive;
-    set<int> savequerylist;
     set<int> doclist;
     set<int> alldocs; //docs already published
     set<int> linkChoices; //links which the surfer chooses from
@@ -76,9 +67,7 @@ private:
     //statistical distributions for time-related behavior
     Distribution *timeBetweenQueryDist ;
     Distribution *timeBeforeQueryDist ;
-    Distribution *timeAfterQueryDist ;
     Distribution *offlineTimeDist ;
-    Distribution *inactiveSessionLength ;
 
     //Distribution for flipping a coin
 
@@ -91,16 +80,7 @@ private:
     {
 
     	switch(which){
-//    	case BEFOREQUERY :
-//    		return * timeBeforeQueryDist;
-//    	case INTERQUERY :
-//    		return *timeBetweenQueryDist ;
-//    	case AFTERQUERY :
-//    		return *timeAfterQueryDist ;
-//    	case OFFLINETIME :
-//    		return *offlineTimeDist ;
-//    	case INACTIVETIME :
-//    		return *inactiveSessionLength ;
+
     	case OFFLINE :
     		return *offlineTimeDist ;
     	case SESSION :

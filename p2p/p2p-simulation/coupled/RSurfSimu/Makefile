@@ -41,8 +41,8 @@ CFLAGS=
 DEBUGFLAGS=
 LDFLAGS+=-L. -g
 #^|
-EXAMPLESOBJS=  ConnectionManager.o DBGraph.o LTSNetwork.o LinkFinder.o Logger.o NetGraph.o PeerGnutella.o RandomSurfer.o SGraph.o Server.o SimpleDemux.o msgIdGen.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
-#A
+EXAMPLESOBJS=  ConnectionManager.o DBGraph.o LinkFinder.o Logger.o NetGraph.o NetworkGraph.o PhysicalNetwork.o RandomSurfer.o Repository.o Router.o SGraph.o msgIdGen.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
+#8
 
 LIBNAME=simu
 LIBS=-lsimu
@@ -101,23 +101,23 @@ ConnectionManager.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulat
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 DBGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/DBGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-LTSNetwork.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/LTSNetwork.cpp
-	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 LinkFinder.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/LinkFinder.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 Logger.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Logger.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 NetGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-PeerGnutella.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PeerGnutella.cpp
+NetworkGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetworkGraph.cpp
+	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
+PhysicalNetwork.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PhysicalNetwork.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 RandomSurfer.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/RandomSurfer.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
+Repository.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Repository.cpp
+	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
+Router.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Router.cpp
+	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 SGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SGraph.cpp
-	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-Server.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Server.cpp
-	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-SimpleDemux.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SimpleDemux.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 msgIdGen.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/msgIdGen.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
@@ -228,42 +228,6 @@ DBGraph.o: \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/DBGraph.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++-comp.h
-LTSNetwork.o: \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/LTSNetwork.cpp \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/LTSNetwork.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modelid.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mytime.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/real.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/undefd.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/impresion.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/tbool.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/except.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/stringp.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/value.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/evaldeb.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/cellpos.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
- /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetGraph.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages2.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/event.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ini.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
- /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 LinkFinder.o: \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/LinkFinder.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
@@ -340,10 +304,10 @@ NetGraph.o: \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetGraph.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++-comp.h
-PeerGnutella.o: \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PeerGnutella.cpp \
+NetworkGraph.o: \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetworkGraph.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PeerGnutella.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetworkGraph.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -363,6 +327,44 @@ PeerGnutella.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages2.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/event.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ini.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
+PhysicalNetwork.o: \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PhysicalNetwork.cpp \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PhysicalNetwork.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modelid.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mytime.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/real.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/undefd.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/impresion.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/tbool.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/except.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/stringp.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/value.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/evaldeb.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/cellpos.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
+ /usr/include/time.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetEvent.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
@@ -406,16 +408,10 @@ RandomSurfer.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ini.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
-SGraph.o: \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SGraph.cpp \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SGraph.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/../../lib/graph-c++-comp.h
-Server.o: \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Server.cpp \
+Repository.o: \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Repository.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Server.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Repository.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -450,10 +446,10 @@ Server.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ini.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
-SimpleDemux.o: \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SimpleDemux.cpp \
+Router.o: \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Router.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SimpleDemux.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Router.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -473,8 +469,6 @@ SimpleDemux.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetEvent.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
@@ -484,6 +478,12 @@ SimpleDemux.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ini.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
+SGraph.o: \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/../../lib/graph-c++-comp.h
 msgIdGen.o: \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/msgIdGen.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
@@ -544,21 +544,21 @@ register.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PeerGnutella.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Router.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages2.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/RandomSurfer.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../complexmessages.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/msgIdGen.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SimpleDemux.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/PhysicalNetwork.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetEvent.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/LTSNetwork.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetworkGraph.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/NetGraph.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../lib/graph-c++-comp.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/ConnectionManager.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Logger.h \
- /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Server.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/Repository.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/DBGraph.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/SGraph.h \
  /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/coupled/RSurfSimu/../../atomic/server/DBGraph.h \

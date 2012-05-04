@@ -1,6 +1,6 @@
 
 [Peer{num}]
-components : session{num}@RandomSurfer connector{num}@ConnectionManager gnut{num}@PeerGnutella server{num}@Server
+components : session{num}@RandomSurfer connector{num}@ConnectionManager gnut{num}@Router server{num}@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -58,11 +58,15 @@ beforequerydeviation : 0.3
 offlinetimedistribution : exponential
 offlinetimemean : 2000
 
-NumQueries : 965
+NumQueries : {numDoc}
 doclist : {dlist}
 whoAmI : {num}
+TimeToLive : {TTL}
 
 [connector{num}]
 friendlist : {flist}
 whoAmI : {num} 
+
+[server{num}]
+capacity : {cap}
 

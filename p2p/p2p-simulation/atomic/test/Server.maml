@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CDPlusPlus_Builder_Version_1.0.0>
-  <top>
-    <components> db@Server &#xd;</components>
-  </top>
-  <db>
-    <datafile> serverdoc.dat&#xd;</datafile>
-  </db>
-</CDPlusPlus_Builder_Version_1.0.0>

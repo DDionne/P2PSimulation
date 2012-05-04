@@ -39,3 +39,4 @@ inactivesessionlengthscale : 2000
 NumQueries : 6
 doclist : 10
 whoAmI : 31
+TimeToLive : 7

@@ -13,10 +13,10 @@
 
 #include "modeladm.h"
 #include "mainsimu.h"
-#include "demux.h"              // class demultiplexer
+#include "msgIdGen.h"                  //class msgIdGen
 
 
 void MainSimulator::registerNewAtomics()
 {
-	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<Demux>() , "Demux" ) ;
+	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<msgIdGen>() , "msgIdGen" ) ;
 };

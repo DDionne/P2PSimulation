@@ -1,17 +1,20 @@
 /*******************************************************************
  *
- *  DESCRIPTION: Atomic Model RandomSurfer : Simulates the random surfer model
- *  The user goes online for a random interval of time, during which he outputs a query or a link. Then he
- *  waits for all the documents that respond to his query/link to come in. He then either chooses one at
- *  random or ignores them completely. If he chooses to ignore them, he outputs another random query.
- *  When the time interval is over, he goes offline.
+ *  DESCRIPTION: Atomic Model RandomSurfer : The Random Surfer represents the
+ *  behavior of the human user of the P2P application. The outputs of this
+ *  model are the events initiated by a human user: the peer begins a session
+ *  and goes online, creates queries, or manages its local repository,
+ *  by publishing or removing documents.
  *
+ *  In addition, the Random Surfer has a good chance to publish or visit
+ *  documents that are linked to by a previously visited document.
  *
  *  AUTHOR: Alan
  *
  *  Edited from SessionManager to RandomSurfer by: Denis
  *
  *  DATE: November 2010 - May 2011
+ *  Edited: June 2011 - July 2011
  *
  *******************************************************************/
 
@@ -35,7 +38,7 @@
 RandomSurfer::RandomSurfer( const string &name )
 : Atomic( name )
 , queryhit( addInputPort( "queryhit" ) )
-, query( addInputPort( "query" ) )
+, query( addOutputPort( "query" ) )
 , online( addOutputPort( "online" ) )
 , offline( addOutputPort( "offline" ) )
 , publish( addOutputPort( "publish") )
@@ -50,30 +53,33 @@ RandomSurfer::RandomSurfer( const string &name )
 	string param = MainSimulator::Instance().getParameter( description(), "NumQueries" );
 	maxQuery = int(floor(str2float(param)));
 
+	string TTL_str = MainSimulator::Instance().getParameter( description(), "TimeToLive" );
+	TTL = int(floor(str2float(TTL_str)));
+
 
 
 	///----------------------------------------------------
 	//list of published documents
 	param = MainSimulator::Instance().getParameter( description(), "doclist" );
 
-//	istringstream sis2;
-//	sis2.str(param); // open stream to string
-//
-//
-//	// read list of documents
-//	while(true)
-//	{
-//		int w;
-//		char coma;
-//		sis2 >> w;
-//		if (w==-1)
-//			break; //-1 stands for an empty list
-//		doclist.insert(w);
-//		if(!sis2.eof())
-//			sis2 >> coma; //separating from next value (if there is one)
-//		else
-//			break; //otherwise we're done
-//	}
+	istringstream sis2;
+	sis2.str(param); // open stream to string
+
+
+	// read list of documents
+	while(true)
+	{
+		int w;
+		char coma;
+		sis2 >> w;
+		if (w==-1)
+			break; //-1 stands for an empty list
+		doclist.insert(w);
+		if(!sis2.eof())
+			sis2 >> coma; //separating from next value (if there is one)
+		else
+			break; //otherwise we're done
+	}
 
 
 
@@ -91,11 +97,7 @@ RandomSurfer::RandomSurfer( const string &name )
 		 * 					beforequerydistribution
 		 * 					beforequery[param1]
 		 *
-		 * 					afterquerydistribution
-		 *
 		 * 					offlinetimedistribution
-		 *
-		 * 					inactivesessionlengthdistribution
 		 *
 		 * etc.
 		 */
@@ -115,13 +117,6 @@ RandomSurfer::RandomSurfer( const string &name )
 
 		}
 
-		timeAfterQueryDist = Distribution::create( MainSimulator::Instance().getParameter( description(), "afterquerydistribution" ) );
-		for ( register int i = 0 ; i < timeAfterQueryDist->varCount() ; i++ )
-		{
-			string parameter( MainSimulator::Instance().getParameter( description(), "afterquery"+timeAfterQueryDist->getVar(i) ) ) ;
-			timeAfterQueryDist->setVar( i, str2float( parameter ) ) ;
-
-		}
 		offlineTimeDist = Distribution::create( MainSimulator::Instance().getParameter( description(), "offlinetimedistribution" ) );
 		for ( register int i = 0 ; i < offlineTimeDist->varCount() ; i++ )
 		{
@@ -131,14 +126,6 @@ RandomSurfer::RandomSurfer( const string &name )
 
 		}
 
-		inactiveSessionLength = Distribution::create( MainSimulator::Instance().getParameter( description(), "inactivesessionlengthdistribution" )) ;
-		for ( register int i = 0 ; i < inactiveSessionLength->varCount() ; i++ )
-		{
-			string parameter( MainSimulator::Instance().getParameter( description(), "inactivesessionlength"+inactiveSessionLength->getVar(i) ) ) ;
-			inactiveSessionLength->setVar( i, str2float( parameter ) ) ;
-
-
-		}
 
 
 		unif_01 = Distribution::create("uniform");
@@ -148,11 +135,8 @@ RandomSurfer::RandomSurfer( const string &name )
 		activityProb = str2float(MainSimulator::Instance().getParameter( description(), "probabilityofactivity" ) );
 		ignoreProb = str2float(MainSimulator::Instance().getParameter(description(), "probabilityToIgnore"));
 
-		identifier = -1; //Id so that only one document from a same query may be published
-						 //TODO: Need to change it so that it's not a magic number
-		hitsLeft = 0;
+
 		nextchange = Time(0,0,0,0);
-		isactive = false;
 		start = Time(0,0,0,0);
 		stop = Time(0,0,0,0);
 
@@ -182,13 +166,10 @@ Model &RandomSurfer::initFunction()
 	officiallyonline=false; //start offline
 
 
-	int initialdoc = (unif_01->get()*maxQuery)+1; // start off with random document
-	doclist.insert(initialdoc);
-
-
 
 	if(PVERBOSE) cout<<endl<<"Peer"<<whoAmI<<" about to start with waiting time: "<<t<<endl;;
 	Time toto = makeTimefromSeconds( t );
+//	Time toto = Time(0,0,0,1);
 	if(PVERBOSE) cout<<"formatted time: "<<toto<<endl;;
 
 
@@ -218,66 +199,13 @@ Model &RandomSurfer::externalFunction( const ExternalMessage &msg )
 
 
 
-		hitsLeft = getTTL(msg.value());   //Nbr of queryhits incoming
-		int thedoc = getMessageId(msg.value()); //Document Id
-		int messageID = getPeerId(msg.value()); //Message Identifier
+		//Add document to the set of possible choices
+		int thedoc = getFirstField(msg.value()); //Document Id
+		int messageID = getSecondField(msg.value()); //Message Identifier
 
-
-//		if(linkChoices.find(thedoc) == linkChoices.end()) { //Add document to choices if it isn't already there!
-			linkChoices.insert(thedoc);
-//		}
+		linkChoices.insert(thedoc);
 		nextchange = nextChange();
 		holdIn(active,nextchange);
-
-
-
-
-
-
-
-
-//		if(hitsLeft == 0){ //When no more queryhits are incoming, choose one of the documents at random!
-//
-//
-//			if(nextChange() < Time(0,0,10,0)){
-//				nextchange = Time(0,0,0,0);
-//			}
-//			else{
-//				nextchange = nextChange() - Time(0,0,10,0);
-//			}
-//			float randomness = unif_01->get();
-//			if(PVERBOSE)cout <<msg.time()<< " ignore/publish   choice: "<< randomness << " vs. " << ignoreProb << endl;
-//
-//
-//			if(randomness < ignoreProb){ //we check whether the random surfer is going to publish the file or simply ignore it
-//										//If ignored, Adds a random query to the querylist
-//				if(PVERBOSE) cout << msg.time()<<" ignoring links"<<endl;
-//				int queries = (unif_01->get()*maxQuery)+1; //randomly chooses a possible query
-//				//querylist.insert(queries);
-//				doclist.insert(queries); //no queries for current data
-//			}
-//			else{
-//
-//				int nbrOfLinks = linkChoices.size();
-//				int linkPicker = unif_01->get()*(nbrOfLinks);
-//				set<int>::iterator link = linkChoices.begin();
-//				advance(link,linkPicker); //iterate and stop randomly in the set to pick a link
-//				doclist.insert(*link);// add the document to be published
-//				if(PVERBOSE) cout <<msg.time()<< " Adding document "<<*link<< " to be published"<<endl;
-//
-//			}
-//			linkChoices.clear();
-//			holdIn(active, Time(0,0,10,0));//just go to active state for 10 sec
-//
-//		}
-//		if(PVERBOSE) cout <<" Next Change while in the querying: "<<nextChange()<<endl;
-//		else{
-//			nextchange = nextChange();
-//			holdIn(active, nextchange);
-//		}
-//
-//		if(PVERBOSE) cout <<"     TOTAL SESSION LENGTH: "<< start<<endl;
-//		if(PVERBOSE) cout <<"              NEXT CHANGE: "<< nextchange<<endl;
 
 	}
 	else{
@@ -303,7 +231,7 @@ Model &RandomSurfer::internalFunction( const InternalMessage &im )
 		if(PVERBOSE) cout << im.time() << "          "<<stop<<endl;
 
 
-	//Make surfer stay in the SESSION state for 30 seconds before going to the QUERYHIT state
+	//Make surfer stay in the SESSION state for 5 seconds before going to the QUERYHIT state
 		if(im.time() > stop){
 			mystate = OFFLINE;
 			t = max(static_cast<float>( distribution(OFFLINE).get() ), 0.0f);
@@ -313,23 +241,13 @@ Model &RandomSurfer::internalFunction( const InternalMessage &im )
 			mystate = QUERYHIT;
 			holdIn(active, Time(0,0,5,0));
 		}
-
-
-/* Need to re-make start-stop time
-		mystate = OFFLINE;
-		queries = (unif_01->get()*maxQuery)+1; //random number from 0 to MaxQuery
-		doclist.insert(queries);
-		isactive = false;
-		t = max(static_cast<float>( distribution(OFFLINE).get() ), 0.0f);
-		holdIn(active, makeTimefromSeconds(t));
-*/
 		break;
 
 
 	case QUERYHIT :
 		if(PVERBOSE) cout<<"state: QUERYHIT"<<endl;
 
-	//Make surfer wait 30 seconds in the QUERYHIT state, then go to the SESSION state
+	//Make surfer wait 5 seconds in the QUERYHIT state, then go to the SESSION state
 		if(im.time() > stop){
 			mystate = OFFLINE;
 			t = max(static_cast<float>( distribution(OFFLINE).get() ), 0.0f);
@@ -339,20 +257,6 @@ Model &RandomSurfer::internalFunction( const InternalMessage &im )
 			mystate = SESSION;
 			holdIn(active, Time(0,0,5,0));
 		}
-
-
-/*
-		if(hitsLeft == 0){
-			mystate = SESSION;
-			holdIn(active, nextchange);
-		}
-
-		else{
-			mystate = OFFLINE;
-			t = max(static_cast<float>( distribution(OFFLINE).get() ), 0.0f);
-			holdIn(active, makeTimefromSeconds(t));
-		}
-*/
 		break;
 
 
@@ -361,15 +265,15 @@ Model &RandomSurfer::internalFunction( const InternalMessage &im )
 
 
 		if(!doclist.empty()){ //publish all docs, if necessary
-			holdIn(active, Time(0,0,1,0 )); //wait 1s between publishing docs
+			holdIn(active, Time(0,0,0,2 )); //wait 2ms between publishing docs
 		} else { //go online
 
 			mystate =  SESSION; //active session
 
 			t = max(static_cast<float>( distribution(SESSION).get() ), 0.0f);
 			start = makeTimefromSeconds(t);
+			//cout << "session time: "<<start<<endl;
 			stop = im.time() + start;
-
 			holdIn(active, Time(0,0,5,0));
 
 		}
@@ -391,50 +295,29 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 	switch(mystate){
 	case SESSION :
 		if(msg.time() > stop){
+			if(PVERBOSE) cout << "Peer "<<whoAmI<<" GOING OFFLINE"<<endl;
 			sendOutput( msg.time(), offline, whoAmI );
 			officiallyonline=false;
 		}
-//		sendOutput( msg.time(), offline, whoAmI );
-//		officiallyonline=false;
-
-
-
 
 		break;
 
 	case QUERYHIT :
 		if(PVERBOSE) cout << "QUERYHIT OUTPUT"<<endl;
-/////////////No Queries in this version (for the moment)
-//		if (!querylist.empty() && doclist.empty() && hitsLeft == 0) //we're querying
-//										//only if there are no documents being published and
-//										//there are no more queryhits coming
-//		{
-//			set<int>::iterator it;
-//			it = querylist.begin();
-//
-//			//if(identifier + 1 > 999) identifier = -1; //identifier can't currently be more than 3 digits
-//
-//			if(PVERBOSE) cout<<msg.time()<<" : Peer "<<whoAmI<< " queries:"<<*it<<endl;
-//			int tosend = buildMessage((identifier+1),*it); // encode query, who am I
-//			sendOutput( msg.time(), query , tosend ); // we output the value in the query set on the query output port
-//			querylist.erase(it); // remove the query from list.
-//			isactive = true;
-//				}
 		if(!linkChoices.empty() && msg.time() < stop){ // a document to publish following a queryhit
 
 
 			float randomness = unif_01->get();
+			long long tosend;
 			if(PVERBOSE)cout <<msg.time()<< " ignore/publish   choice: "<< randomness << " vs. " << ignoreProb << endl;
 
 
 			if(randomness < ignoreProb){ //we check whether the random surfer is going to publish the file or simply ignore it
-										//If ignored, Adds a random query to the querylist
 				if(PVERBOSE) cout << msg.time()<<" ignoring links"<<endl;
 				int queries = (unif_01->get()*maxQuery)+1; //randomly chooses a possible query
-				//querylist.insert(queries);
-				int tosend = buildMessage((identifier + 1),queries);
-				if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<queries<<endl;
-				sendOutput( msg.time(), publish , tosend ); // we output the value in the query set on the query output port
+				long long tosend2 = buildNewMessage(queries,2,0,whoAmI,0,TTL);
+				if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " queries: "<<queries<<endl;
+				sendOutput( msg.time(), query , tosend2 ); // we output the value in the query set on the query output port
 				alldocs.insert(queries); // save it in the collection of already published documents
 			}
 			else{
@@ -445,33 +328,19 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 				advance(link,linkPicker); //iterate and stop randomly in the set to pick a link
 //				if(PVERBOSE) cout <<msg.time()<< " Adding document "<<*link<< " to be published"<<endl;
 				if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<*link<<endl;
-				int tosend = buildMessage((identifier + 1),*link);
-				sendOutput( msg.time(), publish , tosend ); // we output the value in the query set on the query output port
+				tosend = buildNewMessage(*link, 0, 0, whoAmI, 0, TTL);
+				sendOutput( msg.time(), query, tosend);
 				alldocs.insert(*link); // save it in the collection of already published documents
-				isactive = true;
 			}
 			linkChoices.clear();
 
-
-
-//			set<int>::iterator it;
-//			it = doclist.begin();
-
-			//if(identifier + 1 > 999) identifier = -1; //identifier can't currently be more than 3 digits
-
-//			if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<*it<<endl;
-//			int tosend = buildMessage((identifier + 1),*it); // encode query, who am I
-//			sendOutput( msg.time(), publish , tosend ); // we output the value in the query set on the query output port
-//			alldocs.insert(*it); // save it in the collection of already published documents
-//			doclist.erase(it);
-//			isactive = true;
 		}
 		else if(msg.time() < stop){
 			int queries = (unif_01->get()*maxQuery)+1; //randomly chooses a possible query
-			//querylist.insert(queries);
-			int tosend = buildMessage((identifier + 1),queries);
+			long long tosend = buildNewMessage(queries,2,0,whoAmI,0,TTL);
+			if(PVERBOSE) cout << msg.time()<<" : output message: "<<tosend<<endl;
 			if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<queries<<endl;
-			sendOutput( msg.time(), publish , tosend ); // we output the value in the query set on the query output port
+			sendOutput( msg.time(), query , tosend ); // we output the value in the query set on the query output port
 			alldocs.insert(queries); // save it in the collection of already published documents
 		}
 		else{
@@ -492,14 +361,9 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 			set<int>::iterator it;
 			it = doclist.begin();
 			if(PVERBOSE) cout <<msg.time()<< " publishing document : "<< *it << endl;
-
-			//if(identifier + 1 > 999) identifier = -1; //identifier can't currently be more than 3 digits
-
-			int tosend = buildMessage((identifier + 1),*it); // encode query, who am I
-			sendOutput( msg.time(), publish , tosend ); // we output the value in the query set on the query output port
+			sendOutput( msg.time(), publish , buildNewMessage(*it,0,0,whoAmI,0,0)); // we output the value in the query set on the query output port
 			alldocs.insert(*it); // save it in the collection of already published documents
 			doclist.erase(it);
-			isactive = true;
 		}
 
 		break;
@@ -518,8 +382,6 @@ RandomSurfer::~RandomSurfer()
 	//delete all statistical distribution objects
 	delete timeBetweenQueryDist ;
 	delete timeBeforeQueryDist ;
-	delete timeAfterQueryDist ;
 	delete offlineTimeDist ;
-	delete inactiveSessionLength ;
 	delete unif_01;
 }

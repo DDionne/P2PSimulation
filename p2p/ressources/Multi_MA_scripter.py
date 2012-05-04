@@ -10,6 +10,17 @@ import time
 print("Please input number of peers to simulate")
 size = input()
 
+print("Please input the storage capacity for each peer")
+cap = input()
+
+print("Please input the STANDARDTTL for each peer")
+TTL = input()
+
+print("Please input the number of documents available (e.g. from 1-966, put 965")
+numDoc = input()
+
+
+
 #generate social graph
 G= dict()
 
@@ -98,7 +109,7 @@ for k in range(size):
 #docs will be initially distributed between the peers
 #so that each document is only stored by 1 or 2 peers.
 DocDistrib = dict()
-for d in range(1,966): #there are 10 docs numbered 10 to 19
+for d in range(1,numDoc+1): # <--------------------------- Modified this
     #they are stored by one - three of the peers (num of peers = size)
     nodes = list(numpy.random.randint(0,size,numpy.random.randint(1,4)))
     for nn in nodes:
@@ -122,7 +133,7 @@ for k in range(size):
     docsdistribution.append(doclist)
 
 #generating MultiPeer_size_.MA
-MAFile = open("C:\\eclipse\\workspace\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\MultiPeerGnu\\MultiPeer"+str(size)+".MA", "w")
+MAFile = open("C:\\eclipse\\workspace\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\MultiPeer"+str(size)+".MA", "w")
 #load a piece of the MA file from a separate file
 partfile = open("RS_each_peer3.txt", "r")
 eachpeerspec = ""
@@ -162,7 +173,7 @@ parts = [(1,"[top]\ncomponents : Network IdGen@msgIdGen log@Logger Linker@LinkFi
          (1, "[Linker]\n"),
          (1, "datafile : serverdoc.dat\n"),
          (size, eachpeerspec), #read from file because this part is big
-         (1, "\n[Network]\n components : net@SimpleDemux LTS@LTSNetwork\n"),
+         (1, "\n[Network]\n components : net@PhysicalNetwork LTS@NetworkGraph\n"),
          (size, "out : c_out{num}\n"),
          (size, "out : route_out{num}\n"),
          (1, netspec),
@@ -173,7 +184,7 @@ parts = [(1,"[top]\ncomponents : Network IdGen@msgIdGen log@Logger Linker@LinkFi
 
 for part in parts:
     for j in range(part[0]): #the first element is a number indicating how many times the second is repeated
-        MAFile.write(part[1].format(num=str(j),dlist=docsdistribution[j],flist=friendslist[j],qlist=querylist[j])) #write other element replacing the {num} with the appropriate integer
+        MAFile.write(part[1].format(num=str(j),dlist=docsdistribution[j],flist=friendslist[j],qlist=querylist[j], cap = str(cap), TTL = str(TTL), numDoc = str(numDoc))) #write other element replacing the {num} with the appropriate integer
 
 MAFile.close()
 

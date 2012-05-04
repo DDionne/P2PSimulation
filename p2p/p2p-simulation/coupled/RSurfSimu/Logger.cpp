@@ -1,12 +1,11 @@
 /*******************************************************************
 *
-*  DESCRIPTION: Atomic Model Logger
+*  DESCRIPTION: Atomic Model Logger : Outputs to a text file all the outputs
 *
 *  AUTHOR: Denis
 *
 *  EMAIL: mailto://hsaadawi@scs.carleton.ca
 *
-*Description: Outputs to a text file all the outputs (publish, online, offline, connect and disconnect)
 *
 *  DATE: 14/07/2011
 *

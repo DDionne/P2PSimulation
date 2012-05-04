@@ -13,27 +13,27 @@
 
 #include "modeladm.h"
 #include "mainsimu.h"
-#include "PeerGnutella.h"              // class Gnutella
+#include "Router.h"              // class Gnutella
 #include "RandomSurfer.h"              //class RandomSurfer
 #include "msgIdGen.h"                  //class msgIdGen
-#include "SimpleDemux.h"               //class SimpleDemux
-#include "LTSNetwork.h"                //class Network
+#include "PhysicalNetwork.h"               //class PhysicalNetwork
+#include "NetworkGraph.h"                //class Network
 #include "ConnectionManager.h"
 #include "Logger.h"
-#include "Server.h"
+#include "Repository.h"
 #include "LinkFinder.h"
 
 
 void MainSimulator::registerNewAtomics()
 {
-	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<LTSNetwork>(), "LTSNetwork" ) ;
-	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<PeerGnutella>() , "PeerGnutella" ) ;
+	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<NetworkGraph>(), "NetworkGraph" ) ;
+	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<Router>() , "Router" ) ;
 	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<RandomSurfer>() , "RandomSurfer" ) ;
 	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<msgIdGen>() , "msgIdGen" ) ;
-	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<SimpleDemux>(), "SimpleDemux") ;
+	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<PhysicalNetwork>(), "PhysicalNetwork") ;
 	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<ConnectionManager>(), "ConnectionManager") ;
 	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<Logger>(), "Logger") ;
-	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<Server>(), "Server") ;
+	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<Repository>(), "Repository") ;
 	SingleModelAdm::Instance().registerAtomic( NewAtomicFunction<LinkFinder>(), "LinkFinder") ;
 
 

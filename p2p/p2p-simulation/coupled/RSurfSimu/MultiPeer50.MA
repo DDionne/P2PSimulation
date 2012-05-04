@@ -954,7 +954,7 @@ Link : queryreachespeer@Peer49 queryReached@log
 datafile : serverdoc.dat
 
 [Peer0]
-components : session0@RandomSurfer connector0@ConnectionManager gnut0@PeerGnutella server0@Server
+components : session0@RandomSurfer connector0@ConnectionManager gnut0@PeerGnutella server0@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1013,16 +1013,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 21,38,45,83,89,96,135,147,149,152,176,222,282,295,296,315,368,382,389,407,445,453,464,467,474,475,475,516,540,543,573,574,611,694,723,778,782,788,792,823,824,853,865,906,909,925,937,957
+doclist : 7,18,64,67,105,126,127,169,180,184,199,254,267,285,293,310,341,343,347,364,375,377,397,402,409,432,452,460,490,497,507,511,514,559,561,613,698,742,756,770,778,783,847,856,870,882,894,916,940,965
 whoAmI : 0
+TimeToLive : 7
 
 [connector0]
-friendlist : 1,3,4,5,6
+friendlist : 1,2,3,5,7,8,9,10,16,18,21
 whoAmI : 0 
+
+[server0]
+capacity : 20
 
 
 [Peer1]
-components : session1@RandomSurfer connector1@ConnectionManager gnut1@PeerGnutella server1@Server
+components : session1@RandomSurfer connector1@ConnectionManager gnut1@PeerGnutella server1@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1081,16 +1085,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 5,26,27,43,43,50,56,65,67,82,140,201,237,277,282,376,378,381,388,414,450,523,538,549,553,629,638,660,662,683,706,715,718,727,770,774,805,829,852,860,865,883,912,927,953,960,963
+doclist : 1,18,21,38,45,60,121,154,195,197,224,248,251,314,381,410,422,467,479,497,521,531,548,564,566,616,619,636,639,664,752,773,787,794,829,831,841,857,861,872,913,944
 whoAmI : 1
+TimeToLive : 7
 
 [connector1]
-friendlist : 0,2,3,4,5,6,7,13,16,20,21,26,32,38,49
+friendlist : 0,5,27,30,36
 whoAmI : 1 
+
+[server1]
+capacity : 20
 
 
 [Peer2]
-components : session2@RandomSurfer connector2@ConnectionManager gnut2@PeerGnutella server2@Server
+components : session2@RandomSurfer connector2@ConnectionManager gnut2@PeerGnutella server2@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1149,16 +1157,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 16,31,50,70,116,264,290,331,334,362,389,396,405,438,440,502,512,517,528,528,601,614,616,620,659,661,666,717,725,735,760,801,819,861,899,910,951
+doclist : 87,97,148,175,192,241,241,243,269,284,296,304,456,503,533,534,575,591,657,701,765,791,796,805,815,843,890,918,925
 whoAmI : 2
+TimeToLive : 7
 
 [connector2]
-friendlist : 1,3,6,14,15,21,26
+friendlist : 0,3,4,6,13,31,39,43
 whoAmI : 2 
+
+[server2]
+capacity : 20
 
 
 [Peer3]
-components : session3@RandomSurfer connector3@ConnectionManager gnut3@PeerGnutella server3@Server
+components : session3@RandomSurfer connector3@ConnectionManager gnut3@PeerGnutella server3@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1217,16 +1229,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 10,95,99,149,155,179,200,218,245,246,274,336,347,365,392,413,485,565,569,598,688,688,729,773,816,860,872,872,943
+doclist : 26,30,77,99,100,112,206,211,215,260,276,332,333,333,342,382,385,389,416,520,522,557,601,651,652,726,744,760,811,832,861,872,883,892,904,906,938,951,954
 whoAmI : 3
+TimeToLive : 7
 
 [connector3]
-friendlist : 1,2,0,4,5,9,11,12,15,18,22,24
+friendlist : 0,2,5,11,25,26,29
 whoAmI : 3 
+
+[server3]
+capacity : 20
 
 
 [Peer4]
-components : session4@RandomSurfer connector4@ConnectionManager gnut4@PeerGnutella server4@Server
+components : session4@RandomSurfer connector4@ConnectionManager gnut4@PeerGnutella server4@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1285,16 +1301,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 13,100,135,146,156,157,166,187,216,217,230,291,316,327,416,439,442,501,502,517,539,651,664,678,681,718,724,741,755,765,771,851,942,949
+doclist : 5,20,78,79,83,93,96,104,111,185,199,318,332,350,364,384,398,403,505,517,546,568,613,619,642,658,758,792,797,809,833,835,868,869,898,944
 whoAmI : 4
+TimeToLive : 7
 
 [connector4]
-friendlist : 0,3,1,6,7,8,10,24,26,29,30
+friendlist : 2,37
 whoAmI : 4 
+
+[server4]
+capacity : 20
 
 
 [Peer5]
-components : session5@RandomSurfer connector5@ConnectionManager gnut5@PeerGnutella server5@Server
+components : session5@RandomSurfer connector5@ConnectionManager gnut5@PeerGnutella server5@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1353,16 +1373,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 7,27,85,86,122,181,186,187,187,231,234,251,284,300,345,345,397,550,552,566,591,633,661,689,691,701,709,776,896,932,961
+doclist : 9,10,16,47,66,144,150,155,225,227,255,264,277,293,353,354,357,378,398,424,449,474,484,494,499,510,524,536,554,561,568,572,576,585,605,624,632,644,646,722,749,752,820,822,826,835,837,845,903,930,943
 whoAmI : 5
+TimeToLive : 7
 
 [connector5]
-friendlist : 3,1,0,23,38
+friendlist : 0,3,1,17
 whoAmI : 5 
+
+[server5]
+capacity : 20
 
 
 [Peer6]
-components : session6@RandomSurfer connector6@ConnectionManager gnut6@PeerGnutella server6@Server
+components : session6@RandomSurfer connector6@ConnectionManager gnut6@PeerGnutella server6@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1421,16 +1445,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 22,35,42,53,67,111,151,174,188,262,289,292,336,338,339,340,351,369,387,394,429,431,487,562,603,631,659,730,793,891,901,937,949,958
+doclist : 15,44,65,100,174,178,300,330,342,381,407,422,448,478,542,543,565,579,580,590,607,632,639,675,816,846,847,852,895,918,935
 whoAmI : 6
+TimeToLive : 7
 
 [connector6]
-friendlist : 1,0,4,2,26,30,31,39
+friendlist : 2,7,13
 whoAmI : 6 
+
+[server6]
+capacity : 20
 
 
 [Peer7]
-components : session7@RandomSurfer connector7@ConnectionManager gnut7@PeerGnutella server7@Server
+components : session7@RandomSurfer connector7@ConnectionManager gnut7@PeerGnutella server7@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1489,16 +1517,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 3,69,117,126,191,265,327,332,351,357,421,450,451,463,479,556,577,639,665,669,679,685,699,721,728,732,783,802,848,869
+doclist : 8,11,41,50,61,80,84,93,108,130,181,199,212,221,277,292,304,308,311,320,325,327,374,463,550,550,552,676,678,712,719,748,767,768,774,783,802,955,956,957,959
 whoAmI : 7
+TimeToLive : 7
 
 [connector7]
-friendlist : 1,4,17,19,27,34
+friendlist : 0,6,8,13,15,22,40
 whoAmI : 7 
+
+[server7]
+capacity : 20
 
 
 [Peer8]
-components : session8@RandomSurfer connector8@ConnectionManager gnut8@PeerGnutella server8@Server
+components : session8@RandomSurfer connector8@ConnectionManager gnut8@PeerGnutella server8@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1557,16 +1589,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 37,51,74,105,142,183,290,294,337,360,376,395,410,410,418,454,501,514,545,565,636,650,656,685,729,733,744,761,773,802,809,824,829,836,843,871,872,876,877,910,929
+doclist : 4,8,35,37,41,81,99,101,128,167,200,233,284,300,306,312,370,374,387,404,425,436,469,473,538,617,621,669,697,780,803,814,849,887,916,925
 whoAmI : 8
+TimeToLive : 7
 
 [connector8]
-friendlist : 4,10,29
+friendlist : 0,7,9,21
 whoAmI : 8 
+
+[server8]
+capacity : 20
 
 
 [Peer9]
-components : session9@RandomSurfer connector9@ConnectionManager gnut9@PeerGnutella server9@Server
+components : session9@RandomSurfer connector9@ConnectionManager gnut9@PeerGnutella server9@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1625,16 +1661,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 28,44,58,72,76,99,139,200,205,207,218,247,283,285,305,312,386,420,590,605,619,630,649,722,782,817,871,907,909,913,922,931,964,965
+doclist : 4,20,109,149,156,162,184,231,245,311,319,353,394,453,455,467,472,519,526,588,607,608,625,735,752,781,795,796,805,838,848,854,885,888,893,933
 whoAmI : 9
+TimeToLive : 7
 
 [connector9]
-friendlist : 3,12,18,22,35,48
+friendlist : 8,0,21,23
 whoAmI : 9 
+
+[server9]
+capacity : 20
 
 
 [Peer10]
-components : session10@RandomSurfer connector10@ConnectionManager gnut10@PeerGnutella server10@Server
+components : session10@RandomSurfer connector10@ConnectionManager gnut10@PeerGnutella server10@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1693,16 +1733,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 27,29,48,66,97,144,150,173,189,201,203,215,224,236,281,298,299,311,321,375,390,429,464,481,533,547,653,658,676,696,697,731,767,791,945,946,952
+doclist : 14,39,40,43,56,57,62,65,71,72,84,103,107,177,197,230,245,247,249,268,281,289,295,313,324,328,337,350,390,394,401,414,415,420,433,461,486,516,530,606,649,710,711,765,770,781,825,912,918
 whoAmI : 10
+TimeToLive : 7
 
 [connector10]
-friendlist : 8,4,29,36,46
+friendlist : 0,12
 whoAmI : 10 
+
+[server10]
+capacity : 20
 
 
 [Peer11]
-components : session11@RandomSurfer connector11@ConnectionManager gnut11@PeerGnutella server11@Server
+components : session11@RandomSurfer connector11@ConnectionManager gnut11@PeerGnutella server11@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1761,16 +1805,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 4,6,17,33,64,76,102,103,118,190,240,246,288,315,327,329,373,399,415,421,469,472,489,494,634,642,647,667,674,692,724,762,767,781,803,826,846,901
+doclist : 22,24,60,73,94,114,138,196,228,239,298,323,363,379,386,387,428,465,465,485,508,518,525,538,558,614,615,625,676,703,729,744,754,825,842,855,865,884,939,945,948,959
 whoAmI : 11
+TimeToLive : 7
 
 [connector11]
-friendlist : 3,15,45
+friendlist : 3
 whoAmI : 11 
+
+[server11]
+capacity : 20
 
 
 [Peer12]
-components : session12@RandomSurfer connector12@ConnectionManager gnut12@PeerGnutella server12@Server
+components : session12@RandomSurfer connector12@ConnectionManager gnut12@PeerGnutella server12@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1829,16 +1877,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 46,68,86,133,185,309,372,393,455,495,504,538,567,569,571,610,648,673,702,742,754,772,780,787,830,832,921,964
+doclist : 53,127,131,157,208,232,322,346,357,394,428,451,535,536,563,581,584,641,706,733,739,743,758,759,766,772,825,839,866,876,886,926,945,960
 whoAmI : 12
+TimeToLive : 7
 
 [connector12]
-friendlist : 9,3,40,48
+friendlist : 10
 whoAmI : 12 
+
+[server12]
+capacity : 20
 
 
 [Peer13]
-components : session13@RandomSurfer connector13@ConnectionManager gnut13@PeerGnutella server13@Server
+components : session13@RandomSurfer connector13@ConnectionManager gnut13@PeerGnutella server13@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1897,16 +1949,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 53,56,57,84,152,184,205,229,235,267,280,293,299,307,360,364,403,412,416,424,457,508,521,526,549,596,628,654,658,758,763,780,887,889,891,894,899,943
+doclist : 17,34,124,155,183,209,251,348,349,436,445,466,480,515,529,535,539,566,577,586,596,609,647,673,676,682,694,756,762,777,799,859,879,913,926,928
 whoAmI : 13
+TimeToLive : 7
 
 [connector13]
-friendlist : 1,44
+friendlist : 6,2,7,14,20,40,45
 whoAmI : 13 
+
+[server13]
+capacity : 20
 
 
 [Peer14]
-components : session14@RandomSurfer connector14@ConnectionManager gnut14@PeerGnutella server14@Server
+components : session14@RandomSurfer connector14@ConnectionManager gnut14@PeerGnutella server14@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -1965,16 +2021,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 1,24,63,70,82,82,93,103,152,207,212,243,255,260,378,385,396,401,403,435,462,500,541,542,558,593,650,712,735,785,812,823,832,841,906
+doclist : 10,22,26,39,49,78,101,124,146,146,153,161,209,219,225,231,234,258,265,286,287,297,301,367,404,439,467,474,508,545,557,558,567,602,606,626,654,684,701,712,718,731,738,741,768,792,799,821,824,882,915
 whoAmI : 14
+TimeToLive : 7
 
 [connector14]
-friendlist : 2
+friendlist : 13,19,20
 whoAmI : 14 
+
+[server14]
+capacity : 20
 
 
 [Peer15]
-components : session15@RandomSurfer connector15@ConnectionManager gnut15@PeerGnutella server15@Server
+components : session15@RandomSurfer connector15@ConnectionManager gnut15@PeerGnutella server15@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2033,16 +2093,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 10,12,15,35,45,84,112,134,144,149,159,160,169,172,221,248,254,300,312,331,376,440,444,525,582,583,604,606,736,749,753,807,822,831,838,845,866,868,888,905,926,934,936
+doclist : 23,51,81,85,91,101,234,251,279,282,293,301,351,352,386,458,501,559,610,620,622,623,679,686,708,732,754,778,813,813,848,860,870,871,875,889,907,938,952,960
 whoAmI : 15
+TimeToLive : 7
 
 [connector15]
-friendlist : 3,2,11,28,33
+friendlist : 7,22
 whoAmI : 15 
+
+[server15]
+capacity : 20
 
 
 [Peer16]
-components : session16@RandomSurfer connector16@ConnectionManager gnut16@PeerGnutella server16@Server
+components : session16@RandomSurfer connector16@ConnectionManager gnut16@PeerGnutella server16@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2101,16 +2165,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 61,75,89,98,131,133,163,197,220,226,244,278,279,340,344,345,372,373,400,406,442,460,474,510,517,518,528,563,565,578,584,607,615,632,652,657,699,728,730,746,754,756,761,784,804,820,848,886,911
+doclist : 51,112,120,123,150,168,177,185,186,191,205,215,216,228,354,364,371,392,417,420,473,590,620,662,683,722,733,770,777,807,814,891,908,909,924
 whoAmI : 16
+TimeToLive : 7
 
 [connector16]
-friendlist : 1,20,47
+friendlist : 0
 whoAmI : 16 
+
+[server16]
+capacity : 20
 
 
 [Peer17]
-components : session17@RandomSurfer connector17@ConnectionManager gnut17@PeerGnutella server17@Server
+components : session17@RandomSurfer connector17@ConnectionManager gnut17@PeerGnutella server17@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2169,16 +2237,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 69,114,129,246,257,259,278,311,329,362,374,388,399,424,484,499,564,570,585,592,664,667,673,703,707,720,745,763,766,786,818,836,855,898,909,932,948
+doclist : 158,161,173,174,207,270,272,278,307,323,323,371,388,410,412,475,492,582,593,637,771,778,797,830,843,861,882,885,910,932,936,948,955
 whoAmI : 17
+TimeToLive : 7
 
 [connector17]
-friendlist : 7,19,27
+friendlist : 5,42,44
 whoAmI : 17 
+
+[server17]
+capacity : 20
 
 
 [Peer18]
-components : session18@RandomSurfer connector18@ConnectionManager gnut18@PeerGnutella server18@Server
+components : session18@RandomSurfer connector18@ConnectionManager gnut18@PeerGnutella server18@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2237,16 +2309,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 31,57,67,72,80,85,123,145,175,178,307,317,404,407,433,434,449,476,507,522,529,583,614,615,626,635,671,686,700,708,762,773,774,825,859,877,879,919,920
+doclist : 25,91,98,111,129,192,198,232,253,292,332,339,369,376,543,546,550,588,622,660,709,716,749,772,793,800,840,850,853
 whoAmI : 18
+TimeToLive : 7
 
 [connector18]
-friendlist : 9,3,22,37
+friendlist : 0,32
 whoAmI : 18 
+
+[server18]
+capacity : 20
 
 
 [Peer19]
-components : session19@RandomSurfer connector19@ConnectionManager gnut19@PeerGnutella server19@Server
+components : session19@RandomSurfer connector19@ConnectionManager gnut19@PeerGnutella server19@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2305,16 +2381,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 11,20,30,107,137,145,228,379,382,406,431,438,496,502,515,616,653,674,717,735,739,798,826,870,870,942,958
+doclist : 49,54,119,125,132,141,176,205,216,220,235,249,317,365,411,469,581,586,631,683,692,713,736,804,828,836,865,902,936,953,965
 whoAmI : 19
+TimeToLive : 7
 
 [connector19]
-friendlist : 17,7,34
+friendlist : 14,28
 whoAmI : 19 
+
+[server19]
+capacity : 20
 
 
 [Peer20]
-components : session20@RandomSurfer connector20@ConnectionManager gnut20@PeerGnutella server20@Server
+components : session20@RandomSurfer connector20@ConnectionManager gnut20@PeerGnutella server20@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2373,16 +2453,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 4,58,64,97,98,154,160,167,181,193,209,212,219,223,227,228,250,353,377,392,397,402,423,436,445,463,503,520,537,550,553,553,557,560,581,628,645,687,693,745,775,790,811,816,895,903,915,919,964
+doclist : 30,76,153,160,165,192,212,236,281,324,325,334,335,356,359,415,422,463,624,629,685,757,799,806,806,811,812,835,838,843,854,859,877,899,908,920
 whoAmI : 20
+TimeToLive : 7
 
 [connector20]
-friendlist : 16,1
+friendlist : 14,13,45
 whoAmI : 20 
+
+[server20]
+capacity : 20
 
 
 [Peer21]
-components : session21@RandomSurfer connector21@ConnectionManager gnut21@PeerGnutella server21@Server
+components : session21@RandomSurfer connector21@ConnectionManager gnut21@PeerGnutella server21@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2441,16 +2525,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 54,81,86,109,139,151,165,204,239,241,253,280,314,341,370,411,430,437,446,519,589,613,613,632,634,647,716,745,810,815,855,880,889,935
+doclist : 47,63,75,96,122,163,210,236,262,271,273,286,303,327,340,355,365,368,404,420,470,488,491,537,572,600,617,630,634,669,681,690,718,762,849,869,905,934,962,965
 whoAmI : 21
+TimeToLive : 7
 
 [connector21]
-friendlist : 2,1,25
+friendlist : 9,0,8,25,47
 whoAmI : 21 
+
+[server21]
+capacity : 20
 
 
 [Peer22]
-components : session22@RandomSurfer connector22@ConnectionManager gnut22@PeerGnutella server22@Server
+components : session22@RandomSurfer connector22@ConnectionManager gnut22@PeerGnutella server22@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2509,16 +2597,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 32,52,54,120,146,201,224,255,306,339,361,363,425,441,483,484,497,521,531,534,537,568,595,609,619,662,668,692,704,729,768,944,958
+doclist : 22,38,62,89,102,103,194,240,283,306,325,347,386,490,500,522,578,611,618,627,655,695,715,743,769,837,839,920,921,929,943,946
 whoAmI : 22
+TimeToLive : 7
 
 [connector22]
-friendlist : 18,9,3,42
+friendlist : 15,7
 whoAmI : 22 
+
+[server22]
+capacity : 20
 
 
 [Peer23]
-components : session23@RandomSurfer connector23@ConnectionManager gnut23@PeerGnutella server23@Server
+components : session23@RandomSurfer connector23@ConnectionManager gnut23@PeerGnutella server23@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2577,16 +2669,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 102,146,156,175,176,214,234,243,265,265,294,353,356,361,391,413,435,498,508,524,524,543,546,568,594,667,708,806,827,831,912,947,962
+doclist : 6,11,35,38,46,47,58,68,93,109,147,148,149,164,166,167,184,217,231,266,275,312,319,403,446,509,510,518,518,548,583,604,624,670,711,730,751,753,809,811,827,884,912,939,956
 whoAmI : 23
+TimeToLive : 7
 
 [connector23]
-friendlist : 5,41
+friendlist : 9,24,34,35
 whoAmI : 23 
+
+[server23]
+capacity : 20
 
 
 [Peer24]
-components : session24@RandomSurfer connector24@ConnectionManager gnut24@PeerGnutella server24@Server
+components : session24@RandomSurfer connector24@ConnectionManager gnut24@PeerGnutella server24@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2645,16 +2741,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 55,61,112,115,179,203,207,215,232,271,292,307,308,318,323,423,450,458,473,486,514,561,584,602,603,627,677,698,714,736,740,752,854,876,894,934,938
+doclist : 24,26,31,59,95,134,154,175,176,254,264,299,299,305,315,372,384,407,419,425,427,460,463,489,493,521,523,525,527,606,626,627,651,653,661,661,672,687,737,749,761,763,817,848,894,936
 whoAmI : 24
+TimeToLive : 7
 
 [connector24]
-friendlist : 4,3
+friendlist : 23,34,35
 whoAmI : 24 
+
+[server24]
+capacity : 20
 
 
 [Peer25]
-components : session25@RandomSurfer connector25@ConnectionManager gnut25@PeerGnutella server25@Server
+components : session25@RandomSurfer connector25@ConnectionManager gnut25@PeerGnutella server25@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2713,16 +2813,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 9,51,51,61,117,165,194,202,230,230,260,306,338,355,391,397,407,416,419,434,445,530,538,609,641,689,697,700,702,720,731,787,789,797,821,847,892,906,929,942
+doclist : 13,18,72,74,76,79,92,92,173,182,207,213,226,229,238,243,244,250,266,272,290,321,412,459,476,514,587,599,609,622,628,645,683,688,693,697,706,734,754,791,798,847,862,892,902
 whoAmI : 25
+TimeToLive : 7
 
 [connector25]
-friendlist : 21
+friendlist : 3,21
 whoAmI : 25 
+
+[server25]
+capacity : 20
 
 
 [Peer26]
-components : session26@RandomSurfer connector26@ConnectionManager gnut26@PeerGnutella server26@Server
+components : session26@RandomSurfer connector26@ConnectionManager gnut26@PeerGnutella server26@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2781,16 +2885,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 1,36,44,79,81,84,107,130,143,148,159,184,204,206,211,276,283,302,308,320,354,356,366,388,395,409,430,449,532,575,586,625,629,666,669,751,770,847,894,914,930
+doclist : 14,110,161,175,230,235,260,261,262,268,294,304,331,345,363,366,382,383,390,402,403,456,486,488,496,503,522,540,567,633,638,669,670,678,697,700,705,759,804,815,833,896,906,926,947
 whoAmI : 26
+TimeToLive : 7
 
 [connector26]
-friendlist : 6,1,2,4,30
+friendlist : 3
 whoAmI : 26 
+
+[server26]
+capacity : 20
 
 
 [Peer27]
-components : session27@RandomSurfer connector27@ConnectionManager gnut27@PeerGnutella server27@Server
+components : session27@RandomSurfer connector27@ConnectionManager gnut27@PeerGnutella server27@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2849,16 +2957,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 23,44,64,91,101,125,142,182,225,262,266,271,277,323,352,358,389,419,447,454,458,512,522,530,539,548,551,561,587,619,658,695,739,749,783,793,808,851,863,864,904,916,941,953
+doclist : 5,28,77,138,139,162,203,217,225,244,288,294,301,302,327,344,358,365,380,409,418,419,443,498,547,579,617,658,680,692,760,790,823,850,868,874,878,942,946,956,957,961,962
 whoAmI : 27
+TimeToLive : 7
 
 [connector27]
-friendlist : 17,7,35
+friendlist : 1,30,36,38
 whoAmI : 27 
+
+[server27]
+capacity : 20
 
 
 [Peer28]
-components : session28@RandomSurfer connector28@ConnectionManager gnut28@PeerGnutella server28@Server
+components : session28@RandomSurfer connector28@ConnectionManager gnut28@PeerGnutella server28@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2917,16 +3029,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 60,73,81,118,151,153,171,195,248,262,281,300,313,315,334,343,359,369,381,400,408,412,414,426,471,485,529,549,559,590,594,620,624,640,680,690,698,699,738,751,752,764,771,792,797,803,820,858,871,907,919,924
+doclist : 1,37,88,117,219,237,252,260,264,280,297,385,435,442,457,459,481,482,549,558,621,634,636,660,662,671,682,751,763,786,794,810,812,849,864,915,917,924,927,928,930,941,949
 whoAmI : 28
+TimeToLive : 7
 
 [connector28]
-friendlist : 15,33
+friendlist : 19,41
 whoAmI : 28 
+
+[server28]
+capacity : 20
 
 
 [Peer29]
-components : session29@RandomSurfer connector29@ConnectionManager gnut29@PeerGnutella server29@Server
+components : session29@RandomSurfer connector29@ConnectionManager gnut29@PeerGnutella server29@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -2985,16 +3101,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 6,28,78,131,134,209,217,244,247,250,276,304,310,324,338,378,406,427,453,453,460,470,482,493,506,537,552,592,608,651,733,737,774,799,800,860,885,921,931,932,933,938,957
+doclist : 12,21,24,75,119,144,148,188,190,208,278,338,338,341,396,401,450,453,454,484,541,554,559,574,586,639,644,644,659,659,743,776,816,840
 whoAmI : 29
+TimeToLive : 7
 
 [connector29]
-friendlist : 10,8,4,36
+friendlist : 3
 whoAmI : 29 
+
+[server29]
+capacity : 20
 
 
 [Peer30]
-components : session30@RandomSurfer connector30@ConnectionManager gnut30@PeerGnutella server30@Server
+components : session30@RandomSurfer connector30@ConnectionManager gnut30@PeerGnutella server30@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3053,16 +3173,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 16,25,37,46,121,140,177,199,222,252,269,274,276,328,346,351,355,410,448,448,479,492,523,541,593,596,598,598,602,605,606,617,637,687,688,701,706,709,712,743,746,766,822,889,890,892,898,913,941,954,959
+doclist : 70,164,179,191,307,408,415,455,487,504,526,529,593,597,603,723,740,745,755,777,810,865,914
 whoAmI : 30
+TimeToLive : 7
 
 [connector30]
-friendlist : 26,4,6
+friendlist : 27,1,46
 whoAmI : 30 
+
+[server30]
+capacity : 20
 
 
 [Peer31]
-components : session31@RandomSurfer connector31@ConnectionManager gnut31@PeerGnutella server31@Server
+components : session31@RandomSurfer connector31@ConnectionManager gnut31@PeerGnutella server31@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3121,16 +3245,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 14,77,88,117,119,159,196,200,213,227,245,261,275,288,333,358,377,398,411,415,446,456,527,535,546,550,554,588,589,668,708,769,785,833,854,867,869,890,896,900,908,918,927,939,948
+doclist : 34,78,82,137,147,155,156,256,274,331,351,360,361,369,370,379,388,396,405,426,429,438,443,459,478,506,532,544,569,580,607,612,618,656,699,784,786,788,864,904,931,944
 whoAmI : 31
+TimeToLive : 7
 
 [connector31]
-friendlist : 6
+friendlist : 2,33,39
 whoAmI : 31 
+
+[server31]
+capacity : 20
 
 
 [Peer32]
-components : session32@RandomSurfer connector32@ConnectionManager gnut32@PeerGnutella server32@Server
+components : session32@RandomSurfer connector32@ConnectionManager gnut32@PeerGnutella server32@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3189,16 +3317,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 4,77,119,127,145,148,197,225,225,233,301,340,374,429,437,451,466,469,475,511,532,584,604,662,663,726,736,819,835,837,869,884,929,935
+doclist : 4,9,102,123,133,135,142,144,222,316,399,435,444,481,490,520,531,571,594,650,653,671,681,688,709,772,818,822,826,826,858,862,900,922,928,937,941
 whoAmI : 32
+TimeToLive : 7
 
 [connector32]
-friendlist : 1,49
+friendlist : 18
 whoAmI : 32 
+
+[server32]
+capacity : 20
 
 
 [Peer33]
-components : session33@RandomSurfer connector33@ConnectionManager gnut33@PeerGnutella server33@Server
+components : session33@RandomSurfer connector33@ConnectionManager gnut33@PeerGnutella server33@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3257,16 +3389,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 21,30,43,63,71,94,101,125,143,147,170,221,224,235,243,249,267,298,325,355,383,394,456,505,533,571,636,657,709,714,719,740,794,850,861,863,883,933,934,945
+doclist : 2,9,31,82,89,116,120,151,159,182,222,247,258,269,291,337,395,406,437,472,483,497,512,517,524,593,656,674,681,689,702,727,735,740,746,767,774,776,795,809,834,881
 whoAmI : 33
+TimeToLive : 7
 
 [connector33]
-friendlist : 15,28
+friendlist : 31
 whoAmI : 33 
+
+[server33]
+capacity : 20
 
 
 [Peer34]
-components : session34@RandomSurfer connector34@ConnectionManager gnut34@PeerGnutella server34@Server
+components : session34@RandomSurfer connector34@ConnectionManager gnut34@PeerGnutella server34@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3325,16 +3461,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 29,49,59,143,176,213,254,256,270,293,324,341,365,369,422,431,434,452,468,488,518,563,579,585,613,636,685,712,747,795,795,828,830,849,887,893,955,965,965
+doclist : 32,32,58,74,77,102,107,135,138,159,173,201,218,226,252,306,334,337,351,367,388,399,421,423,447,455,471,500,517,530,536,585,592,660,662,675,680,696,699,699,701,702,716,746,747,766,784,813,844,845,851,943,950
 whoAmI : 34
+TimeToLive : 7
 
 [connector34]
-friendlist : 19,7
+friendlist : 24,23,35
 whoAmI : 34 
+
+[server34]
+capacity : 20
 
 
 [Peer35]
-components : session35@RandomSurfer connector35@ConnectionManager gnut35@PeerGnutella server35@Server
+components : session35@RandomSurfer connector35@ConnectionManager gnut35@PeerGnutella server35@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3393,16 +3533,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 55,92,135,148,170,203,212,228,268,301,363,443,468,489,609,622,632,655,740,744,772,790,804,807,812,818,875,902,923,928,930
+doclist : 5,27,66,98,164,168,169,193,202,205,212,218,238,241,259,259,263,299,317,373,400,412,477,478,483,527,553,584,648,690,692,721,741,800,820,844
 whoAmI : 35
+TimeToLive : 7
 
 [connector35]
-friendlist : 27,9
+friendlist : 24,34,23
 whoAmI : 35 
+
+[server35]
+capacity : 20
 
 
 [Peer36]
-components : session36@RandomSurfer connector36@ConnectionManager gnut36@PeerGnutella server36@Server
+components : session36@RandomSurfer connector36@ConnectionManager gnut36@PeerGnutella server36@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3461,16 +3605,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 28,78,85,109,110,236,250,285,291,323,348,348,380,415,430,442,444,505,524,535,579,592,599,672,681,710,731,733,743,748,755,789,808,828,837,870,873,904,952
+doclist : 3,19,20,23,48,55,61,145,179,180,228,233,239,242,246,257,265,278,310,335,379,383,392,393,416,483,510,557,597,614,621,731,842,866,885,900,911
 whoAmI : 36
+TimeToLive : 7
 
 [connector36]
-friendlist : 29,10,43
+friendlist : 27,1
 whoAmI : 36 
+
+[server36]
+capacity : 20
 
 
 [Peer37]
-components : session37@RandomSurfer connector37@ConnectionManager gnut37@PeerGnutella server37@Server
+components : session37@RandomSurfer connector37@ConnectionManager gnut37@PeerGnutella server37@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3529,16 +3677,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 2,3,16,24,89,95,164,185,223,352,384,420,428,481,483,518,519,580,621,691,718,726,756,763,796,885,910,912
+doclist : 27,45,74,140,179,183,223,267,267,268,275,281,320,328,358,385,416,417,447,457,498,540,581,600,623,628,674,677,704,775,796,798,827,830,834,837,838,873,875,875,879,901
 whoAmI : 37
+TimeToLive : 7
 
 [connector37]
-friendlist : 18
+friendlist : 4
 whoAmI : 37 
+
+[server37]
+capacity : 20
 
 
 [Peer38]
-components : session38@RandomSurfer connector38@ConnectionManager gnut38@PeerGnutella server38@Server
+components : session38@RandomSurfer connector38@ConnectionManager gnut38@PeerGnutella server38@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3597,16 +3749,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 17,63,65,75,76,88,113,123,142,150,168,174,190,192,208,222,253,285,349,423,436,457,489,494,503,556,557,576,599,600,614,692,704,716,749,757,762,766,782,786,822,836,854,856,861,878,917,950,952,961
+doclist : 12,80,84,111,152,171,189,222,252,262,321,324,326,354,361,401,446,460,468,481,507,513,542,555,637,668,678,715,724,727,727,814,834,852,862,894,901,906,964
 whoAmI : 38
+TimeToLive : 7
 
 [connector38]
-friendlist : 5,1
+friendlist : 27
 whoAmI : 38 
+
+[server38]
+capacity : 20
 
 
 [Peer39]
-components : session39@RandomSurfer connector39@ConnectionManager gnut39@PeerGnutella server39@Server
+components : session39@RandomSurfer connector39@ConnectionManager gnut39@PeerGnutella server39@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3665,16 +3821,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 6,26,30,154,168,256,319,330,334,375,478,525,526,545,561,568,628,644,684,690,734,748,752,814,855,878,881,917,918,957,962
+doclist : 67,112,145,172,186,232,273,283,329,361,406,449,598,603,645,647,657,667,693,728,755,761,820,855,864,869,876,888,925,930,931,940,949
 whoAmI : 39
+TimeToLive : 7
 
 [connector39]
-friendlist : 6
+friendlist : 31,2
 whoAmI : 39 
+
+[server39]
+capacity : 20
 
 
 [Peer40]
-components : session40@RandomSurfer connector40@ConnectionManager gnut40@PeerGnutella server40@Server
+components : session40@RandomSurfer connector40@ConnectionManager gnut40@PeerGnutella server40@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3733,16 +3893,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 47,56,106,129,132,138,150,171,231,247,253,257,270,275,295,324,349,353,383,403,459,539,543,544,608,615,629,661,719,727,784,834,858,874,875,897,908,951,956
+doclist : 42,52,82,118,153,180,187,203,229,258,275,348,353,367,387,398,399,400,430,431,440,466,491,563,576,595,628,717,725,736,753,765,774,776,785,896,946
 whoAmI : 40
+TimeToLive : 7
 
 [connector40]
-friendlist : 12,48
+friendlist : 7,13,45
 whoAmI : 40 
+
+[server40]
+capacity : 20
 
 
 [Peer41]
-components : session41@RandomSurfer connector41@ConnectionManager gnut41@PeerGnutella server41@Server
+components : session41@RandomSurfer connector41@ConnectionManager gnut41@PeerGnutella server41@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3801,16 +3965,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 7,19,23,40,41,48,54,90,95,114,123,167,186,227,244,245,248,249,251,257,274,275,293,301,320,332,372,379,380,387,457,477,496,601,601,642,645,670,713,719,726,727,751,759,770,821,838,842
+doclist : 6,7,36,56,57,61,120,141,152,160,168,288,397,441,441,493,544,546,562,562,571,579,592,619,654,663,694,721,798,823,856,867,880,892,912,929,937,964
 whoAmI : 41
+TimeToLive : 7
 
 [connector41]
-friendlist : 23
+friendlist : 28
 whoAmI : 41 
+
+[server41]
+capacity : 20
 
 
 [Peer42]
-components : session42@RandomSurfer connector42@ConnectionManager gnut42@PeerGnutella server42@Server
+components : session42@RandomSurfer connector42@ConnectionManager gnut42@PeerGnutella server42@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3869,16 +4037,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 42,69,70,87,112,153,161,170,173,174,184,286,299,303,311,314,350,452,458,472,505,560,671,672,684,686,711,739,743,755,875,898,940,955
+doclist : 13,49,113,134,136,141,143,145,240,296,344,362,371,485,486,509,519,527,560,573,589,650,665,711,721,791,803,806,852,874,941
 whoAmI : 42
+TimeToLive : 7
 
 [connector42]
-friendlist : 22
+friendlist : 17
 whoAmI : 42 
+
+[server42]
+capacity : 20
 
 
 [Peer43]
-components : session43@RandomSurfer connector43@ConnectionManager gnut43@PeerGnutella server43@Server
+components : session43@RandomSurfer connector43@ConnectionManager gnut43@PeerGnutella server43@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -3937,16 +4109,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 91,104,164,196,210,223,232,238,263,269,316,361,382,402,417,432,444,461,463,480,481,513,533,546,555,605,681,687,696,734,750,789,874,879
+doclist : 29,94,110,189,243,246,289,369,427,430,433,482,495,513,545,556,600,615,642,643,666,679,686,688,703,705,782,800,823,871,872,895,916,949
 whoAmI : 43
+TimeToLive : 7
 
 [connector43]
-friendlist : 36
+friendlist : 2,48,49
 whoAmI : 43 
+
+[server43]
+capacity : 20
 
 
 [Peer44]
-components : session44@RandomSurfer connector44@ConnectionManager gnut44@PeerGnutella server44@Server
+components : session44@RandomSurfer connector44@ConnectionManager gnut44@PeerGnutella server44@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -4005,16 +4181,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 50,71,78,79,88,91,92,192,198,234,252,252,290,335,347,358,371,373,375,426,451,460,476,484,509,516,522,523,621,634,641,644,660,675,713,716,720,734,738,768,799,808,844,852,881,893,948,960
+doclist : 33,56,68,69,90,91,106,135,146,154,261,316,344,376,389,435,439,454,476,548,564,655,668,703,712,760,764,775,818,822,881,922,923,927,929
 whoAmI : 44
+TimeToLive : 7
 
 [connector44]
-friendlist : 13
+friendlist : 17
 whoAmI : 44 
+
+[server44]
+capacity : 20
 
 
 [Peer45]
-components : session45@RandomSurfer connector45@ConnectionManager gnut45@PeerGnutella server45@Server
+components : session45@RandomSurfer connector45@ConnectionManager gnut45@PeerGnutella server45@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -4073,16 +4253,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 8,102,132,157,160,162,180,242,258,272,278,283,325,364,395,401,508,555,599,612,617,649,657,671,672,704,707,764,786,807,819,839,841,844,886,904,911,933
+doclist : 12,33,75,96,150,170,193,204,207,214,253,263,314,391,413,431,436,442,443,464,469,480,496,516,528,562,613,614,618,691,705,768,779,801,846,846,860,873,890,919,958,963
 whoAmI : 45
+TimeToLive : 7
 
 [connector45]
-friendlist : 11
+friendlist : 13,20,40
 whoAmI : 45 
+
+[server45]
+capacity : 20
 
 
 [Peer46]
-components : session46@RandomSurfer connector46@ConnectionManager gnut46@PeerGnutella server46@Server
+components : session46@RandomSurfer connector46@ConnectionManager gnut46@PeerGnutella server46@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -4141,16 +4325,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 100,133,158,215,218,232,239,240,287,383,401,436,465,514,529,535,558,595,618,623,631,638,643,673,676,703,713,714,717,744,775,840,841,857,862,865,882,882
+doclist : 14,64,65,66,115,124,185,186,201,220,245,249,256,286,302,352,355,411,418,434,446,503,512,539,556,567,570,602,615,634,643,646,652,658,659,667,684,695,709,739,812,840,841,868,931
 whoAmI : 46
+TimeToLive : 7
 
 [connector46]
-friendlist : 10
+friendlist : 30
 whoAmI : 46 
+
+[server46]
+capacity : 20
 
 
 [Peer47]
-components : session47@RandomSurfer connector47@ConnectionManager gnut47@PeerGnutella server47@Server
+components : session47@RandomSurfer connector47@ConnectionManager gnut47@PeerGnutella server47@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -4209,16 +4397,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 11,34,111,111,118,134,136,157,173,249,259,271,273,322,360,425,447,464,483,485,490,490,491,500,526,536,547,597,604,620,646,694,694,701,775,801,802,814,832,846,873,901,913,961
+doclist : 6,35,51,57,89,94,140,201,209,224,247,266,309,326,334,359,374,382,396,426,430,566,604,616,620,623,657,679,714,738,739,750,751,759,850,863,896,897
 whoAmI : 47
+TimeToLive : 7
 
 [connector47]
-friendlist : 16
+friendlist : 21
 whoAmI : 47 
+
+[server47]
+capacity : 20
 
 
 [Peer48]
-components : session48@RandomSurfer connector48@ConnectionManager gnut48@PeerGnutella server48@Server
+components : session48@RandomSurfer connector48@ConnectionManager gnut48@PeerGnutella server48@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -4277,16 +4469,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 18,32,36,39,62,108,128,131,141,235,236,240,267,280,295,297,314,326,329,344,367,409,426,534,572,580,596,637,638,663,670,678,682,684,698,777,779,785,813,828,850,921,941
+doclist : 40,86,123,227,234,238,240,269,336,348,370,373,395,397,445,462,464,477,491,498,525,530,538,551,576,584,635,640,667,682,707,720,741,753,775,787,789,792,819,831,854,881,900,908,914,915,932
 whoAmI : 48
+TimeToLive : 7
 
 [connector48]
-friendlist : 12,9,40
+friendlist : 43,49
 whoAmI : 48 
+
+[server48]
+capacity : 20
 
 
 [Peer49]
-components : session49@RandomSurfer connector49@ConnectionManager gnut49@PeerGnutella server49@Server
+components : session49@RandomSurfer connector49@ConnectionManager gnut49@PeerGnutella server49@Repository
 out : query_out
 out : q_out
 out : connect_out
@@ -4345,16 +4541,20 @@ offlinetimedistribution : exponential
 offlinetimemean : 2000
 
 NumQueries : 965
-doclist : 7,21,31,77,124,186,255,303,312,316,336,342,400,414,428,433,492,504,506,506,586,588,603,612,652,686,705,728,741,747,771,772,779,818,823,851,858,937,963
+doclist : 40,60,103,118,162,171,230,233,272,290,292,310,342,442,468,502,551,578,580,585,602,642,713,755,758,763,808,829,830,876,927,953
 whoAmI : 49
+TimeToLive : 7
 
 [connector49]
-friendlist : 32,1
+friendlist : 48,43
 whoAmI : 49 
+
+[server49]
+capacity : 20
 
 
 [Network]
- components : net@SimpleDemux LTS@LTSNetwork
+ components : net@PhysicalNetwork LTS@NetworkGraph
 out : c_out0
 out : c_out1
 out : c_out2

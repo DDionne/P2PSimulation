@@ -1,11 +1,13 @@
 /*******************************************************************
  *
- *  DESCRIPTION: Atomic Model RandomSurfer : Simulates the random surfer model
- *  The user goes online for a random interval of time, during which he outputs a query or a link. Then he
- *  waits for all the documents that respond to his query/link to come in. He then either chooses one at
- *  random or ignores them completely. If he chooses to ignore them, he outputs another random query.
- *  When the time interval is over, he goes offline.
+ *  DESCRIPTION: Atomic Model RandomSurfer : The Random Surfer represents the
+ *  behavior of the human user of the P2P application. The outputs of this
+ *  model are the events initiated by a human user: the peer begins a session
+ *  and goes online, creates queries, or manages its local repository,
+ *  by publishing or removing documents.
  *
+ *  In addition, the Random Surfer has a good chance to publish or visit
+ *  documents that are linked to by a previously visited document.
  *
  *  AUTHOR: Alan
  *
@@ -50,6 +52,9 @@ RandomSurfer::RandomSurfer( const string &name )
 	//in this version we load the query range from a file -------------------------------
 	string param = MainSimulator::Instance().getParameter( description(), "NumQueries" );
 	maxQuery = int(floor(str2float(param)));
+
+	string TTL_str = MainSimulator::Instance().getParameter( description(), "TimeToLive" );
+	TTL = int(floor(str2float(TTL_str)));
 
 
 
@@ -194,7 +199,7 @@ Model &RandomSurfer::externalFunction( const ExternalMessage &msg )
 
 
 
-
+		//Add document to the set of possible choices
 		int thedoc = getFirstField(msg.value()); //Document Id
 		int messageID = getSecondField(msg.value()); //Message Identifier
 
@@ -310,7 +315,7 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 			if(randomness < ignoreProb){ //we check whether the random surfer is going to publish the file or simply ignore it
 				if(PVERBOSE) cout << msg.time()<<" ignoring links"<<endl;
 				int queries = (unif_01->get()*maxQuery)+1; //randomly chooses a possible query
-				long long tosend2 = buildNewMessage(queries,2,0,whoAmI,0,7);
+				long long tosend2 = buildNewMessage(queries,2,0,whoAmI,0,TTL);
 				if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " queries: "<<queries<<endl;
 				sendOutput( msg.time(), query , tosend2 ); // we output the value in the query set on the query output port
 				alldocs.insert(queries); // save it in the collection of already published documents
@@ -323,7 +328,7 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 				advance(link,linkPicker); //iterate and stop randomly in the set to pick a link
 //				if(PVERBOSE) cout <<msg.time()<< " Adding document "<<*link<< " to be published"<<endl;
 				if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<*link<<endl;
-				tosend = buildNewMessage(*link, 0, 0, whoAmI, 0, 7);
+				tosend = buildNewMessage(*link, 0, 0, whoAmI, 0, TTL);
 				sendOutput( msg.time(), query, tosend);
 				alldocs.insert(*link); // save it in the collection of already published documents
 			}
@@ -332,7 +337,7 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 		}
 		else if(msg.time() < stop){
 			int queries = (unif_01->get()*maxQuery)+1; //randomly chooses a possible query
-			long long tosend = buildNewMessage(queries,2,0,whoAmI,0,7);
+			long long tosend = buildNewMessage(queries,2,0,whoAmI,0,TTL);
 			if(PVERBOSE) cout << msg.time()<<" : output message: "<<tosend<<endl;
 			if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<queries<<endl;
 			sendOutput( msg.time(), query , tosend ); // we output the value in the query set on the query output port

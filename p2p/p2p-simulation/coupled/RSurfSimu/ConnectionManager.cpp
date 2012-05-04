@@ -1,6 +1,15 @@
 /*******************************************************************
 *
-*  DESCRIPTION: Atomic Model ConnectionManager
+*  DESCRIPTION: This component represents the behavior of a peer regarding
+*  connections, i.e. the "topology" aspect of a search mechanism. The peer
+*  communicates with the NetworkGraph component to establish connections
+*  to other peers, and maintains a list of its neighbors.
+*
+*  The connection manager is initially configured with a list of acquaintances.
+*  Its behavior is then to periodically attempt to connect to each of its
+*  acquaintances. When the connections are established, the component remains
+*  idle. This behavior creates an unstructured network based on a social
+*  network.
 *
 *  AUTHOR: Alan
 *

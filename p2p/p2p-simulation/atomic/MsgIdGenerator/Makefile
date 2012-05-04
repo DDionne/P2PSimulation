@@ -41,8 +41,8 @@ CFLAGS=
 DEBUGFLAGS=
 LDFLAGS+=-L. -g
 #^|
-EXAMPLESOBJS=  demux.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
-#
+EXAMPLESOBJS=  demux.o msgIdGen.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
+#
 
 LIBNAME=simu
 LIBS=-lsimu
@@ -97,9 +97,11 @@ backup:
 .cpp.o:
 	${CPP} -c ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $<
 #^|
-demux.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.cpp
+demux.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-register.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/register.cpp
+msgIdGen.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/msgIdGen.cpp
+	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
+register.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/register.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 #
 generat.o: generat.cpp
@@ -169,9 +171,9 @@ mainsimu.o: mainsimu.cpp
 # DO NOT DELETE
 #^|
 demux.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -191,7 +193,40 @@ demux.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/../complexmessages2.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/event.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ini.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
+msgIdGen.o: \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/msgIdGen.cpp \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/msgIdGen.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modelid.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mytime.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/real.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/undefd.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/impresion.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/tbool.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/except.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/stringp.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/value.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/evaldeb.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/cellpos.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
+ /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
+ /usr/include/time.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/../../lib/graph-c++.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -201,7 +236,7 @@ demux.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 register.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/register.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/register.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modeladm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
@@ -227,9 +262,10 @@ register.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/demux.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/msgIdGen.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/MsgIdGenerator/../complexmessages2.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/../complexmessages2.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/MsgIdGenerator/../../lib/graph-c++.h
 #
 #include $(OBJS:.cpp=.d)
 queue.o: queue.h atomic.h model.h port.h modelid.h mytime.h portlist.h real.h

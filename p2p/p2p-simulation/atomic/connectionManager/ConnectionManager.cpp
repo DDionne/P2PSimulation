@@ -1,6 +1,15 @@
 /*******************************************************************
 *
-*  DESCRIPTION: Atomic Model ConnectionManager
+*  DESCRIPTION: This component represents the behavior of a peer regarding
+*  connections, i.e. the "topology" aspect of a search mechanism. The peer
+*  communicates with the NetworkGraph component to establish connections
+*  to other peers, and maintains a list of its neighbors.
+*
+*  The connection manager is initially configured with a list of acquaintances.
+*  Its behavior is then to periodically attempt to connect to each of its
+*  acquaintances. When the connections are established, the component remains
+*  idle. This behavior creates an unstructured network based on a social
+*  network.
 *
 *  AUTHOR: Alan
 *
@@ -44,6 +53,7 @@ ConnectionManager::ConnectionManager( const string &name )
 	whoAmI = int(floor(str2float(Id_str))); // clumsy way of turning a string into an integer
 
 	shutdown = false;
+	msgSent = false;
 	// read the friendlist from MA file :
 	//1 - get file :
 	string param = MainSimulator::Instance().getParameter( description(), "friendlist" );
@@ -84,12 +94,14 @@ Model &ConnectionManager::initFunction()
 ********************************************************************/
 Model &ConnectionManager::externalFunction( const ExternalMessage &msg )
 {
-	int mval = msg.value();
+	long long mval = msg.value();
 	if ( this->state() == passive)
 	{
 		//mval should be my Id on port online
 		if ((msg.port() == in_online) && (mval==whoAmI)) {
 			set<int>::iterator it;
+			shutdown = false;
+			msgSent = false;
 			for (it = friendlist.begin(); it != friendlist.end(); it++ ) {
 				if(connectionlist.find(*it)==connectionlist.end()) // if we don't already have an active connection to this guy
 					toconnect.insert(*it); //add to "toconnect" set
@@ -110,25 +122,25 @@ Model &ConnectionManager::externalFunction( const ExternalMessage &msg )
 			shutdown = true; // go to "shutting down" mode (instantly)
 			holdIn(active, Time(0.0f)); //prepare for an instant change to passive state; but we need to go through an internal change to be able to output the correct "offline" message
 		}
-		else if ((msg.port() == in_connect) && (getTTL(mval)==1)){ // this because messages on connect port have both connection and disconnection events, encoded differently (differntiated through TTL)
+		else if ((msg.port() == in_connect) && (getFifthField(mval)==1)){ // this because messages on connect port have both connection and disconnection events, encoded differently (differntiated through TTL)
 
 			//we just got a message to the effect that the connection with another peer "mval" is successfully established
 			//we assume that this peer is a friend and we accept the connection //TODO maybe another behavior is possible
-			int whichfriend = getPeerId(mval); // using encoding from complexMessages.h
+			int whichfriend = getThirdField(mval); // using encoding from complexMessages.h
 
-			if (whichfriend==whoAmI) whichfriend=getMessageId(mval); // then it's the other one
+			if (whichfriend==whoAmI) whichfriend=getFourthField(mval); // then it's the other one
 			connectionlist.insert(whichfriend);
-			cout<<"got connect msg from"<<whichfriend<<endl;
+//			cout<<"got connect msg from"<<whichfriend<<endl;
 			toconnect.erase(whichfriend); // if this friend was in our prospective connections, he no longer needs to be there
 			//holdIn(active, 0.0f); // just go back to what we were doing immediately
 			//change state to "active" for whatever time was remaining
 			holdIn(active, nextChange()); // nextChange is the time remaining until the next internal transition: we reschedule the same time
 		}
-		else if((msg.port() == in_connect)&& (getTTL(mval)==0)){// using encoding from complexMessages.h
+		else if((msg.port() == in_connect)&& (getFifthField(mval)==0)){// using encoding from complexMessages.h
 			//we just got a message to the effect that the another peer has disconnected from us
-			int whichfriend = getPeerId(mval);
-			if (whichfriend==whoAmI) whichfriend=getMessageId(mval);
-			cout<<"got disconnect msg from"<<whichfriend<<endl;
+			int whichfriend = getThirdField(mval);
+			if (whichfriend==whoAmI) whichfriend=getFourthField(mval);
+//			cout<<"got disconnect msg from"<<whichfriend<<endl;
 			connectionlist.erase(whichfriend); // record disconnection
 			//holdIn(active, 0.0f); // just go back to what we were doing immediately
 			holdIn(active, nextChange()); // nextChange is the time remaining until the next internal transition: we reschedule the same time
@@ -137,6 +149,7 @@ Model &ConnectionManager::externalFunction( const ExternalMessage &msg )
 		//(shutdown may be true: we're busy shutting down, but let's consider the case where we want to reactivate the connection)
 		else if ((msg.port() == in_online) && (mval==whoAmI)){
 			shutdown = false; // exit the "shutting down" mode (instantly)
+			msgSent = false;
 			holdIn(active, Time(0.0f)); //prepare for an instant change to passive state; but we need to go through an internal change to be able to output the correct "offline" message
 		}
 
@@ -150,10 +163,21 @@ Model &ConnectionManager::externalFunction( const ExternalMessage &msg )
 Model &ConnectionManager::internalFunction( const InternalMessage & )
 {
 	if (shutdown){
-		if(!connectionlist.empty() || officiallyonline) //we're in the process of emptying the connectionlist
-			holdIn(active, Time(0,0,0,10)); //output all disconnects with 10ms interval
+		if(!connectionlist.empty() || officiallyonline){ //we're in the process of emptying the connectionlist
+			if(!connectionlist.empty()){
+				holdIn(active, Time(0,0,0,10)); //output all disconnects with 10ms interval
+			}
+			else{
+				holdIn(active, Time(0,0,1,0)); //wait 1 second before going offline
+			}
+		}
+
+
+
+
 		else{ //else we're ready to passivate
 			shutdown=false; //so we're moving out of the shutdown mode
+			msgSent = false;
 			toconnect.clear();
 			passivate();
 		}
@@ -184,15 +208,16 @@ Model &ConnectionManager::internalFunction( const InternalMessage & )
 Model &ConnectionManager::outputFunction( const InternalMessage &msg )
 {
 	if (shutdown ) {
-		if (!connectionlist.empty()) { // if we haven't finished emptying our connectionlist
-			set<int>::iterator it;
-			it = connectionlist.begin(); // get a first element from this list
-			int tosend = *it;
-			tosend = buildMessage(tosend, whoAmI); // encode other peer id + who we are
-			connectionlist.erase(it); //remove the connection
+		if (!connectionlist.empty() || !msgSent) { // if we haven't finished emptying our connectionlist
+			msgSent = true;
+
+			//sends a message to the network to stop all connections from and to this peer
+			long long tosend = buildNewMessage(0 ,0, 0, 0, whoAmI,0); // encode who we are
 			sendOutput( msg.time(), out_disconnect, tosend ); //output on "disconnect" port
+			connectionlist.clear();
+
+
 		}
-		//
 		else if (connectionlist.empty() && officiallyonline){
 			officiallyonline=false;
 			sendOutput(msg.time(), out_offline, whoAmI); //output the offline message
@@ -205,8 +230,8 @@ Model &ConnectionManager::outputFunction( const InternalMessage &msg )
 		} else if (!toconnect.empty()) { // if we have nobody to connect to then we just stay quiet
 			set<int>::iterator it;
 			it = toconnect.begin(); // get a first element from this list and output a connection message for this friend
-			int tosend = *it;
-			tosend = buildMessage(tosend, whoAmI); // encode who we want to connect from + who we are
+			long long tosend = *it;
+			tosend = buildNewMessage(0,0,0,tosend, whoAmI,0); // encode who we want to connect from + who we are
 			toconnect.erase(it); //remove the friend from the list of prospective contacts
 			sendOutput( msg.time(), out_connect, tosend );
 		}

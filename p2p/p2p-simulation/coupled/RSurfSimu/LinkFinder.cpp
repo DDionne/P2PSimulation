@@ -1,6 +1,9 @@
 /*******************************************************************
 *
-*  DESCRIPTION: Atomic Model : Simple demultiplexer
+*  DESCRIPTION: link finder :
+*
+*  The LinkFinder is a simple convenience model which contains all the links between documents. It takes its
+*  input as a document, and sends back to the same peer all linked documents.
 *
 *  AUTHOR: Alan
 *
@@ -1030,6 +1033,7 @@ LinkFinder::LinkFinder( const string &name )
 
 {
 
+		//Load the graph from file
 		serverdoc = new SGraph();
 
 		string datafile = MainSimulator::Instance().getParameter( description(), "datafile" );
@@ -1063,6 +1067,8 @@ Model &LinkFinder::externalFunction( const ExternalMessage &msg ){
 		set<int> docLinks = serverdoc -> getDocsFromLink(docID);
 		set<int>::iterator docs;
 
+
+		//Add to the LinkQ all possible links to be sent to the Server.cpp model to see which documents would be QueryHits
 		for(docs = docLinks.begin() ; docs != docLinks.end() ; docs++){
 			LinkQ.push(buildNewMessage(*docs, 1, msgId, 0, myId, 0));
 			if(LinkVERBOSE) cout << "documents: "<<*docs<<endl;

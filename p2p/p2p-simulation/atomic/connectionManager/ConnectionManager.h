@@ -14,7 +14,7 @@
 #include "atomic.h"  // class Atomic
 #include <set>
 #include <queue>
-#include "..\complexmessages.h" // functions to manage "coded" messages between components
+#include "..\complexmessages2.h" // functions to manage "coded" messages between components
 
 
 /** forward declarations **/
@@ -60,6 +60,7 @@ private:
     //int nextdisconnect; // used for disconnection
     //int  whoto;
     bool shutdown;
+    bool msgSent;
     bool officiallyonline;//a boolean that says what your online/offline status is according to your latest output message
 
 };	// class ConnectionManager

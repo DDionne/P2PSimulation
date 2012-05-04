@@ -10,7 +10,7 @@ Takes a text file with a text format like this example:
 This file is taken from the randomSurfer p2p network simulation. However lines not of the proper format must be removed
 along with any empty lines (there might be one at the end).
 """
-fi = open("fileout.txt.txt","r")
+fi = open("fileout.txt","r")
 fileout = open("logEvents.txt","w")
 f = fi.readlines()
 for line in f:

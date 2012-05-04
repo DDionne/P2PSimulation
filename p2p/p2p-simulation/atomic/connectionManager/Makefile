@@ -97,9 +97,9 @@ backup:
 .cpp.o:
 	${CPP} -c ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $<
 #^|
-ConnectionManager.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.cpp
+ConnectionManager.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-register.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/register.cpp
+register.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/register.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 #
 generat.o: generat.cpp
@@ -169,9 +169,9 @@ mainsimu.o: mainsimu.cpp
 # DO NOT DELETE
 #^|
 ConnectionManager.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -191,7 +191,7 @@ ConnectionManager.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/../complexmessages2.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/distri.h \
@@ -202,7 +202,7 @@ ConnectionManager.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 register.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/register.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/register.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modeladm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
@@ -228,9 +228,9 @@ register.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/ConnectionManager.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/connectionManager/../complexmessages.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/connectionManager/../complexmessages2.h
 #
 #include $(OBJS:.cpp=.d)
 queue.o: queue.h atomic.h model.h port.h modelid.h mytime.h portlist.h real.h

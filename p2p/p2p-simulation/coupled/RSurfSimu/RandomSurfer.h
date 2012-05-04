@@ -51,6 +51,7 @@ private:
     Port & publish;
     Port & remove;
 
+    int TTL;
     int whoAmI;
     Time nextchange;
     int mystate; //can be passive, offline, session or queryhit
