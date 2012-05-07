@@ -1,0 +1,35 @@
+Input Ports:
+
+			peer_online:
+						takes in the PeerId as a message
+						
+			peer_offline:
+						takes in the PeerId as a message
+						
+			connect_in:
+						takes in a message of the form --> 0 000 000 000 0 0000
+															  |   |
+															to   from
+															
+						connects both nodes with Ids corresponding to "to" and "from"
+						
+			disconnect_in:
+						takes in a message of the form --> 0 000 000 000 0 0000
+															  |
+															 Id
+															
+					    removes all the edges from the node corresponding to Id
+					    
+					    
+Output Ports:
+
+			c-out0...n:
+						outputs message of the form --> 0 000 000 000 0 0000
+														|   |   |
+													   TTL  |   |
+													     peer1  |
+													     	  peer2
+													     	  
+					    -if it's a connect, TTL == 1, peer1 and peer2 are making a connection
+					    -if it's a disconnect, TTL == 0, sends a message to both peer1 and peer2, so they can 
+					    	both make the disconnection

@@ -1,0 +1,22 @@
+Input Ports:
+
+			in_q:
+					takes in message of the form --> 0 000 000 000 0 0000
+														|       |  |	|
+														|		|  |	|
+												current Id		|  |	|
+																|  |	|
+														message Id |	|
+														           |	|
+														         qhit	|
+														         		|
+														         	document Id
+														         	
+Output Ports:
+
+			q_out0...n:
+			
+					outputs messages of the form --> 0 000 000 000 0 0000
+						
+						outputs are the same as inputs, however, one message will be sent for each document that
+						is linked to the one received in the in_q port.

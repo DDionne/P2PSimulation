@@ -1,0 +1,74 @@
+Input Ports:
+			
+			connections:
+						takes in a message of the form --> 0 000 000 000 0 0000
+														   |   |   |
+														 TTL   |   |
+														     myId  |
+														     	 peerId
+														
+						TTL == 1 means its a connection
+						TTL == 0 means its a disconnection
+						
+			query:
+						takes in a message of the form --> 0 000 000 000 0 0000
+														   |      |   |  |   |
+														  TTL     |   |  |   |
+														        myId  |  |   |
+														           msgId |   |
+														               qhit  |
+														               		queryId
+														               		
+			q_in: 
+				takes in a message of the form --> 0 000 000 000 0 0000
+												   |  |   |   |  |   |
+												 TTL  |   |   |  |   |
+												   fromId |   |  |   |
+												   		myId  |  |   |
+												   		   msgId |   |
+												   		       qhit  |
+												   		       		queryId
+												   		       		
+												   		       		
+Output Ports:
+
+			connect_out:
+						outputs message of the form --> 0 000 000 000 0 0000
+														   |   |
+														fromId |
+															peerId
+			disconnect_out:
+						outputs message of the form --> 0 000 000 000 0 0000
+														   |   |
+														fromId |
+															peerId
+			
+			q_out:
+				outputs a message of the form -->  0 000 000 000 0 0000
+												   |  |   |   |  |   |
+												 TTL  |   |   |  |   |
+												   fromId |   |  |   |
+												   		myId  |  |   |
+												   		   msgId |   |
+												   		       qhit  |
+												   		       		queryId
+			
+			local_out:
+				outputs a message of the form -->  0 000 000 000 0 0000
+												      |       |  |   |
+												      |       |  |   |
+												    myId      |  |   |
+												   		      |  |   |
+												   		   msgId |   |
+												   		       qhit  |
+												   		       		documentId
+			
+			qhit_out:
+				outputs a message of the form -->  0 000 000 000 0 0000
+												          |   |      |
+												          |   |      |
+												          |   |      |
+												   		myId  |      |
+												   		   msgId     |
+												   		             |
+												   		       		queryId

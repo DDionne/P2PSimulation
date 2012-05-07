@@ -1,0 +1,45 @@
+Input Ports:
+
+			in_online: 
+						takes in the peerId as a message 
+			
+			in_offline:
+						takes in the peerId as a message
+			
+			in_connect: 
+						takes in messages in the form --> 1 000 000 000 0 0000
+									
+									the first digit says whether it's a connection or a disconnection
+									(0 == disconnect, 1 == connect)
+									
+									The next 6 digits tells us who is connecting or disconnecting from who
+									First 3 digits for one, and other 3 for other
+									
+
+Output Ports:
+
+			out_disconnect:
+						
+						outputs message of the form --> 0 000 000 000 0 000
+															|
+															|
+											Id of the peer which is disconnecting
+											
+			out_offline:
+			
+						outputs his Id
+						
+			out_online:
+						
+						outputs his Id
+						
+			out_connect:
+			
+						outputs message of the form --> 0 000 000 000 0 000
+														   |   |
+														   |   |
+												   who we are  |
+												   			   |
+												   		who we want to connect to
+												   		
+				

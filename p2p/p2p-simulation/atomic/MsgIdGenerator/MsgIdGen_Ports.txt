@@ -1,0 +1,23 @@
+Input Ports:
+				
+			msg_in:
+					takes in message of the form --> 0 000 000 000 0 0000
+													 |   	|	   |	|
+											Time to live 	|	   |	|
+														 	|	   |	|
+													current Id	   |	|
+																 qhit	|
+													  				  query
+													  				  
+Output Ports:
+
+			out_0...n:
+					outputs messages in the form --> 0 000 000 000 0 0000
+													|   	|	|  |	|
+											Time to live 	|	|  |	|
+														 	|	|  |	|
+													current Id	|  |	|
+																|  |	|
+													  		 msgId |	|
+													  			  qhit 	|
+													  				  query

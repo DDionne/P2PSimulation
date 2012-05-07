@@ -1,0 +1,39 @@
+Input Ports:
+
+			peer_in:
+					takes in a message of the form --> 0 000 000 000 0 0000
+														  |       |  |
+														peerId    |  |
+															  msgId  |
+															  		qhit
+															  		
+			publish:
+					takes in a message of the form --> 0 000 000 000 0 0000
+															  |   |  |
+														 peerId   |  |
+														 		  |  |
+														 	  msgId  |
+														 	        qhit
+														 	        
+Output Ports:
+
+			link:
+					outputs the message received by the peer_in port
+					
+			QueryHit:
+					outputs a message of the form --> 0 000 000 000 0 0000
+															 |	 |  |    |
+														  peerId |  |    |
+														      msgId |    | 
+														          qhit   |
+														          		documentId
+														          		
+			p_out:
+					outputs a message of the form --> 0 000 000 000 0 0000
+															 |	 |  |    |
+														  peerId |  |    |
+														      msgId |    | 
+														          qhit   |
+														          		documentId
+													
+															 
