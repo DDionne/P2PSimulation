@@ -42,7 +42,7 @@ DEBUGFLAGS=
 LDFLAGS+=-L. -g
 #^|
 EXAMPLESOBJS=  DBGraph.o NetGraph.o SGraph.o Server.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
-#
+#
 
 LIBNAME=simu
 LIBS=-lsimu
@@ -97,15 +97,15 @@ backup:
 .cpp.o:
 	${CPP} -c ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $<
 #^|
-DBGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/DBGraph.cpp
+DBGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/DBGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-NetGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/NetGraph.cpp
+NetGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/NetGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-SGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/SGraph.cpp
+SGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/SGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-Server.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/Server.cpp
+Server.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/Server.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
-register.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/register.cpp
+register.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/register.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 #
 generat.o: generat.cpp
@@ -175,25 +175,25 @@ mainsimu.o: mainsimu.cpp
 # DO NOT DELETE
 #^|
 DBGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/DBGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/DBGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h
 NetGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/NetGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/NetGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/NetGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/NetGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h
 SGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/SGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../atomic/server/../../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/SGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../atomic/server/../../lib/graph-c++-comp.h
 Server.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/Server.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/Server.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/randlib.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/Server.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/Server.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/port.h \
@@ -213,12 +213,12 @@ Server.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/procadm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/process.h \
  /usr/include/time.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../atomic/server/DBGraph.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/message.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/strutil.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
@@ -228,7 +228,7 @@ Server.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/loader.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ltranadm.h
 register.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/register.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/register.cpp \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/modeladm.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/mainsimu.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/root.h \
@@ -254,14 +254,14 @@ register.o: \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/ntupla.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/portlist.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/model.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/Server.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/Server.h \
  /cygdrive/C/eclipse/plugins/CD++Builder_1.1.0/internal/atomic.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../complexmessages.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/DBGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/SGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/server/../../atomic/server/DBGraph.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../complexmessages.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/DBGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../lib/graph-c++-comp.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/SGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/server/../../atomic/server/DBGraph.h
 #
 #include $(OBJS:.cpp=.d)
 queue.o: queue.h atomic.h model.h port.h modelid.h mytime.h portlist.h real.h
