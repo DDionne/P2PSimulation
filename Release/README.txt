@@ -80,5 +80,5 @@ Random Surfers as peers.
 	1    <-------- number of lines
 	12345:publish:31
 
-14- For running using the visualisation tool, go see those instructions
+14- You should now be ready to use you results in the Visualisation tool
  
