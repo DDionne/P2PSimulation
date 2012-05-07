@@ -1,3 +1,10 @@
+The zip file containing the Simulator can be downloaded off of
+github in the downloads directory of the P2PSimulation repository
+
+https://github.com/NMAI-lab/P2PSimulation/downloads 
+
+
+
 Here are the instructions on how to run the simulation containing
 Random Surfers as peers.
 
