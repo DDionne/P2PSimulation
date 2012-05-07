@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> db@Server &#xd;</components>
+    <out> queryhit&#xd;</out>
+    <in> query_in peer_in&#xd;</in>
+    <Link> query_in query_in@db&#xd;</Link>
+    <Link> peer_in peer_in@db&#xd;</Link>
+    <Link> queryhit@db queryhit&#xd;</Link>
+  </top>
+  <db>
+    <datafile> serverdoc.dat&#xd;</datafile>
+  </db>
+</CDPlusPlus_Builder_Version_1.0.0>

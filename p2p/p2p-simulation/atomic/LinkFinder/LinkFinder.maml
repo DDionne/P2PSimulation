@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> link@LinkFinder &#xd;</components>
+    <out> q_out0 q_out1 q_out2&#xd;</out>
+    <in> in_q&#xd;</in>
+    <Link> in_q in_q@link&#xd;</Link>
+    <Link> q_out0@link q_out0&#xd;</Link>
+    <Link> q_out1@link q_out1&#xd;</Link>
+    <Link> q_out2@link q_out2&#xd;</Link>
+  </top>
+  <link>
+    <datafile> serverdoc.dat&#xd;</datafile>
+  </link>
+</CDPlusPlus_Builder_Version_1.0.0>

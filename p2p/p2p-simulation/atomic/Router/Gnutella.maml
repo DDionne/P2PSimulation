@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> gnutella@Router &#xd;</components>
+    <out> q_out&#xd;</out>
+    <out> connect_out&#xd;</out>
+    <out> disconnect_out&#xd;</out>
+    <in> query q_in connections&#xd;</in>
+    <Link> query query@gnutella&#xd;</Link>
+    <Link> q_in q_in@gnutella&#xd;</Link>
+    <Link> connections connections@gnutella&#xd;</Link>
+    <Link> q_out@gnutella q_out&#xd;</Link>
+    <Link> connect_out@gnutella connect_out&#xd;</Link>
+    <Link> disconnect_out@gnutella disconnect_out&#xd;</Link>
+  </top>
+  <gnutella>
+    <connection/>
+  </gnutella>
+</CDPlusPlus_Builder_Version_1.0.0>

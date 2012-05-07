@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> demux@PhysicalNetwork&#xd;</components>
+    <out> route_out0&#xd;</out>
+    <out> route_out1&#xd;</out>
+    <out> route_out2&#xd;</out>
+    <out> route_out3&#xd;</out>
+    <out> route_out4&#xd;</out>
+    <in> inroute&#xd;</in>
+    <Link> inroute inroute@demux&#xd;</Link>
+    <Link> route_out0@demux route_out0&#xd;</Link>
+    <Link> route_out1@demux route_out1&#xd;</Link>
+    <Link> route_out2@demux route_out2&#xd;</Link>
+    <Link> route_out3@demux route_out3&#xd;</Link>
+    <Link> route_out4@demux route_out4&#xd;</Link>
+  </top>
+</CDPlusPlus_Builder_Version_1.0.0>

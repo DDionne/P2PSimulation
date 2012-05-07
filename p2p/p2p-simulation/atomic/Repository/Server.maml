@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> db@Repository&#xd;</components>
+    <out> queryhit p_out link&#xd;</out>
+    <in> peer_in publish remove&#xd;</in>
+    <Link> peer_in peer_in@db&#xd;</Link>
+    <Link> publish publish@db&#xd;</Link>
+    <Link> remove remove@db&#xd;</Link>
+    <Link> queryhit@db queryhit&#xd;</Link>
+    <Link> p_out@db p_out&#xd;</Link>
+    <Link> link@db link&#xd;</Link>
+  </top>
+  <db>
+    <capacity> 5&#xd;</capacity>
+  </db>
+</CDPlusPlus_Builder_Version_1.0.0>
