@@ -133,7 +133,10 @@ for k in range(size):
     docsdistribution.append(doclist)
 
 #generating MultiPeer_size_.MA
-MAFile = open("C:\\eclipse\\workspace\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\MultiPeer"+str(size)+".MA", "w")
+default_input = 'C:\\eclipse\\workspace'
+# user_input will be set to my_input if they just press enter
+root_dir = raw_input("Enter your workspace directory(default: %s):\n" % default_input) or default_input
+MAFile = open(root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\MultiPeer"+str(size)+".MA", "w")
 #load a piece of the MA file from a separate file
 partfile = open("RS_each_peer3.txt", "r")
 eachpeerspec = ""
@@ -189,16 +192,32 @@ for part in parts:
 MAFile.close()
 
 #===============================================
+print("\n\n\nGenerating the testing file\n===================================================")
 #generating the testing file :
-##testingfile = open("/P2PTest.bat", "w")
-##
-##line1 = "cd \\eclipse\\workspace\\p2p\\coupled\\Network"+str(size)+"\\\n"
-##line2 = 'simu.exe -m"P2PNet_'+str(size)+'.MA" -l"P2P'+str(size)+'LOG.log" -w9-9 -t"20:00:00:000"\n' 
-##
-##testingfile.write(line1)
-##testingfile.write(line2)
-##testingfile.write("rem\n pause\n")
-##testingfile.close()
+testingfile = open(root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\testing1.bat", "w")
+
+line1 = root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu" + "\n"
+
+print("please input number of hours for the simulation (from 0 to 99)")
+hours = input()
+
+print("please input number of minutes for the simulation (from 0 to 99)")
+minutes = input()
+
+print("please input number of seconds for the simulation (from 0 to 99)")
+seconds = input()
+
+print("please input number of milliseconds for the simulation (0 to 999)")
+milliseconds = input()
+
+line2 = 'simu.exe -mMultiPeer' + str(size) + '.MA -oGnOUT.out -t'+ '"' + '%02d' %hours + ':' + '%02d' %minutes + ':' + '%02d'%seconds + ':' + '%03d' %milliseconds +'"'+ ' > fileout.txt\n'
+
+line3 = 'pause' 
+
+testingfile.write(line1)
+testingfile.write(line2)
+testingfile.write(line3)
+testingfile.close()
 
 print "All files generated for a network size =", size
 #time.sleep(5)
