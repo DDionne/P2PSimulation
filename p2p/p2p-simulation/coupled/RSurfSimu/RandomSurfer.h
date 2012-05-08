@@ -54,7 +54,7 @@ private:
     int TTL;
     int whoAmI;
     Time nextchange;
-    int mystate; //can be passive, offline, session or queryhit
+    int mystate; //can be offline, session or queryhit
     bool officiallyonline;//have I output a message announcing myself to be online / offline ?
 
     int maxQuery;
