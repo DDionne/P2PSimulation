@@ -1,7 +1,6 @@
 The zip file containing the Simulator is too big to be placed here. However, it can be downloaded off of github in the downloads directory of the P2PSimulation repository
 
-The instructions on how to set up and use the simulator are placed within the P2PSimulation.zip file which can be downloaded at the link below
+for more information on how to set up and use the P2P Simulator, download and extract the P2PSimulation.zip into your eclipse workspace and view the README file there.
 
-
-https://github.com/NMAI-lab/P2PSimulation/downloads 
+Download Page - https://github.com/NMAI-lab/P2PSimulation/downloads 
 
