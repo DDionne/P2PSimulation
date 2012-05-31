@@ -1,1 +1,1 @@
-This MA file generator is for the MultiPeerGnu coupled model.
+This script, generates an MA file for the RSurfSimu coupled model
