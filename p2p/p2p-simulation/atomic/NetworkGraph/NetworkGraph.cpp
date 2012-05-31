@@ -1087,6 +1087,7 @@ Model &NetworkGraph::externalFunction( const ExternalMessage &msg ){
 			if(LVERBOSE) cout<<"LTS---->>> Peer "<<from<<" connecting to "<<to<<endl;
 			thegraph->connect(from,to); //add a connection between nodes (adds edges)
 			DCQueue.push(buildNewMessage(0,0,0,to,from,1));
+			cout << "connect: " <<buildNewMessage(0,0,0,to,from,1) << endl;
 		}
     }
 
@@ -1117,7 +1118,9 @@ Model &NetworkGraph::externalFunction( const ExternalMessage &msg ){
   }
 
 
-
+  ofstream fis;
+  			fis.open("net.txt");
+  			thegraph->write(fis);
 	return *this ;
 }
 

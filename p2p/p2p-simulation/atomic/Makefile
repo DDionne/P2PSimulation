@@ -42,7 +42,7 @@ DEBUGFLAGS=
 LDFLAGS+=-L. -g
 #^|
 EXAMPLESOBJS=  NetGraph.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
-#
+#
 
 LIBNAME=simu
 LIBS=-lsimu
@@ -97,7 +97,7 @@ backup:
 .cpp.o:
 	${CPP} -c ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $<
 #^|
-NetGraph.o: /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/NetGraph.cpp
+NetGraph.o: /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/NetGraph.cpp
 	${CPP} -c ${LDFLAGS} ${INCLUDES_CPP} ${DEFINES_CPP} ${DEBUGFLAGS} ${CPPFLAGS} $< 
 #
 generat.o: generat.cpp
@@ -167,10 +167,10 @@ mainsimu.o: mainsimu.cpp
 # DO NOT DELETE
 #^|
 NetGraph.o: \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/NetGraph.cpp \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/NetGraph.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/../lib/graph-c++.h \
- /cygdrive/C/eclipse/workspace/p2p/p2p/p2p-simulation/atomic/../lib/graph-c++-comp.h
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/NetGraph.cpp \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/NetGraph.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/../lib/graph-c++.h \
+ /cygdrive/C/eclipse/workspace/P2PSimulation/p2p/p2p-simulation/atomic/../lib/graph-c++-comp.h
 #
 #include $(OBJS:.cpp=.d)
 queue.o: queue.h atomic.h model.h port.h modelid.h mytime.h portlist.h real.h

@@ -1077,12 +1077,20 @@ Model &NetworkGraph::externalFunction( const ExternalMessage &msg ){
 
 
     /* if the peer we wish to connect to is online, add an edge between both peers and encode a message to be sent
-     * to the PeerGnutella model to notify of the connection */
+     * to the PeerGnutella model to notify of the connection
+     *
+     * e.g. Let's say peer 1 connects to peer 2. This network model receives a message in the connect_in port from peer 1
+     * 		telling us that he wants to connect to peer 2. An edge is added to the graph for this connection and a message is build.
+     * 		this message then gets sent back to peer 1's Router model and ConnectionManager model to notify him that
+     * 		the connection was successful. Peer 2 knows nothing of the connection
+     *
+     * 		TODO: make peer 2 know that a connection from peer 1 to peer 2 has been made
+     *
+     * */
     else if (msg.port() == connect_in){
 		int from, to;
 		from = getFourthField(msg.value()); //third and fourth field encoding of the peers
 		to = getThirdField(msg.value());
-
 		if(onlinePeers.find(to) != onlinePeers.end()){
 			if(LVERBOSE) cout<<"LTS---->>> Peer "<<from<<" connecting to "<<to<<endl;
 			thegraph->connect(from,to); //add a connection between nodes (adds edges)

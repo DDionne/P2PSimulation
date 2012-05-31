@@ -135,14 +135,18 @@ void GraphInt::read(std::istream & is)
 void GraphInt::write(std::ostream & os)
 {
 	os<<"Nodes: connect to: \n";
+	cout<<"Nodes: connect to: \n";
 	for (node_iterator ni = begin(); ni!= end(); ni++) // iterate through the nodes
 	{
 		os<<*ni<<" : ";
+		cout << *ni << " : ";
 		set<int> connections = getConnectedNodes(ni);
 		for (set<int>::iterator nums = connections.begin(); nums!= connections.end(); nums++){
 			os<<" "<<*nums;
+			cout<< " " <<*nums;
 		}
 		os<<endl;
+		cout<<endl;
 	}
 
 }

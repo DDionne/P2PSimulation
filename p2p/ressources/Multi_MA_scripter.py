@@ -196,7 +196,7 @@ print("\n\n\nGenerating the testing file\n======================================
 #generating the testing file :
 testingfile = open(root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\testing1.bat", "w")
 
-line1 = root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu" + "\n"
+line1 = "cd " + root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu" + "\n"
 
 print("please input number of hours for the simulation (from 0 to 99)")
 hours = input()

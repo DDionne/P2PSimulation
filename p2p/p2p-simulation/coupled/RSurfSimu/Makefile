@@ -42,7 +42,7 @@ DEBUGFLAGS=
 LDFLAGS+=-L. -g
 #^|
 EXAMPLESOBJS=  ConnectionManager.o DBGraph.o LinkFinder.o Logger.o NetGraph.o NetworkGraph.o PhysicalNetwork.o RandomSurfer.o Repository.o Router.o SGraph.o msgIdGen.o register.o queue.o main.o generat.o cpu.o transduc.o distri.o com.o linpack.o debug.o trafico.o
-#8
+#9
 
 LIBNAME=simu
 LIBS=-lsimu
