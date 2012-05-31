@@ -1,6 +1,7 @@
 from igraph import *
 
 
+
 def add_vertex_with_attrs(graph, attrs):
     n = graph.vcount()
     graph.add_vertices(1)
@@ -26,9 +27,15 @@ def remove_edge_between_peers(graph, fromId, toId):
 def remove_node_by_ID(graph, ID):
     g.delete_vertices(g.vs[find_node_by_ID(g,ID)])
 
+
+
 def get_shortest_path(fromId):
     return g.get_shortest_paths(find_node_by_ID(g,fromId),mode=ALL)
 
+
+"""  Don't know exactly what this returns, because I don't understand the get_shortest_paths method...
+Will try and fix soon
+"""
 def avg_component_size_per_peer():
     componentList = []
     for i in g.vs["peerId"]:
@@ -45,7 +52,12 @@ def avg_component_size_per_peer():
     #a = total/len(componentList)
    # return a
 
-filein = open("fileout.txt","r")
+default_input = 'C:\\eclipse\\workspace'
+# root_dir will be set to my_input if they just press enter
+root_dir = raw_input("Enter your workspace directory(default: %s):\n" % default_input) or default_input
+filein = open(root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\fileout.txt", "r")
+
+#filein = open("fileout.txt", "r")
 fileout = open("Output.txt", "w")
 
 #g = Graph.Formula("0-->0")
