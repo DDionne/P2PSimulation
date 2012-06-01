@@ -81,7 +81,7 @@ root_dir = raw_input("Enter your workspace directory(default: %s):\n" % default_
 filein = open(root_dir + "\\P2PSimulation\\p2p\\p2p-simulation\\coupled\\RSurfSimu\\fileout.txt", "r")
 
 #filein = open("fileout.txt", "r")
-fileout = open("Output.txt", "w")
+fileout = open("NetworkStatsOutput.txt", "w")
 
 #g = Graph.Formula("0-->0")
 #g.delete_vertices(g.vs)
