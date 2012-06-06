@@ -21,10 +21,7 @@ print "press 6 for The Network Diameter"
 Yelement = input()
 
 
-print Xelement
-print Yelement
-
-Xelement = int(Xelement)
+Xelement = int(Xelement) #turn them into integers so I can use them as an index later
 Yelement = int(Yelement)
 plotTitle = ''
 Xaxis = []
