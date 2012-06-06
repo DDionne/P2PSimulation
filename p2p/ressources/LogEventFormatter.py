@@ -89,24 +89,52 @@ for line in f:
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc + ":" + msg)
             #print(str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc + ":" + msg)
             numLines += 1
+
+
+
+
+            
         elif (currentLine[1] == "queryreachespeer"):
+            #print line
             peer = currentLine[2][:-8]
-            if(len(peer) != 0):
-                i = -8
-                msgId = ""
-                while i < -5:
-                    msgId += currentLine[2][i]
-                    i += 1
-                msg = msgId.lstrip('0')
-                if(msg == ""):
-                    msg = "0"
-            else:
-                msg = currentLine[2][:-5]
             if peer == "":
                 peer = "0"
+            #print peer
+            temp = currentLine[2][:-5]
+            if temp == "":
+                msg = "0"
+            else:
+                msg = str(int(currentLine[2][:-5]) - (int(peer)*1000))
+            #print msg
+            
+
+
+##            peer = currentLine[2][:-8]
+##            if(len(peer) != 0):
+##                i = -8
+##                msgId = ""
+##                while i < -5:
+##                    msgId += currentLine[2][i]
+##                    i += 1
+##                msg = msgId.lstrip('0')
+##                if(msg == ""):
+##                    msg = "0"
+##            else:
+##                msg = currentLine[2][:-5]
+##            if peer == "":
+##                peer = "0"
+
+
+
+                
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + peer + ":" + msg)
            # print(str(time) + ":" + currentLine[1] + ":" + peer + ":" + msg)
             numLines += 1
+
+
+
+
+            
         elif currentLine[1] == "query":
             TTL = currentLine[2][:-11]
             if TTL == "":
@@ -122,31 +150,6 @@ for line in f:
             if doc == "":
                 doc = "0"
 
-            
-
-            
-##            i = -4
-##            docs = ""
-##            while i < 0:
-##                docs += currentLine[2][i]
-##                i += 1
-##            doc = docs.lstrip('0')
-##            i = -11
-##            peer = ""
-##            while i < -8:
-##                peer += currentLine[2][i]
-##                i += 1
-##            p = peer.lstrip('0')
-##            i = -8
-##            msgId = ""
-##            while i < -5:
-##                msgId += currentLine[2][i]
-##                i += 1
-##            msg = msgId.lstrip('0')
-##            if(msg == ""):
-##                msg = "0"
-##            if(p == ""):
-##                p = "0"
 
 
 
