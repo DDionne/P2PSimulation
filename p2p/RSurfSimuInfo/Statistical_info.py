@@ -77,20 +77,29 @@ def stats(graph):
     return a
 
 
+""" handles the query event in the log_events file, basically adds a query to the list with 0 peers reached/queryhits along with the appropriate
+    Network stats at the time of the query """ 
 def add_Query(query, time):
     statList.append((query,time,0,0,latestAvgComponentSize,latestNumberofComponents, diameter))
 
+""" Searches for the index of the latest query made with the proper ID (iterates from the back of the list to the front) """
 def search_Query(query):
     for i in reversed(statList):
         if query in i:
             return statList.index(i)
+    return -1 #if the query isn't find, this should never happen
 
+
+""" Handles the Queryhit event by finding the index of the query which received a queryhit and updating its queryhit information by
+    incrementing it by one """
 def got_Queryhit(query):
     index = search_Query(query)
     tempTuple = statList[index]
     newTuple = (query, tempTuple[1], tempTuple[2], tempTuple[3]+1, tempTuple[4], tempTuple[5], tempTuple[6])
     statList[index] = newTuple
 
+""" Handles the Peer Reached event by finding the index of the query which reached another peer and updating its peers reached information
+    by incrementing it by one """
 def peer_Reached(query):
     index = search_Query(query)
     tempTuple = statList[index]
@@ -108,8 +117,8 @@ filein = open(root_dir + "\\P2PSimulation\\p2p\\ressources\\LogEvents.txt", "r")
 fileout = open("Stats-Table.txt","w")
 
 
-g = Graph(0)
-statList = []
+g = Graph(0)    #create an empty undirected graph
+statList = []   #list of all the relevent information
 latestAvgComponentSize = 1
 latestNumberofComponents = 1
 onlineCount = 0.0
@@ -120,53 +129,45 @@ for line in filein:
     if len(currentLine) > 1:
         if currentLine[1] == "query":
             add_Query(int(currentLine[4]), int(currentLine[0]))
-            #print "querying....."
 
         elif currentLine[1] == "queryhit":
-            got_Queryhit(int(currentLine[4]))
-            #print "queryhit....."
+            got_Queryhit(int(currentLine[4])) #currentLine[4] corresponds to the queryID of the queryhit message
 
         elif currentLine[1] == "queryreachespeer":
-            peer_Reached(int(currentLine[3]))
+            peer_Reached(int(currentLine[3])) #currentLine[3] corresponds to the queryID of the Peers Reached message
             
 
         elif currentLine[1] == "online":
-            onlineCount += 1
-            peerId = int(currentLine[2])
-            #print "Peer " + str(peerId) + " ONLINE"
-            add_vertex_with_attrs(g, {"peerId":peerId})
-            a = stats(g)
-            latestAvgComponentSize = a[0]
+            onlineCount += 1                  #keep track of how many peers are online by incrementing it everytime a peer comes online
+            peerId = int(currentLine[2])      #currentLine[2] corresponds to the Id of the peer which went online
+            add_vertex_with_attrs(g, {"peerId":peerId}) #add the peer to the graph with its corresponding ID
+            a = stats(g)    #update the appropriate network information
+            latestAvgComponentSize = a[0]   
             latestNumberofComponents = a[1]
             diameter = a[2]
             
 
         elif currentLine[1] == "offline":
-            onlineCount -= 1
-            peerId = int(currentLine[2])
-            
-            #print "Peer " + str(peerId) + " OFFLINE"
-            remove_node_by_ID(g,peerId)
-            a = stats(g)
+            onlineCount -= 1                  #keep track of how many peers are online by decrementing whenever a peer goes offline
+            peerId = int(currentLine[2])      #currentLine[2] corresponds to the Id of the peer which went offline
+            remove_node_by_ID(g,peerId)       #remove the peer from the network graph
+            a = stats(g)                      #update the appropriate network information
             latestAvgComponentSize = a[0]
             latestNumberofComponents = a[1]
             diameter = a[2]
 
         elif currentLine[1] == "connect":
-            fromPeer = int(currentLine[2])
-            toPeer = int(currentLine[3])
-            #print "Peer " + str(fromPeer) + " connecting to " + str(toPeer)
-            add_edge_between_peers(g,fromPeer,toPeer)
-            a = stats(g)
-            latestAvgComponentSize = a[0]
+            fromPeer = int(currentLine[2])    #currentLine[2] corresponds to the peer which is establishing the connection
+            toPeer = int(currentLine[3])      #currentLine[3] corresponds to the peer which is being connected to
+            add_edge_between_peers(g,fromPeer,toPeer)   #adds a connection (an edge) between the two peers in the network graph
+            a = stats(g)                      #update the appropriate network information
+            latestAvgComponentSize = a[0]     
             latestNumberofComponents = a[1]
             diameter = a[2]
 
-        elif currentLine[1] == "disconnect":
-            fromPeer = int(currentLine[2])
+        elif currentLine[1] == "disconnect":  
+            fromPeer = int(currentLine[2])    #same idea as for the connect section, but instead of connecting, they are disconnecting (remove the edge)
             toPeer = int(currentLine[3])
-            
-            #print "Peer " + str(fromPeer) + " disconnecting from " + str(toPeer)
             remove_edge_between_peers(g,fromPeer,toPeer)
             a = stats(g)
             latestAvgComponentSize = a[0]
