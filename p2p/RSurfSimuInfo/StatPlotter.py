@@ -4,20 +4,20 @@ import matplotlib.pyplot as plt
 filein = open("Stats-Table.txt","r")
 
 print "Choose an X-axis"
-print "press 1 for time"
+print "press 1 for Time"
 print "press 2 for Peers Reached"
-print "press 3 for qhits"
+print "press 3 for QueryHits"
 print "press 4 for Average Component Size"
-print "press 5 for the number of components in the network"
-print "press 6 for the Network Diameter"
+print "press 5 for The Number of Components in the Network"
+print "press 6 for The Network Diameter"
 Xelement = input()
 print "Choose a Y-axis"
-print "press 1 for time"
+print "press 1 for Time"
 print "press 2 for Peers Reached"
-print "press 3 for qhits"
+print "press 3 for QueryHits"
 print "press 4 for Average Component Size"
-print "press 5 for the number of components in the network"
-print "press 6 for the Network Diameter"
+print "press 5 for The Number of Components in the Network"
+print "press 6 for The Network Diameter"
 Yelement = input()
 
 
@@ -33,9 +33,9 @@ lineNumber = 0
 for line in filein:
     currentLine = line.split()
     if lineNumber == 0:
-        plotTitle += currentLine[Xelement]
-        plotTitle += " vs. "
         plotTitle += currentLine[Yelement]
+        plotTitle += " vs. "
+        plotTitle += currentLine[Xelement]
         
     else: 
         Xaxis.append(float(currentLine[Xelement]))

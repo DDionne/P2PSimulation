@@ -174,7 +174,7 @@ for line in filein:
             diameter = a[2]
 
 
-fileout.write("Query   Time    PeersReached     Queryhits     AvgComponentSize     NumberofComponents       Diameter\n")  
+fileout.write("Query   Time    Peers-Reached     QueryHits     Average-Component-Size     Number-of-Components       Diameter\n")  
 for i in statList:
     fileout.write(str(i[0]) + "  " + str(i[1]) + "    " + str(i[2]) + "    " + str(i[3]) + "    " + str(i[4]) + "    " + str(i[5]) + "    " + str(i[6]) + "\n")
 print "Done outputting to the text file"
