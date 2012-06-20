@@ -108,7 +108,7 @@ Model &Repository::externalFunction( const ExternalMessage &msg ){
 			else if(qhit == 1){
 
 				if(docFound){
-					output = buildNewMessage(docID, 1, msgId, myId, 0, 0);
+					output = buildNewMessage(docID, 1, msgId, 0, myId, 0);
 					if(SVERBOSE) cout << "sending queryhit for doc: "<<docID<<endl;
 					QueryhitQ.push(output);
 				}
@@ -120,7 +120,7 @@ Model &Repository::externalFunction( const ExternalMessage &msg ){
 			 */
 			else if(qhit == 2){
 				if(docFound){
-					output = (buildNewMessage(docID, 1, msgId, myId, 0, 0));
+					output = (buildNewMessage(docID, 1, msgId, 0, myId, 0));
 					QueryhitQ.push(output);
 				}
 			}
@@ -182,9 +182,9 @@ Model &Repository::externalFunction( const ExternalMessage &msg ){
 		}
 
 
-		if ( this->state() == passive) {
-			holdIn( active, Time(0,0,0,2));//pause for 20 milliseconds
-		}
+		//if ( this->state() == passive) {
+			holdIn( active, Time(0,0,0,1));//was pause for 20 milliseconds
+		//}
 
 	return *this ;
 }
@@ -197,7 +197,7 @@ Model &Repository::internalFunction( const InternalMessage & ){
 
 	//Any responses to output ?
 	if (!QueryhitQ.empty() || !publishQ.empty() || !docCheckQ.empty()) { // if we were or now are in the process of routing messages
-		holdIn( active, Time(0,0,0,2)); // we wait 2ms to dequeue
+		holdIn( active, Time(0,0,0,1)); // we wait 1ms to dequeue (was 2ms)
 		} else {
 			passivate(); // we just passivate immediately
 		}
@@ -219,6 +219,7 @@ Model &Repository::outputFunction( const InternalMessage &msg )
 	if (!QueryhitQ.empty()) { //if we were or now are in the process of routing messages
 		if(SVERBOSE) cout<<"output coming...\n";
 		long long message = QueryhitQ.front();
+		cout << msg.time() << " queryhit "<<message<<endl;
 
 		sendOutput( msg.time(), queryhit, message);
 		QueryhitQ.pop(); // remove latest output message !

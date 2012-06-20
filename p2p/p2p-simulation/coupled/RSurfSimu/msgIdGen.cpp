@@ -1153,7 +1153,7 @@ Model &msgIdGen::externalFunction( const ExternalMessage &msg ){
 Model &msgIdGen::internalFunction( const InternalMessage & ){
 
 	if (!queryQ.empty()){ // if we were or now are in the process of routing messages
-		holdIn( active, Time(0,0,0,2)); // we wait 2ms to dequeue
+		holdIn( active, Time(0,0,0,1)); // we wait 2ms to dequeue
 	}
 	else {
 			passivate(); // we just passivate immediately

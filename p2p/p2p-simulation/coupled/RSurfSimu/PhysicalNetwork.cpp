@@ -1080,7 +1080,7 @@ Model &PhysicalNetwork::internalFunction( const InternalMessage & ){
 
 	if (!EvQ.empty()) {
 		// if any of the queues are not empty
-	    	holdIn( active, Time(0,0,0,2)); // we wait 10ms to dequeue
+	    	holdIn( active, Time(0,0,0,1)); // we wait 1ms to dequeue (was 2ms)
 	    	// that is, we only have a useless fixed timing between two messages getting through the network
 	    } else {
 	    	passivate(); // we just passivate immediately

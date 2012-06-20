@@ -332,6 +332,7 @@ Model &Server::outputFunction( const InternalMessage &msg )
 
 		sendOutput( msg.time(), queryhit, message);
 		QueryhitQ.pop(); // remove latest output message !
+		sendOutput(msg.time(), queryhit, message);
 	}
 	return *this;
 }

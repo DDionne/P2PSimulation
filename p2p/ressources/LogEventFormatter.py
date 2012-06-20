@@ -25,65 +25,90 @@ for line in f:
         minToMS = int(timeList[1]) * 60000
         secToMS = int(timeList[2]) * 1000
         time = hoursToMS + minToMS + secToMS + int(timeList[3])
+
+
+
         if (currentLine[1] == "online"):
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + currentLine[2])
            # print(str(time) + ":" + currentLine[1] + ":" + currentLine[2])
             numLines += 1
+
+
+
+
         elif (currentLine[1] == "offline"):
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + currentLine[2])
            # print(str(time) + ":" + currentLine[1] + ":" + currentLine[2])
             numLines += 1
+
+
+
+
+
         elif ("connect" in currentLine[1]):
-            toInitial = currentLine[2][:-8]
-            fromPeer = currentLine[2][:-11]
+
+            temp = currentLine[2][:-10]
+            fromPeer = temp[:-2]
             if fromPeer != "":
-                toFinal = int(toInitial) - (int(fromPeer)*1000)
+                toFinal = int(temp) - (int(fromPeer)*100)
             else:
-                toFinal = toInitial
+                toFinal = temp
                 fromPeer = "0"
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + fromPeer + ":" + str(toFinal))
            # print(str(time) + ":" + currentLine[1] + ":" + fromPeer + ":" + str(toFinal))
             numLines += 1
+
+
+
+
+
         elif (currentLine[1] == "publish"):
-            p = currentLine[2][:-8]
-            if(len(p) != 0):
-                i = -4
-                docs = ""
-                while i < 0:
-                    docs += currentLine[2][i]
-                    i += 1
-                doc = docs.lstrip('0')
-            else:
-                doc = currentLine[2]
-            if p == "":
-                p = "0"
-            fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + p + ":" + doc)
-           # print(str(time) + ":" + currentLine[1] + ":" + p + ":" + doc)
-            numLines += 1
-        elif (currentLine[1] == "remove"):
-            peer = currentLine[2][:-8]
-            if(len(peer) != 0):
-                i = -3
-                docId = ""
-                while i < 0:
-                    docId += currentLine[2][i]
-                    i += 1
-                doc = docId.lstrip('0')
-            else:
+            #print line
+            peer = currentLine[2][:-10]
+            if peer == "":
                 peer = "0"
-                doc = currentLine[2]
+                doc = str(currentLine[2])
+            else:
+                doc = str(int(currentLine[2]) - (int(currentLine[2][:-4])*10000))
+            if doc == "":
+                doc = "0"
+
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc)
            # print(str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc)
             numLines += 1
+
+
+
+
+        elif (currentLine[1] == "remove"):
+            peer = currentLine[2][:-10]
+            if peer == "":
+                peer = "0"
+                doc = currentLine[2]
+            else:
+                doc = str(int(currentLine[2]) - (int(currentLine[2][:-4])*10000))
+            if doc == "":
+                doc = "0"
+
+            fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc)
+           # print(str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc)
+            numLines += 1
+
+
+
+
+
+
         elif (currentLine[1] == "queryhit"):
-            peer = currentLine[2][:-8]
+            peer = currentLine[2][:-12]
             if peer == "":
                 peer = "0"
             temp = currentLine[2][:-5]
-            msg = str(int(temp)-(int(peer)*1000))
-            if msg == "":
-                msg = "0";
-            doc = str(int(currentLine[2]) - (int(currentLine[2][:-3])*1000))
+            if temp == "":
+                msg = "0"
+            else:
+                msg = str(int(temp)-(int(peer)*10000000))
+            doc = str(int(currentLine[2]) - (int(currentLine[2][:-4])*10000))
             if doc == "":
                 doc = "0"
             fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc + ":" + msg)
@@ -95,34 +120,20 @@ for line in f:
 
             
         elif (currentLine[1] == "queryreachespeer"):
+            
             #print line
-            peer = currentLine[2][:-8]
+            TTL = currentLine[2][:-14]
+            if TTL == "":
+                TTL = "0"
+            peer = str(int(currentLine[2][:-10]) - int(TTL)*10000)
             if peer == "":
                 peer = "0"
-            #print peer
-            temp = currentLine[2][:-5]
-            if temp == "":
+            msg = str((int(currentLine[2][:-5])) - (int(TTL)*10000 + int(peer))*100000)
+            if msg == "":
                 msg = "0"
-            else:
-                msg = str(int(currentLine[2][:-5]) - (int(peer)*1000))
             #print msg
             
 
-
-##            peer = currentLine[2][:-8]
-##            if(len(peer) != 0):
-##                i = -8
-##                msgId = ""
-##                while i < -5:
-##                    msgId += currentLine[2][i]
-##                    i += 1
-##                msg = msgId.lstrip('0')
-##                if(msg == ""):
-##                    msg = "0"
-##            else:
-##                msg = currentLine[2][:-5]
-##            if peer == "":
-##                peer = "0"
 
 
 
@@ -136,17 +147,17 @@ for line in f:
 
             
         elif currentLine[1] == "query":
-            TTL = currentLine[2][:-11]
+            TTL = currentLine[2][:-14]
             if TTL == "":
                 TTL = "0"
-            peer = str(int(currentLine[2][:-8]) - int(TTL)*1000)
+            peer = str(int(currentLine[2][:-10]) - int(TTL)*10000)
             if peer == "":
                 peer = "0"
-            msg = str((int(currentLine[2][:-5])) - (int(TTL)*1000 + int(peer))*1000)
+            msg = str((int(currentLine[2][:-5])) - (int(TTL)*10000 + int(peer))*100000)
             if msg == "":
                 msg = "0"
-            temp = currentLine[2][:-3]
-            doc = str(int(currentLine[2]) - int(temp)*1000)
+            temp = currentLine[2][:-4]
+            doc = str(int(currentLine[2]) - int(temp)*10000)
             if doc == "":
                 doc = "0"
 
@@ -155,7 +166,7 @@ for line in f:
 
 
                 
-            fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + p + ":" + doc + ":" + msg)
+            fileout.write("\n" + str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc + ":" + msg)
             #print(str(time) + ":" + currentLine[1] + ":" + peer + ":" + doc + ":" + msg)
             numLines += 1
 

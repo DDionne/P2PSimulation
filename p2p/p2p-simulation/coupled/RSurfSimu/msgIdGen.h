@@ -11,7 +11,7 @@
 #ifndef __MSGIDGEN_H
 #define __MSGIDGEN_H
 #define VERBOSE false
-#define MAXID 1000
+#define MAXID 100000
 
 /** include files **/
 #include "atomic.h"  // class Atomic

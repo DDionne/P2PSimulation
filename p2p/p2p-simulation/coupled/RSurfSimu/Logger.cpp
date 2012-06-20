@@ -62,11 +62,11 @@ Model &Logger::externalFunction( const ExternalMessage &msg )
 {
 	if(this->state() == passive){
 
-	/* prints the queryhit message to the console */
-	if(msg.port() == qhit_in){
-		long long tosend = msg.value();
-		if(LogVERBOSE) cout << msg.time() << " queryhit "<<tosend<<endl;
-	}
+	/* prints the queryhit message to the console   ->Currently being output in the Repository model */
+//	if(msg.port() == qhit_in){
+//		long long tosend = msg.value();
+//		if(LogVERBOSE) cout << msg.time() << " queryhit "<<tosend<<endl;
+//	}
 
 	/* prints the queryreachespeer message to the console */
 	if(msg.port() == queryReached){
@@ -75,8 +75,8 @@ Model &Logger::externalFunction( const ExternalMessage &msg )
 		int msgId = getSecondField(msg.value());
 		int qhit = getFifthDigit(msg.value());
 		int TTL = getFifthField(msg.value());
-		long long tosend = buildNewMessage(query, 0, msgId, myId, 0, 0);
-		if(TTL != 1){
+		long long tosend = buildNewMessage(query, 0, msgId, myId, 0, TTL);
+		if(TTL != 0){
 			if(LogVERBOSE) cout << msg.time() << " queryreachespeer "<<tosend<<endl;
 		}
 	}
@@ -90,7 +90,7 @@ Model &Logger::externalFunction( const ExternalMessage &msg )
 
 	}
 
-	/* prints the publish message to the console */  //------->currently being output in the Server model
+	/* prints the publish message to the console */  //------->currently being output in the Repository model
 //	if(msg.port() == in_publish){
 //		long long tosend;
 //		int peer = getThirdField(msg.value());
@@ -123,7 +123,7 @@ Model &Logger::externalFunction( const ExternalMessage &msg )
 		long long tosend = msg.value();
 		if(LogVERBOSE) cout << msg.time() << " disconnect "<<tosend<<endl;
 	}
-	holdIn(active, 0.0f);
+	holdIn(active, 0.00f);
 	}
 
 	return *this ;

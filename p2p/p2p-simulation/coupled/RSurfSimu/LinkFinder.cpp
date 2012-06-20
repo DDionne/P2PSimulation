@@ -1078,10 +1078,8 @@ Model &LinkFinder::externalFunction( const ExternalMessage &msg ){
 	}
 
 	// TEST : no external transition unless we're passive
-	if (this->state()==passive){
-		holdIn( active, Time(0,0,0,120)); //wait 120ms before doing something
-	}
-
+	//holdIn( active, Time(0,0,0,1));
+	holdIn( active, Time(0.00f));
 	return *this ;
 }
 
@@ -1092,7 +1090,8 @@ Model &LinkFinder::internalFunction( const InternalMessage & ){
 
 	if (!LinkQ.empty()) {
 		// if any of the queues are not empty
-	    	holdIn( active, Time(0,0,0,1)); // we wait 1ms to dequeue
+	    	//holdIn( active, Time(0,0,0,1)); // we wait 1ms to dequeue
+			holdIn( active, Time(0.00f));
 	    	// that is, we only have a useless fixed timing between two messages getting through the network
 	    } else {
 	    	passivate(); // we just passivate immediately

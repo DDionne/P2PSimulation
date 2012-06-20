@@ -10,6 +10,8 @@ print "press 3 for QueryHits"
 print "press 4 for Average Component Size"
 print "press 5 for The Number of Components in the Network"
 print "press 6 for The Network Diameter"
+print "press 7 for the Number of Documents in the Network"
+print "press 8 for the Number of Peers Online"
 Xelement = input()
 print "Choose a Y-axis"
 print "press 1 for Time"
@@ -18,6 +20,8 @@ print "press 3 for QueryHits"
 print "press 4 for Average Component Size"
 print "press 5 for The Number of Components in the Network"
 print "press 6 for The Network Diameter"
+print "press 7 for the Number of Documents in the Network"
+print "press 8 for the Number of Peers Online"
 Yelement = input()
 
 
@@ -30,9 +34,18 @@ lineNumber = 0
 for line in filein:
     currentLine = line.split()
     if lineNumber == 0:
-        plotTitle += currentLine[Yelement]
+        if Yelement != 9:
+            plotTitle += currentLine[Yelement]
+        else:
+            plotTitle += "Qhit/PeersReached ratio"
         plotTitle += " vs. "
         plotTitle += currentLine[Xelement]
+    elif Yelement == 9:
+        Xaxis.append(float(currentLine[1]))
+        if float(currentLine[2]) == 0:
+            Yaxis.append(0)
+        else:
+            Yaxis.append(float(currentLine[3])/float(currentLine[2]))
         
     else: 
         Xaxis.append(float(currentLine[Xelement]))

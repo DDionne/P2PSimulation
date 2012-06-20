@@ -3,10 +3,10 @@
 
 #define STANDARDTTL 5
 
-#define TTLOFFSET 100000000000000LL
-#define FROMOFFSET 100000000000LL
-#define TOOFFSET   100000000LL
-#define MSGOFFSET 100000LL
+#define TTLOFFSET  100000000000000LL
+#define FROMOFFSET 1000000000000LL
+#define TOOFFSET   10000000000LL
+#define MSGOFFSET  100000LL
 #define QHITOFFSET 10000LL
 
 //some functions to manage the messages passed between different components, where the integer must contain several values coded together.

@@ -130,7 +130,7 @@ Model &Router::externalFunction( const ExternalMessage &msg ){
 
 			/* send a message to the peer's server to look for queryhits. Also sends messages to all the peer's connections in
 			 * order to propagate the query */
-			localQuery.push(buildNewMessage(query, qhit, msgId, 0, myId, 1));
+			localQuery.push(buildNewMessage(query, qhit, msgId, 0, myId, 0));
 			if(TTL > 0){
 				set<int>::iterator connection;
 				for(connection = connectionlist.begin();connection != connectionlist.end();connection++){
@@ -180,7 +180,7 @@ Model &Router::externalFunction( const ExternalMessage &msg ){
 			/* If message hasn't already been received, then send a message to server to look for queryhits, then send a message
 			 * to all connections in order to propagate the query (the TTL is 0) */
 			if(msgIdList.find(msgId) == msgIdList.end() && msgIdList2.find(msgId) == msgIdList2.end() && TTL > 0 && qhit != 1){
-					localQuery.push(buildNewMessage(query, qhit, msgId, 0, myId, 0)); //build message to be output to the server (local repository)
+					localQuery.push(buildNewMessage(query, qhit, msgId, 0, myId, TTL)); //build message to be output to the server (local repository)
 					set<int>::iterator connection;
 
 					/**
@@ -221,26 +221,30 @@ Model &Router::externalFunction( const ExternalMessage &msg ){
 			/* if the msgId maps to a peer, then rout the message to that peer, otherwise the peer is the one that queried,
 			 * therefore sends a message to the RandomSurfer Model*/
 			else if(qhit == 1){
-
+				int qHitPeer = getFourthField(msg.value());
 				//msgId is in the primary routing table, build a message to be routed to the peer which corresponds with this ID
 				if((*primary).find(msgId) != (*primary).end()){
-					fromId = (*primary)[msgId];
-					QueryQueue.push(buildNewMessage(query,1,msgId,fromId,myId,0));
+					int toId = (*primary)[msgId];
+					QueryQueue.push(buildNewMessage(query,1,msgId,toId,qHitPeer,0));
 					if(VERBOSE) cout << "received a queryhit ---->routing in primary" <<endl;
+					//cout << msg.time() << " ------> Queryhit from Peer " << fromId << " Routing to peer " << toId << " with a msgId of " << msgId << endl;
 				}
 
 				//msgId is in the secondary routing table, build a message to be routed to the peer which corresponds with this ID
 				else if((*secondary).find(msgId) != (*secondary).end()){
-					fromId = (*secondary)[msgId];
-					QueryQueue.push(buildNewMessage(query,1,msgId,fromId,myId,0));
+					int toId = (*secondary)[msgId];
+					QueryQueue.push(buildNewMessage(query,1,msgId,toId,qHitPeer,0));
 					if(VERBOSE) cout << "received a queryhit ---->routing in secondary" << endl;
+					//cout << msg.time() << " ------> Queryhit from Peer " << fromId << " Routing to peer " << toId << " with a msgId of " << msgId << endl;
 				}
 
 				//msg isn't in the routing tables, it means that these messages were meant for us, therefore send it to the RandomSurfer model
 				//(Session Manager)
 				else{
-					QueryHitQueue.push(buildNewMessage(query, 0, msgId, myId, 0, 0));
+					QueryHitQueue.push(buildNewMessage(query, 0, msgId, qHitPeer, 0, 0));
+					//cout << "QUERYHIT " << buildNewMessage(query, 0, msgId, myId, 0, 0) << endl;
 					if(VERBOSE) cout << "queryhit being sent to RandomSurfer model"<<endl;
+					//cout << msg.time() << " ---> Done Routing msgId of " << msgId  << " from peer " << qHitPeer << endl;
 				}
 
 			}
@@ -260,6 +264,7 @@ Model &Router::externalFunction( const ExternalMessage &msg ){
 	// we have an instantaneous change back to the passive state (will output the next output values where relevant)
 	holdIn( active, Time(0.00f));
 
+
 	return *this ;
 }
 
@@ -270,7 +275,7 @@ Model &Router::externalFunction( const ExternalMessage &msg ){
 Model &Router::internalFunction( const InternalMessage & ){
 
 	//if we're still sending messages
-	if( !QueryQueue.empty() || !connectionQueue.empty() || !disconnectionQueue.empty() || !QueryHitQueue.empty()){
+	if( !QueryQueue.empty() || !connectionQueue.empty() || !disconnectionQueue.empty() || !QueryHitQueue.empty() || !localQuery.empty()){
 		holdIn(active,Time(0,0,0,1)); //wait 1 ms to dequeue
 	}
 	else{
