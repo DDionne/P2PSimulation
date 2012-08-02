@@ -33,7 +33,6 @@ public:
 
 
 	//a queue of networks events as defined in NetEvent.h [just a struct], using the Standard Template Library
-	//for now no real use in defining this...
 	class EventQueue : public queue<netevent> {
 	public :
 		EventQueue(){

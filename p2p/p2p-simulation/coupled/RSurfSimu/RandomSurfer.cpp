@@ -318,7 +318,7 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 				long long tosend2 = buildNewMessage(queries,2,0,whoAmI,0,TTL);
 				if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " queries: "<<queries<<endl;
 				sendOutput( msg.time(), query , tosend2 ); // we output the value in the query set on the query output port
-				alldocs.insert(queries); // save it in the collection of already published documents
+				alldocs.insert(queries); // save it in the collection of already published documents (are we necessarily publishing here though?)
 			}
 			else{
 
@@ -341,7 +341,7 @@ Model &RandomSurfer::outputFunction( const InternalMessage &msg )
 			if(PVERBOSE) cout << msg.time()<<" : output message: "<<tosend<<endl;
 			if(PVERBOSE) cout << msg.time()<<" : Peer" <<whoAmI<< " publishes: "<<queries<<endl;
 			sendOutput( msg.time(), query , tosend ); // we output the value in the query set on the query output port
-			alldocs.insert(queries); // save it in the collection of already published documents
+			alldocs.insert(queries); // save it in the collection of already published documents (are we necessarily publishing here though?)
 		}
 		else{
 			sendOutput( msg.time(), offline, whoAmI );
