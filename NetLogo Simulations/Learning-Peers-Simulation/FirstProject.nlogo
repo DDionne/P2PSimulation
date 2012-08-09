@@ -19,6 +19,10 @@ turtles-own [
   onlineTime;
   currentDocs;
   DocsToPublish;
+  searchChance;
+  changeFriendsChance;
+  componentSize;
+  
   
   ]
 
@@ -39,6 +43,7 @@ globals [
   VERBOSE?
   toFile?
   msgID
+  numPeers
   
   ]
 
@@ -73,7 +78,9 @@ to setup-turtles
   create-turtles NumPeers
   foreach sort-by [[who] of ?1 < [who] of ?2] turtles [
     ask ?[ 
+    set color red
     set online? false
+    set componentSize 1
     set explored? false
     set offlineTime 50 + random 500
     set timeSpentOffline 0
@@ -88,6 +95,8 @@ to setup-turtles
     set DocsToPublish []
     set DocsToPublish item peerID docList
     set lastSearchedDoc -1
+    set searchChance 95
+    set changeFriendsChance (100 - searchChance)
     layout-circle turtles max-pxcor - 1  
     hide-turtle
     ]
@@ -101,31 +110,41 @@ end
 to setup-documents
   set docList []
   file-open "MultiPeer.txt"
+  let docStart false
   while [not file-at-end?][
- 
-    let tempo file-read-line
-    
-    if-else tempo != "end"[
-      let temp read-from-string tempo
-      if-else length docList = 0
-      [
-        set docList lput [] docList
-        let a item 0 docList
-        set a lput temp a
-        set a remove-duplicates a
-        let b ((length docList) - 1)
-        set docList (replace-item b docList a)
+    if-else docStart = false [
+      let line file-read-line
+      if-else line != "docs" [
+        let number read-from-string line
+        set numPeers number  
       ]
-      [
-        let b ((length docList) - 1)
-        let a item b docList
-        set a lput temp a
-        set a remove-duplicates a
-        set docList (replace-item b docList a)
-      ]
+      [ set docStart true ] 
     ]
     [
-      set docList lput [] docList 
+      let tempo file-read-line
+    
+      if-else tempo != "end"[
+        let temp read-from-string tempo
+        if-else length docList = 0
+        [
+          set docList lput [] docList
+          let a item 0 docList
+          set a lput temp a
+          set a remove-duplicates a
+          let b ((length docList) - 1)
+          set docList (replace-item b docList a)
+        ]
+        [
+          let b ((length docList) - 1)
+          let a item b docList
+          set a lput temp a
+          set a remove-duplicates a
+          set docList (replace-item b docList a)
+        ]
+      ]
+      [
+        set docList lput [] docList 
+      ]
     ]
   ]
   file-close
@@ -145,7 +164,7 @@ to go
    ask ?[
      do-something
      ifelse show-IDs?
-       [ set label peerID ]
+       [ set label happiness ]
        [ set label "" ]
    ]
  ]
@@ -204,7 +223,7 @@ to do-something
         set onlinePeerList remove who onlinePeerList       ;remove the peer from the list of all online peers in the network
         hide-turtle                                        ;remove the peer from the visualisation screen
         set onlineTime 0 ;;reset his amount of time online to 0 (hes offline)
-        set onlineTimeTotal 200 + random randomAddedLife ;;Next time he goes online, he will be online for this amount of time
+        set onlineTimeTotal 200 + random 200 ;;Next time he goes online, he will be online for this amount of time
         if length currentFriends != 0[                     ;if he had friends, then disconnect from them
           hide-friend-connections peerID
         ]
@@ -228,28 +247,36 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Method that decides what the best course of action is for a specific peer ;;;;
 ;;;; Possible actions are :                                                    ;;;;
-;;;;                                                                           ;;;; <--Need to make this work with hapiness (need to do that first though)
+;;;;                                                                           ;;;; <--Need to make this work with happiness (need to do that first though)
 ;;;; -Search for a document                                                    ;;;;
 ;;;; -Add/Remove a friend                                                      ;;;;
 ;;;; -Publish/Delete a document                                                ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to decide-action
-  ;let a random 300
-  ;if a < 290 [
-  ;  search peerID (random 965 + 1)  msgID
-  ;  
-  ;  
-  ;  set msgID msgID + 1
-  ;  set searches searches + 1 
-  ;  if lastSearchedDoc != -1 [publish lastSearchedDoc     set lastSearchedDoc -1]
-  ;]
- ; if a >= 190 and a < 290 [ if lastSearchedDoc != -1 [ publish lastSearchedDoc ]]
-  ;if a >= 290 [ find-new-similar-friend peerID ]
-  ;if length currentFriends > 5 [ remove-least-similar-friend peerID ]
+  let actionDecider random 100
+  if-else actionDecider < changeFriendsChance [
+    manage-surroundings 
+  ]
+  [
+    let docToSearch random 965
+    search peerID docToSearch msgID
+    set msgID msgID + 1
+    if searchHits > 0 [ publish docToSearch ]
+  ]
+  
+  set happiness checkHappiness
+  set changeFriendsChance precision ((100 - happiness) / 10) 0
+  set searchChance 100 - changeFriendsChance
+  ;Type "Peer: " type who type " SearchChance: " type searchChance type " otherChance: " print changeFriendsChance
+  
 end
 
 
-
+to manage-surroundings 
+  
+  
+  
+end
 
 
 
@@ -581,16 +608,11 @@ end
 
 
 
-
-
-
-
-
 to publish [ document ]
   if VERBOSE? [ Type "publish:" type who type ":" print document ] ;prints this out (info on what's happening) (publish:peer:doc)
   set currentDocs fput document currentDocs
   set currentDocs remove-duplicates currentDocs
-  ;;if length currentDocs > MAXDOCS [ delete-document document ]
+  if length currentDocs > MAXDOCS [ delete-document last currentDocs ]
 end
 
 
@@ -742,6 +764,18 @@ to-report checkSimilarity-atStart [node1 node2]
     report average
 
 end
+
+
+to-report checkHappiness
+  
+  let temp 0
+  if length currentFriends > 0 [set temp (peer-popularity peerID / length currentFriends) ]
+  let docPop searchHits
+  let temp2 0
+  if peersOnline > 1 [  set temp2 docPop / (peersOnline - 1)  ]
+  report precision (((temp + temp2) / 2) * 100) 0
+  
+end
   
   
   
@@ -802,21 +836,6 @@ NIL
 NIL
 1
 
-SLIDER
-18
-74
-190
-107
-NumPeers
-NumPeers
-1
-100
-49
-1
-1
-Peers
-HORIZONTAL
-
 BUTTON
 92
 25
@@ -852,30 +871,15 @@ NIL
 1
 
 SWITCH
-18
-124
-132
-157
+20
+74
+134
+107
 Show-IDs?
 Show-IDs?
 0
 1
 -1000
-
-SLIDER
-19
-174
-199
-207
-RandomAddedLife
-RandomAddedLife
-0
-100
-0
-1
-1
-Ticks
-HORIZONTAL
 
 PLOT
 18
@@ -936,7 +940,7 @@ This model is a simulation of a peer-to-peer network where each peer learns in a
 ## HOW TO USE IT
 
 Press the setup button, then press go or step, which ever the user prefers.
--make sure to have the correct input files (need to add the names here)
+-make sure to have the correct input files (MultiPeer.txt is the current File Name)
 
 ## THINGS TO NOTICE
 
