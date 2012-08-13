@@ -42,6 +42,7 @@ globals [
   docList;
   friendLists
   toFile?
+  NumPeers;
   
   ]
 
@@ -90,10 +91,12 @@ end
 ;;;; Sets up all the peers ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to setup-turtles
-  create-turtles NumPeers                                        ;Creates the amount of peers designated by the slider NumPeers
+  
   file-open "FriendList.txt"                                     ;Opens the FriendList.txt and read it into the variable friendLists
   if not file-at-end? [ set friendLists file-read ] 
-  file-close                                                     ;Close the file
+  file-close 
+  set NumPeers length friendLists
+  create-turtles NumPeers                                        ;Creates the amount of peers designated by the slider NumPeers                                                    ;Close the file
   foreach sort-by [[who] of ?1 < [who] of ?2] turtles [          ;loop through each peer in order according to there 'who' value (built-in turtle variable)
     ask ?[ 
     set online? false                                            ;peers start offline
@@ -600,21 +603,6 @@ NIL
 NIL
 NIL
 1
-
-SLIDER
-18
-74
-190
-107
-NumPeers
-NumPeers
-1
-100
-100
-1
-1
-Peers
-HORIZONTAL
 
 BUTTON
 92
