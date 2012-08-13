@@ -1,7 +1,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; PEER VARIABLES ;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; PEER VARIABLES ;;;;  -----> Need to add Distributions to the chances or querying which documents. So that instead of having equal chances to query every document, 
+;;;;;;;;;;;;;;;;;;;;;;;;         Peers have a greater chance to query a specific range of documents, meaning an increase in utility (when they randomly query everything, there
+;;;;;;;;;;;;;;;;;;;;;;;;         Utility is low, because they queries something none of his friends have.
 turtles-own [
   
   online? ; tells us whether or not the peer is online
@@ -21,7 +22,6 @@ turtles-own [
   DocsToPublish;
   searchChance;
   changeFriendsChance;
-  componentSize;
   
   
   ]
@@ -37,13 +37,17 @@ globals [
   docList;
   onlinePeerList
   layout?
-  totalHitsThisTick;
+  totalHitsThisTick; ->temporary
   searches
   peersOnline
   VERBOSE?
   toFile?
   msgID
   numPeers
+  friendLimit
+  totalHappiness
+  averageHappiness
+  peerHits; ->temporary
   
   ]
 
@@ -56,11 +60,15 @@ to setup
   set toFile? false
   set-default-shape turtles "circle"
   set totalHitsThisTick 0
+  set peerHits 0
   set msgID 0
   set searches 0
+  set totalHappiness 0
+  set averageHappiness 0
   setup-documents
   setup-turtles
   setup-friends
+  set friendLimit precision (numPeers / 10) 0
   set layout? true
   if file-exists? "fileout.txt" [ file-delete "fileout.txt" ]
 ;;  setup-friends <--Currently very innefficient
@@ -80,7 +88,6 @@ to setup-turtles
     ask ?[ 
     set color red
     set online? false
-    set componentSize 1
     set explored? false
     set offlineTime 50 + random 500
     set timeSpentOffline 0
@@ -163,6 +170,9 @@ to go
    ask turtles [set explored? false]
    ask ?[
      do-something
+     if-else peersOnline > 0
+       [set averageHappiness totalHappiness / peersOnline]
+       [set averageHappiness 0]
      ifelse show-IDs?
        [ set label happiness ]
        [ set label "" ]
@@ -222,6 +232,10 @@ to do-something
         set peersOnline peersOnline - 1
         set onlinePeerList remove who onlinePeerList       ;remove the peer from the list of all online peers in the network
         hide-turtle                                        ;remove the peer from the visualisation screen
+        
+        set totalHappiness totalHappiness - happiness
+        set happiness 0
+        
         set onlineTime 0 ;;reset his amount of time online to 0 (hes offline)
         set onlineTimeTotal 200 + random 200 ;;Next time he goes online, he will be online for this amount of time
         if length currentFriends != 0[                     ;if he had friends, then disconnect from them
@@ -258,13 +272,15 @@ to decide-action
     manage-surroundings 
   ]
   [
-    let docToSearch random 965
+    let docToSearch ((random 965) + 1)
     search peerID docToSearch msgID
     set msgID msgID + 1
     if searchHits > 0 [ publish docToSearch ]
   ]
   
+  set totalHappiness totalHappiness - happiness
   set happiness checkHappiness
+  set totalHappiness totalHappiness + happiness
   set changeFriendsChance precision ((100 - happiness) / 10) 0
   set searchChance 100 - changeFriendsChance
   ;Type "Peer: " type who type " SearchChance: " type searchChance type " otherChance: " print changeFriendsChance
@@ -272,11 +288,65 @@ to decide-action
 end
 
 
-to manage-surroundings 
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; peer manages his friends so in order to get a better a better happiness score ;;;;
+;;;; chance to remove offline friends to then add the most similar online peer     ;;;;
+;;;; chance to simply add a random online peer                                     ;;;;
+;;;; when removing, either removes an offline friend or the least similar friend   ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+to manage-surroundings   
+  ;;;; I think the reason they keep getting more friends is because even if the reach there friend limit, they can still be added by others. so if
+  ;;;; a peer that has reached his limit gets added by another peer, then he also adds that peer to his list.
   
   
+  let offlineFriends [] 
+  foreach currentFriends [ 
+   
+    if not is-online? ? [ set offlineFriends lput ? offlineFriends ] 
+    
+  ]
+  
+  if-else length offlineFriends > 0 [
+    let temp random 100
+    if-else temp < 5[
+      let sim checkSimilarity who first offlineFriends
+      let p first offlineFriends
+      foreach offlineFriends [
+        let tempSim checkSimilarity who ?
+        if tempSim < sim [
+          set sim tempSim
+          set p ?
+        ]
+      ]
+      remove-friend who p
+      if length currentFriends <= friendLimit [find-new-similar-friend who]
+    ]
+    [
+      remove-least-similar-friend who
+      if length currentFriends <= friendLimit [find-new-similar-friend who]
+    ]
+  ]
+  [
+    let temp random 100
+    if-else temp < 15 [
+      
+      if length currentFriends <= friendLimit [find-new-random-friend who]
+    ]
+    [ 
+      if length currentFriends <= friendLimit [find-new-similar-friend who]
+    ]
+  ]
+      
+
   
 end
+
+
+
 
 
 
@@ -304,9 +374,14 @@ to search [peer document messageID]
     explore peer document msgID 
     unexplore                      ;Used to set all peers explored variable to false (can't do ask turtles [] because we're not in observer mode here)
     set totalHitsThisTick totalHitsThisTick + searchHits
+    if peerID = peerNum [ set peerHits searchHits ]
 end
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Recursively visits each node and checks for queryhits ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to explore [peer document messageID] ;; node procedure
   if explored? [ stop ]
   if peer != who [ 
@@ -327,6 +402,11 @@ to explore [peer document messageID] ;; node procedure
   ask link-neighbors [ explore peer document messageID]
 end
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Recursively visits each node to change the explored variable to false ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to unexplore                                     ;Simply travels through the network in order to set all the "explored?" variables to false
   if not explored? [ stop ]
   set explored? false
@@ -344,6 +424,8 @@ to-report peer-popularity [peer]
 end
 
 
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; finds a new friend randomly from a set of all online peers thats not already a friend ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -358,6 +440,8 @@ to find-new-random-friend [peer]
     ]
   ]
 end
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -386,26 +470,32 @@ end
 
 
 
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Removes the friends that has the least document similarity ;;;; <--Will always remove a friend 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    Does the same thing as find-new-similar-friend, but uses the currentFriends list and deletes the lowest similarity
 to remove-least-similar-friend [peer]
-  let peer1 turtle peer
-  ask peer1[
-    let worstFriend item 0 currentFriends
-    let similarity 100
-    foreach currentFriends[
-      let a checkSimilarity peer ?
-      if a < similarity [
-        set worstFriend ?
-        set similarity a   
-      ]    
-    ]  
-    remove-friend peer worstFriend
-    set similaritySum similaritySum - similarity
+  if length currentFriends > 0[
+    let peer1 turtle peer
+    ask peer1[
+      let worstFriend item 0 currentFriends
+      let similarity 100
+      foreach currentFriends[
+        let a checkSimilarity peer ?
+        if a < similarity [
+          set worstFriend ?
+          set similarity a   
+        ]    
+      ]  
+      remove-friend peer worstFriend
+      set similaritySum similaritySum - similarity
+    ]
   ]
 
 end
+
+
 
 
 
@@ -417,6 +507,8 @@ to-report similarityAvg [peer]
   report a
 end
   
+
+
 
 
 
@@ -433,16 +525,23 @@ to-report list-difference [list1 list2]
 end
 
 
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Returns a random value from a list ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-to-report getRandomItem [aList]
-  if length aList > 0[
+to-report getRandomItem [aList]  ; -> alist  must have at least 1 item
+  if-else length alist > 0 [
     report item random length aList aList
   ]
+  [ report -1 ]
   
 end
   
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Checks for similarity in repositories between 2 peers ;;;;
@@ -474,6 +573,9 @@ to-report checkSimilarity [node1 node2]
     report average
 
 end
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -513,6 +615,9 @@ to addFriend [peer1 peer2]
   ]
 end
 
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Adds links between a peer and all his friends (that are currently online) ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -532,6 +637,11 @@ to show-friend-connections [peer-ID] ;
     ] 
   ]
 end
+
+
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Remove all the links associated with a peer (i.e that peer is going offline) ;;;;
@@ -553,6 +663,10 @@ to hide-friend-connections [peer-ID]
       ] 
   ]
 end
+
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -581,6 +695,10 @@ to remove-friend [peer-ID otherID]
 end
 
 
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Returns a list of all the turtles sorted by there peerID  ;;;; <-- currently not needed (turtles "who" value == peerID)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -588,6 +706,10 @@ to-report sorted-turtle-set
   let temp sort-by [[peerID] of ?1 < [peerID] of ?2] turtles
   report temp
 end
+
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -607,7 +729,9 @@ end
 
 
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; peer calling this method publishes the document taken as a parameter ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to publish [ document ]
   if VERBOSE? [ Type "publish:" type who type ":" print document ] ;prints this out (info on what's happening) (publish:peer:doc)
   set currentDocs fput document currentDocs
@@ -617,6 +741,8 @@ end
 
 
   
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  
@@ -641,6 +767,7 @@ end
   
 
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Finds the shortest path between 2 nodes, if the nodes aren't connected in anyway (no path) then it returns -1 ;;;;
 ;;;; Recursively explores the network, finding all possible paths between the start peer and the end peer, then    ;;;;
@@ -654,6 +781,11 @@ to-report peer-distance [start finish]
   
 end
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; works with the peer-distance method mentionned above ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report find-shortest-path [start finish currentPath shortestPath]
   let result shortestPath
   let pathLength currentPath
@@ -707,13 +839,22 @@ to setup-friends
   ]
 end
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; used by the setup friends method, selects a friend at random and adds them to the list of friends ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to pick-random-peer        
   let person random NumPeers                               ;random peer
-  if-else member? person CurrentFriends                    ;If that peer isn't in the friends list, add that peer
+  if-else member? person CurrentFriends or person = who    ;If that peer isn't in the friends list, add that peer
   [pick-random-peer]                                       ;if that peer is there, than try again
   [set currentFriends lput person currentFriends]
 end 
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; based on the initial distribution of documents each peer has, picks the most similar peer as a friend ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to pick-similar-peer
   let similarity 0
   let most-similar-peer -1
@@ -766,6 +907,10 @@ to-report checkSimilarity-atStart [node1 node2]
 end
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; utility function ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report checkHappiness
   
   let temp 0
@@ -897,7 +1042,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot totalHitsThisTick"
+"default" 1.0 0 -16777216 true "" "plot peerHits"
 
 PLOT
 900
@@ -915,7 +1060,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot searches"
+"default" 1.0 0 -16777216 true "" "plot averageHappiness"
 
 MONITOR
 253
@@ -928,6 +1073,17 @@ peersOnline
 1
 11
 
+INPUTBOX
+17
+133
+172
+193
+peerNum
+4
+1
+0
+Number
+
 @#$#@#$#@
 ## WHAT IS IT?
 
@@ -935,7 +1091,9 @@ This model is a simulation of a peer-to-peer network where each peer learns in a
 
 ## HOW IT WORKS
 
--needs work
+Turtles are used as peers within a peer-to-peer network. These peers have two seperate states, online and offline. When they are offline, the turtles are invisible on the visualisation screen. When they are online, they are visible. These peers have a set of initial documents taken from an input file, based on that, they generate a initial friends list at the beginning of the simulation. Every Tick, the peers that are online query a document, and that query propagates throughout the network looking for hits.
+
+The utility function gets called at the end of each tick to see if the odds of changing the peers surroundings need to be increased or lowered. The more queryhits a peer receives vs the amount of peers online, along with the amount of friends that are online vs offline will increase happiness and decrease the chance of changing friends.
 
 ## HOW TO USE IT
 
