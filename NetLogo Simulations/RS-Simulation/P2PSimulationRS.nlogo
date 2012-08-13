@@ -130,10 +130,10 @@ to setup-documents                                               ;Can be made mo
   file-open "MultiPeer.txt"                                      ;Open the file containing all the documents for each peer
   while [not file-at-end?][
  
-    let tempo file-read-line
+    let line file-read-line                                      ;read the current line
     
-    if-else tempo != "end"[
-      let temp read-from-string tempo
+    if-else line != "end"[                                       ;if true, new entry into docList
+      let temp read-from-string line
       if-else length docList = 0
       [
         set docList lput [] docList
@@ -143,7 +143,7 @@ to setup-documents                                               ;Can be made mo
         let b ((length docList) - 1)
         set docList (replace-item b docList a)
       ]
-      [
+      [                                                          ;else continue adding on to docList
         let b ((length docList) - 1)
         let a item b docList
         set a lput temp a
@@ -245,6 +245,12 @@ to do-something
 end
 
 
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; called by a peer, publishes all the documents that are distributed at the start of the simulation ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to AddDocsToNetwork
   foreach DocsToPublish[
     publish ?
@@ -292,6 +298,12 @@ to decide-action
 end
 
 
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; called by a peer and deletes the document specified by the parameter ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to delete-document [document]
   if VERBOSE? [ type "remove:" type who type ":" print document]
   if toFile? [file-type (ticks * 10) file-type ":" file-type "remove:" file-type who file-type ":" file-print document]
@@ -357,6 +369,13 @@ to explore [peer document messageID find-links?] ;; node procedure
   ]
 end
 
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; called by the peer, returns true if the peer has the document specified by the parameter ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report hasDocument? [ document ]
   if-else member? document currentDocs  [report true]
   [report false]
@@ -500,8 +519,10 @@ end
 
 
 
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; called by a peer, adds the document to there currentDocs list, if the maximum amount of documents is reached, removes the document at the end of the list ;;;;
+;;;; NOTE: adds the document to the front of the list, if the document is already there, moves the document to the front of the list                           ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to publish [ document ]
   if VERBOSE? [ Type "publish:" type who type ":" print document ] ;prints this out (info on what's happening) (publish:peer:doc)
   if toFile? [file-type (ticks * 10) file-type ":"  file-Type "publish:" file-type who file-type ":" file-print document ]
