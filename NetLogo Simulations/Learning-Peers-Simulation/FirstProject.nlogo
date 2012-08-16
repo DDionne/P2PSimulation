@@ -37,7 +37,6 @@ globals [
   docList;
   onlinePeerList
   layout?
-  totalHitsThisTick; ->temporary
   searches
   peersOnline
   VERBOSE?
@@ -48,6 +47,7 @@ globals [
   totalHappiness
   averageHappiness
   peerHits; ->temporary
+  lastPeer;
   
   ]
 
@@ -59,7 +59,6 @@ to setup
   set VERBOSE? false
   set toFile? false
   set-default-shape turtles "circle"
-  set totalHitsThisTick 0
   set peerHits 0
   set msgID 0
   set searches 0
@@ -164,7 +163,6 @@ end
 to go
  
  file-open "fileoutLearn.txt"
- set totalHitsThisTick 0
  set searches 0
  foreach sort-by [[who] of ?1 < [who] of ?2] turtles [            ;Loop through each peer exactly once
    ask turtles [set explored? false]
@@ -199,58 +197,59 @@ end
 to do-something
   ;ask turtle peer[
     if not online? [
-      if-else timeSpentOffline >= offlineTime [                        ;He reached the point where he has been offline for a long enough period of time
-        if random 100 < 15 [                                           ;Other little random factor (might remove this)
-          set online? true                                             ;We're going online
+      if-else timeSpentOffline >= offlineTime [                                                          ;;He reached the point where he has been offline for a long enough period of time
+        if random 100 < 15 [                                                                             ;;Other little random factor (might remove this)
+          set online? true                                                                               ;;We're going online
           
-          while [length DocsToPublish != 0 ]                           ;Used so that his initial set of documents gets published once
+          while [length DocsToPublish != 0 ]                                                             ;;Used so that his initial set of documents gets published once
           [
             publish first DocsToPublish
             set DocsToPublish remove first DocsToPublish DocsToPublish
           ]   
           
           if VERBOSE? [ Type "online:" print peerID ]                 
-          if toFile? [type (ticks * 10000) file-type ":" file-Type "online:" file-print peerID ]     ;outputs the online message to "fileout.txt"
+          if toFile? [type (ticks * 10000) file-type ":" file-Type "online:" file-print peerID ]         ;;outputs the online message to "fileout.txt"
           set peersOnline peersOnline + 1                                                            
-          set onlinePeerList lput who onlinePeerList                                                 ;add the peer to the list of all online peers in the network
-          show-turtle                                                                                ;show the peer on the visualisation screen
-          set timeSpentOffline 0          ;;hes online now, so this gets reset to 0
-          set offlineTime 50 + random 500 ;;Next time he goes offline, it will be for this amount of time
-          if length currentFriends != 0[                ;If he already has friends on his friends list, then connect to them if there online (see "show-friend-connections")
+          set onlinePeerList lput who onlinePeerList                                                     ;;add the peer to the list of all online peers in the network
+          show-turtle                                                                                    ;;show the peer on the visualisation screen
+          set timeSpentOffline 0                                                                         ;;hes online now, so this gets reset to 0
+          set offlineTime 50 + random 500                                                                ;;Next time he goes offline, it will be for this amount of time
+          if length currentFriends != 0[                    ;If he already has friends on his friends list, then connect to them if there online (see "show-friend-connections")
             show-friend-connections peerID
           ]
         ]  
       ]
-      [     ;timeSpentOffline is less than the offlineTime, so we simply increment the timeSpent by 1 and move on
-        set timeSpentOffline timeSpentOffline + 1 ;;update his time spend offline by 1 tick
+      [                                                                                                  ;;timeSpentOffline is less than the offlineTime, 
+                                                                                                          ;;so we simply increment the timeSpent by 1 and move on
+                                                                                                          
+        set timeSpentOffline timeSpentOffline + 1                                                         ;;update his time spend offline by 1 tick
       ]
       
     ]
     if online?[
-      if-else onlineTime >= onlineTimeTotal[                ;If time spent online reaches onlineTime, then we go offline
-        set online? false                                  ;We're going offline
+      if-else onlineTime >= onlineTimeTotal[                                                              ;;If time spent online reaches onlineTime, then we go offline
+        set online? false                                                                                 ;;We're going offline
         set peersOnline peersOnline - 1
-        set onlinePeerList remove who onlinePeerList       ;remove the peer from the list of all online peers in the network
-        hide-turtle                                        ;remove the peer from the visualisation screen
+        set onlinePeerList remove who onlinePeerList                                                      ;;remove the peer from the list of all online peers in the network
+        hide-turtle                                                                                       ;;remove the peer from the visualisation screen
         
         set totalHappiness totalHappiness - happiness
         set happiness 0
         
-        set onlineTime 0 ;;reset his amount of time online to 0 (hes offline)
-        set onlineTimeTotal 200 + random 200 ;;Next time he goes online, he will be online for this amount of time
-        if length currentFriends != 0[                     ;if he had friends, then disconnect from them
+        set onlineTime 0                                                                                  ;;reset his amount of time online to 0 (hes offline)
+        set onlineTimeTotal 200 + random 200                                                              ;;Next time he goes online, he will be online for this amount of time
+        if length currentFriends != 0[                                                                    ;;if he had friends, then disconnect from them
           hide-friend-connections peerID
         ]
         if VERBOSE? [ Type "offline:" print peerID ]
         if toFile? [ file-type (ticks * 10000) file-type ":" file-type "offline" file-print peerID ]      ;output the offline message to "fileout.txt"
       ]
       [
-        ;;Peer stays online for the time being, therefore he needs to do something
-        set onlineTime onlineTime + 1  ;;update his time spent online by 1 tick
-       ;; ifelse length currentFriends = 0
-       ;; [ find-new-similar-friend who ]
-        decide-action                      ;decides on what action to take (search, publish, delete, etc)
-        
+                                                                                                       ;;Peer stays online for the time being, therefore he needs to do something
+        set onlineTime onlineTime + 1                                                                     ;;update his time spent online by 1 tick
+
+        decide-action                                                                                     ;;decides on what action to take (search, publish, delete, etc)
+         
         
       ]
     ]
@@ -373,7 +372,6 @@ to search [peer document messageID]
     set searchHits 0
     explore peer document msgID 
     unexplore                      ;Used to set all peers explored variable to false (can't do ask turtles [] because we're not in observer mode here)
-    set totalHitsThisTick totalHitsThisTick + searchHits
     if peerID = peerNum [ set peerHits searchHits ]
 end
 
@@ -549,20 +547,20 @@ end
 to-report checkSimilarity [node1 node2]
   ;;if-else node1 != node2
     ;;[
-    let a [currentDocs] of turtle node1                  ;list of documents from node1 
+    let a [currentDocs] of turtle node1                                                                           ;list of documents from node1 
     ;;print a                     ;temporary
-    let b [currentDocs] of turtle node2                  ;list of documents from node2
+    let b [currentDocs] of turtle node2                                                                           ;list of documents from node2
     ;print b                     ;temporary
-    let numDocs 0                                        ;initialize the total number of similar documents as 0
+    let numDocs 0                                                                                                 ;initialize the total number of similar documents as 0
     foreach a[
       let elementA ?                                     
-      if member? elementA b [                            ;If the document is in both lists A and B, then increase numDocs by 1
+      if member? elementA b [                                                                              ;If the document is in both lists A and B, then increase numDocs by 1
         set numDocs numDocs + 1  
       ]
     ]
-    let percentageA 0                                    ;Similarity percentage initialised as 0
+    let percentageA 0                                                                                             ;Similarity percentage initialised as 0
     if length a > 0
-    [set percentageA (numDocs / (length a))]             ;If the length of the list isn't 0 (don't want to divide by 0)
+    [set percentageA (numDocs / (length a))]                                                                      ;If the length of the list isn't 0 (don't want to divide by 0)
     ;;print percentageA
     ;print node2
     let percentageB 0
@@ -594,9 +592,8 @@ to addFriend [peer1 peer2]
   ask T-peer1 [
     if not link-neighbor? T-peer2 or T-peer1 != T-peer2
     [
-      create-link-with T-peer2                        ;Create a link between peer1 and peer2
-      ;;ask T-peer2[create-link-with T-peer1]
-      set currentFriends lput peer2 currentFriends    ;add peer2 to peer1's friendList
+      create-link-with T-peer2                                                                                      ;Create a link between peer1 and peer2
+      set currentFriends lput peer2 currentFriends                                                                  ;add peer2 to peer1's friendList
       
       if VERBOSE? [ Type "connect:" type peer1 type ":" print peer2 ]
       if toFile? [file-type (ticks * 10000) file-type ":" file-type "connect" file-type ":" file-type peer1 file-type ":" file-print peer2 ] ;output the connect message
@@ -628,8 +625,8 @@ to show-friend-connections [peer-ID] ;
   let peer turtle peer-ID
   
   ask peer[
-    foreach currentFriends[      ;Go through each peer in the friends List
-      if is-online? ? [          ;If that friend is online, connect 
+    foreach currentFriends[                                                                          ;Go through each peer in the friends List
+      if is-online? ? [                                                                              ;If that friend is online, connect 
         
         addFriend peerID ? 
       
@@ -673,15 +670,12 @@ end
 ;;;; Removes the connection between two specific peers   ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to remove-friend [peer-ID otherID] 
-  ;let temp sorted-turtle-set
-  
-  ;let peer1 item peer-ID temp
-  ;let peer2 item otherID temp
+
   let peer1 turtle peer-ID
   let peer2 turtle otherID
   
   ask peer1 [
-    ask my-links with [other-end = peer2 ] [ die ]      ;Kill the link between peer-ID and otherID, then output the disconnect messages
+    ask my-links with [other-end = peer2 ] [ die ]                                       ;Kill the link between peer-ID and otherID, then output the disconnect messages
     set currentFriends remove otherID currentFriends
     if VERBOSE? [Type "disconnect:" type peer-ID type ":" print otherID]
     if toFile? [ file-type (ticks * 10000) file-type ":" file-type "disconnect" file-type ":" file-type peerID file-type ":" file-print otherID ]
@@ -755,7 +749,7 @@ to layout
   ;; model, but too few gives poor layouts
   repeat 10 [
     do-layout
-    display  ;; so we get smooth animation
+    display                             ;; so we get smooth animation
   ]
 end
 
@@ -827,10 +821,10 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    
 to setup-friends
   ask turtles[
-    let howMany? precision (random (numPeers / 10)) 0      ;Number of peers to add to friendList
-    while [howMany? > 0] [                                 ;Loop until that many friends were added 
+    let howMany? precision (random (numPeers / 10)) 0                                                             ;Number of peers to add to friendList
+    while [howMany? > 0] [                                                                                        ;Loop until that many friends were added 
       
-      if-else random 100 < 15                              ;if less than 15, add a random peer, else pick a similar one
+      if-else random 100 < 15                                                                                     ;if less than 15, add a random peer, else pick a similar one
       [ pick-random-peer ]                                 
       [ pick-similar-peer ]
       set howMany? howMany? - 1
@@ -882,9 +876,7 @@ to-report checkSimilarity-atStart [node1 node2]
   ;;if-else node1 != node2
     ;;[
     let a [DocsToPublish] of turtle node1
-    ;;print a                     ;temporary
     let b [DocsToPublish] of turtle node2
-    ;print b                     ;temporary
     let numDocs 0
     foreach a[
       let elementA ?
@@ -895,12 +887,9 @@ to-report checkSimilarity-atStart [node1 node2]
     let percentageA 0
     if length a > 0
     [set percentageA (numDocs / (length a))]
-    ;;print percentageA
-    ;print node2
     let percentageB 0
     if length b > 0
     [set percentageB (numDocs / (length b))]
-    ;;print percentageB
     let average (((percentageA + percentageB) / 2) * 100)
     report average
 
@@ -1042,7 +1031,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot peerHits"
+"default" 1.0 0 -16777216 true "set lastPeer peerNum" "if-else lastPeer != peerNum\n[ clear-plot \n  set lastPeer peerNum\n  plot peerHits \n]\n[ plot peerHits ]\nset peerHits 0"
 
 PLOT
 900
@@ -1060,7 +1049,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot averageHappiness"
+"default" 1.0 0 -16777216 true "" "plot averageHappiness\nset averageHappiness 0"
 
 MONITOR
 253
@@ -1079,7 +1068,7 @@ INPUTBOX
 172
 193
 peerNum
-4
+35
 1
 0
 Number

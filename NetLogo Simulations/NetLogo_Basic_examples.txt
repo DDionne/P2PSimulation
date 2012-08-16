@@ -1,0 +1,105 @@
+This is an overview on the basic elements of NetLogo.
+NetLogo has commands, built-in routines and reporters.
+
+To create a command (other names could be method, function, etc) you need 2 keywords, to and end. These routines can 
+be set up to work with buttons that are added in the main view of NetLogo.
+
+In this example, I will be demonstrating a very basic setup command (which works with the button named setup).
+
+to setup                      (setup is the command name)
+  clear-all                   (clears anything that might have been there from a previous simulation)
+  create-turtles x            (creates all the agents, x would be replaced with the amount wanted)
+  reset-ticks                 (NetLogo is tick-based, this command will set the ticks to 0, i.e. the start of the simulation)
+end                           
+
+This basic example simply clears everything from a previous simulation, initializes all the agents and resets the 
+ticks.Turtles, as mentionned are agents. These agents can be given instance by the programmer. The following 
+example demontrates this.
+
+turtles-own [
+  Tvariable1
+  Tvariable2
+  Tvariable3
+]
+
+This section of code gives each turtle instance variables (in this case name "Tvariable1", "Tvariable2", "Tvariable3")
+These can be accessed in various ways.
+
+But before going into that, lets see how to create global variables. The following example demontrates how to 
+create variables.
+
+globals [
+  global1
+  global2
+  global3
+]
+
+The way to create these global variables is very similar to the way turtle variables are created, the only difference
+is the use of the keyword "globals" instead of "turtles-own". These variable act differently to the turtle variables,
+Because they are global, there is only one instance of that variable and it can be accessed anytime. On the other 
+hand, turtle variables are unique to the instance of each turtle and can only be accessed by the turtle (there is
+another method which shall be discussed later).
+
+The last kind of variable that hasn't been mentionned yet is the local variable. The following example demontrates
+how local variables are created.
+
+to setup
+  clear-all
+  let variable1 0                       (this assigns the value of 0 to the local variable named "variable1")
+  create-turtles x
+  clear-ticks
+end
+
+the variable named "variable1" (can be named anything that isn't a built-in function) is unique to the setup method
+and is deleted as soon as we hit the end command. Which is why it's called a local variable.
+
+Now, how to we use these variables? How do we modify them? Well to modify them, we need to use a specific keyword.
+Like "let" when creating a local variable, to modify, we use "set". The example below will demontrate the use of
+this keyword.
+
+to setup
+  clear-all
+  let variable1 0
+  create-turtles x
+  set variable1 2000                    (this modifies the value of "variable1" from 0 to 2000)
+  clear-ticks
+end
+
+modifying variables is quite straightforward, however, you need to be in the right instances, depending on which 
+variables you wish to modify. The only case this isn't really straightforward, is when we wish to modify/access
+a turtles instance variable. There might be over 1000 turtles, meaning you can't simply access a single one 
+whichever way you want. Multiple methods are shown in the following examples
+
+to setup
+  clear-all
+  create-turtles 10
+  ask turtles [ set Tvariable1 2000 ]              (This modifies Tvariable1 of every turtle to 2000 from its previous value)
+  clear-ticks
+end
+
+This method gives every turtles the variable Tvariable1 a value of 2000. The ask turtles command allows you to enter
+the instance of every specific turtle one at a time (think of it as a for loop through every turtle). To be more 
+specific about which turtle you wish to modify, look at the following example.
+
+to test
+  ask turtle 5 [ set Tvariable1 5 ]
+end
+
+This example demontrates how you may enter the instance of a specific turtle to modify/access its instance variable.
+
+
+
+
+In most programming languages, methods can return a value to the user when called (return functions). In netlogo,
+the same thing can be done, these are called reporters. Instead of beginning a command with the keyword "to", the 
+keyword "to-report" needs to be used. While inside the method, a report statement needs to be encountered. A very
+basic example can be seen below.
+
+to-report randomValue
+  report random 100
+end
+
+What this reporter reports is a random value of anything from 0 to 100 (100 not included).
+
+
+

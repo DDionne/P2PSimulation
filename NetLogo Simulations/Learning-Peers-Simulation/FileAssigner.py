@@ -130,7 +130,7 @@ for k in range(size):
 default_input = 'C:\\eclipse\\workspace'
 # user_input will be set to my_input if they just press enter
 root_dir = raw_input("Enter your workspace directory(default: %s):\n" % default_input) or default_input
-MAFile = open("MultiPeertest.txt", "w")
+MAFile = open("MultiPeer.txt", "w")
 
                 
 MAFile.write(str(size) + "\ndocs\n")

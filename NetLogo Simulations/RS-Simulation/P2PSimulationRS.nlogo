@@ -41,7 +41,6 @@ globals [
   docLinks;
   docList;
   friendLists
-  toFile?
   NumPeers;
   
   ]
@@ -52,7 +51,6 @@ globals [
 to setup
   clear-all
   set VERBOSE? false
-  set toFile? true
   set-default-shape turtles "circle"
   set totalHitsThisTick 0
   set msgID 0
@@ -199,7 +197,7 @@ to do-something
       if-else timeSpentOffline >= offlineTime [  
         set online? true                                                                        ;We're going online
         if VERBOSE? [ Type "online:" print peerID ]
-        if toFile? [file-type (ticks * 10) file-type ":" file-Type "online:" file-print peerID ]
+        if toFile? [file-type ticks file-type ":" file-Type "online:" file-print peerID ]
         if length DocsToPublish > 0 [ AddDocsToNetwork ]                                        ;if first time online, publish all documents to the network
           
           
@@ -230,7 +228,7 @@ to do-something
           hide-friend-connections peerID
         ]
         if VERBOSE? [ Type "offline:" print peerID ]
-        if toFile? [file-type (ticks * 10) file-type ":" file-Type "offline:" file-print peerID ]
+        if toFile? [file-type ticks file-type ":" file-Type "offline:" file-print peerID ]
       ]
       [
         set onlineTime onlineTime + 1  ;;update his time spent online by 1 tick
@@ -306,7 +304,7 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to delete-document [document]
   if VERBOSE? [ type "remove:" type who type ":" print document]
-  if toFile? [file-type (ticks * 10) file-type ":" file-type "remove:" file-type who file-type ":" file-print document]
+  if toFile? [file-type ticks file-type ":" file-type "remove:" file-type who file-type ":" file-print document]
   set currentDocs remove document currentDocs  
 end
 
@@ -322,7 +320,7 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to search [peer document messageID find-links?] 
     if VERBOSE? [ Type "query:" type peer type ":" type document type ":" print messageID ]
-    if toFile? [file-type (ticks * 10) file-type ":" file-Type "query:" file-type peer file-type ":" file-type document file-type ":" file-print messageID ]
+    if toFile? [file-type ticks file-type ":" file-Type "query:" file-type peer file-type ":" file-type document file-type ":" file-print messageID ]
     set searchHits 0
     explore peer document msgID find-links?
     set totalHitsThisTick totalHitsThisTick + searchHits
@@ -334,7 +332,7 @@ to explore [peer document messageID find-links?] ;; node procedure
   set explored? true
   if who != peer [ 
     if VERBOSE? [ Type "queryreachespeer:" type who type ":" print messageID ]
-    if toFile? [file-type (ticks * 10) file-type ":"  file-Type "queryreachespeer:" file-type who file-type ":" file-print messageID ]
+    if toFile? [file-type ticks file-type ":"  file-Type "queryreachespeer:" file-type who file-type ":" file-print messageID ]
   ]
   if-else find-links? 
   [
@@ -347,7 +345,7 @@ to explore [peer document messageID find-links?] ;; node procedure
           set lastSearchedLinks lput ? lastSearchedLinks 
         ] 
         if VERBOSE? [ Type "queryhit:" type peerID type ":" type ? type ":" print messageID ]
-        if toFile? [file-type (ticks * 10) file-type ":"  file-Type "queryhit:" file-type peerID file-type ":" file-type ? file-type ":" file-print messageID ]
+        if toFile? [file-type ticks file-type ":"  file-Type "queryhit:" file-type peerID file-type ":" file-type ? file-type ":" file-print messageID ]
       ] 
     ]
     
@@ -360,7 +358,7 @@ to explore [peer document messageID find-links?] ;; node procedure
       
     ]
     if VERBOSE? [ Type "queryhit:" type peerID type ":" type document type":" print messageID ]
-    if toFile? [file-type (ticks * 10) file-type ":"  file-Type "queryhit:" file-type peerID file-type ":" file-type document file-type":" file-print messageID ]
+    if toFile? [file-type ticks file-type ":"  file-Type "queryhit:" file-type peerID file-type ":" file-type document file-type":" file-print messageID ]
   ]
   ]
   
@@ -433,12 +431,12 @@ to addFriend [peer1 peer2]
       ;;ask T-peer2[create-link-with T-peer1]
       set currentFriends lput peer2 currentFriends
       if VERBOSE? [ Type "connect:" type peer1 type ":" print peer2 ]
-      if toFile? [file-type (ticks * 10) file-type ":"  file-Type "connect:" file-type peer1 file-type ":" file-print peer2 ]
+      if toFile? [file-type ticks file-type ":"  file-Type "connect:" file-type peer1 file-type ":" file-print peer2 ]
       set currentFriends remove-duplicates currentFriends
       ask T-peer2[
          set currentFriends lput peer1 currentFriends
          if VERBOSE? [ Type "connect:" type peer2 type ":" print peer1 ]
-         if toFile? [file-type (ticks * 10) file-type ":"  file-Type "connect:" file-type peer2 file-type ":" file-print peer1 ]
+         if toFile? [file-type ticks file-type ":"  file-Type "connect:" file-type peer2 file-type ":" file-print peer1 ]
          set currentFriends remove-duplicates currentFriends
       ]
     ]
@@ -479,8 +477,8 @@ to hide-friend-connections [peer-ID]
       
       if VERBOSE? [Type "disconnect:" type peer-ID type ":" print [peerID] of other-end]
       if VERBOSE? [Type "disconnect:" type [peerID] of other-end type ":" print peer-ID]
-      if toFile? [file-type (ticks * 10) file-type ":" file-Type "disconnect:" file-type peer-ID file-type ":" file-print [peerID] of other-end]
-      if toFile? [file-type (ticks * 10) file-type ":" file-Type "disconnect:" file-type [peerID] of other-end file-type ":" file-print peer-ID]
+      if toFile? [file-type ticks file-type ":" file-Type "disconnect:" file-type peer-ID file-type ":" file-print [peerID] of other-end]
+      if toFile? [file-type ticks file-type ":" file-Type "disconnect:" file-type [peerID] of other-end file-type ":" file-print peer-ID]
       die 
       
       ] 
@@ -525,7 +523,7 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to publish [ document ]
   if VERBOSE? [ Type "publish:" type who type ":" print document ] ;prints this out (info on what's happening) (publish:peer:doc)
-  if toFile? [file-type (ticks * 10) file-type ":"  file-Type "publish:" file-type who file-type ":" file-print document ]
+  if toFile? [file-type ticks file-type ":"  file-Type "publish:" file-type who file-type ":" file-print document ]
   set currentDocs fput document currentDocs
   set currentDocs remove-duplicates currentDocs
   if length currentDocs > MAXDOCS [ delete-document last currentDocs ]
@@ -698,6 +696,17 @@ peersOnline
 17
 1
 11
+
+SWITCH
+19
+79
+122
+112
+toFile?
+toFile?
+0
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
