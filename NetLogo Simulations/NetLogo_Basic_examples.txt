@@ -102,4 +102,65 @@ end
 What this reporter reports is a random value of anything from 0 to 100 (100 not included).
 
 
+Another useful feature about NetLogo is the links that can be made between turtles. These links are fairly simple 
+to setup. For this to work, you need two turtles and you need to be inside the instance of one of them. The example
+below demonstrates how to set up a link between two turtles.
+
+to createLink
+  ask turtle x [
+    if not link-neighbor? turtle y or turtle x != turtle y [
+      create-link-with turtle y
+    ]
+  ]
+end
+
+-create-link-with (place turtle here) is the line that is needed to create the link. In the NetLogo window, assuming
+both turtles aren't placed at the same place (i.e. one on top of the other), then you should see a link between both
+turtles.
+
+The if statement used before the link creation statement is there because, if they are already linked, there's no 
+point, also, if you are trying to link a turtle with itself, it's going to produce errors.
+
+Now that you know how to create links, what can you do with them? Well, this is really left to whatever you have
+planned. For example, in my case I've re-created a peer-to-peer simulation. Inside this network, peers (turtles)
+have friends that they are connected to, and these friends have friends. What I can do with these links are things
+like travel through the network riding the links. You can do this because of the nature of links. When on one end
+of a link, you can it's reporter to find the other end.
+
+
+
+to-report currentNeighbors [peer] ;<--- this is a parameter
+  let neighborList []             ;<--- initialise the variable as an empty list
+  ask turtle peer[
+    ask link-neighbors [
+      set neighborList lput who neighborList
+    ]
+  ]
+  report neighborList
+end
+
+What this command does is return the list of all neightbors of the peer placed inside the parameter (just the peer
+number, not the turtle itself)
+
+Since now you can make links, how do you delete them? The following segment gives a basic example on how to delete
+links between turtles.
+
+to remove-link [peer1 peer2]  ;<---two parameters this time
+  let turtle1 turtle peer1
+  let turtle2 turtle peer2
+
+  ask turtle1 [
+    ask my-links with [other-end = turtle2][die]
+  ]
+end
+
+The segment to look at here is the line after "ask turtle1 [". What this line does is ask all the the turtles current
+links. the with, is similar to an if statement, as in if the other-end is equal to turtle2, then remove the link. 
+To remove the link, the "die" statement is used.
+
+If you simply want to remove all links from turtle1, you could simply do the following:
+
+ask turtle1 [
+  ask my-links [die]
+]
 

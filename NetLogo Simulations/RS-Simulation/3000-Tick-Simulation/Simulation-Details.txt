@@ -1,0 +1,26 @@
+This simulation was made with 100 peers that began with a random distribution of documents and a random set of
+friends.
+
+This simulation ran for 3000 ticks and is supposed to mimic the peer-to-peer simulation done using the 
+cd++ builder plugin for eclipse.
+
+
+
+To create this simulation, turtles were used as peers, since they could be given there own instance variables.
+each peer had it's own list of friends and it's own list of documents. To simulate connections, links were used.
+Meaning when two peers connect, it can be seen in the window.
+
+Every tick, the following happens:
+
+goes through every peer in random order:
+
+1- Checks whether the peer is online or not
+2- If the peer is online, go to 3. If the peer is offline, hide it on the window and remove all connections
+3- If nothing has been searched previously, then search for a random document
+   -If a search was done and a document was published, then search for links from the last published
+    document (publish a random link)
+
+Currently peers stay online for a minimum of 180 ticks and a max of 360
+peers stay offline for a minimum of 50 ticks and a max of 550 ticks
+
+These values can be easily changed.

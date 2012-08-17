@@ -223,7 +223,7 @@ to do-something
         set onlinePeerList remove who onlinePeerList                                            ;update the list of online peers
         hide-turtle   
         set onlineTime 0 ;;reset his amount of time online to 0 (hes offline)
-        set onlineTimeTotal 200 + random 200 ;;Next time he goes online, he will be online for this amount of time
+        set onlineTimeTotal 180 + random 180 ;;Next time he goes online, he will be online for this amount of time
         if length currentFriends != 0[
           hide-friend-connections peerID
         ]
@@ -265,9 +265,9 @@ end
 ;;;; -Publish/Delete a document                                                ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to decide-action
-  ifelse random 100 < 15 or lastSearchedDoc = -1 
+  ifelse random 100 < 15 or lastSearchedDoc = -1                         ;15% chance to query a random document. If no previous publishes have been made, then query at random.
   [ 
-    search peerID ((random 965) + 1) msgID false 
+    search peerID ((random 965) + 1) msgID false                         ;query at random
     if lastSearchedDoc != -1 [
       if not hasDocument? lastSearchedDoc [ 
         publish lastSearchedDoc
@@ -275,7 +275,7 @@ to decide-action
     ]
   ]
   [
-    search peerID lastSearchedDoc msgID true
+    search peerID lastSearchedDoc msgID true                             ;query for document links based on last published or visited document
     if-else length lastSearchedLinks = 0 
     [ set lastSearchedDoc  -1 ]
     [
@@ -292,7 +292,7 @@ to decide-action
       ] 
     ]    
   ]
-  set msgID msgID + 1
+  set msgID msgID + 1                                                    ;increase the message Identifier
 end
 
 
@@ -327,7 +327,7 @@ to search [peer document messageID find-links?]
 end
 
 
-to explore [peer document messageID find-links?] ;; node procedure
+to explore [peer document messageID find-links?] ;; node procedure --> Recursively travel through the network
   if explored? [ stop ]
   set explored? true
   if who != peer [ 
@@ -385,10 +385,10 @@ end
 
   
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Do list1 - list2 (returns a list which is the difference between list1 and list2 ;;;;
-;;;;                                                                                  ;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Do list1 minus list2 (returns a list which is the difference between list1 and list2 ;;;;
+;;;;                                                                                      ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report list-difference [list1 list2]
   let a list1
   foreach list2 [
@@ -402,9 +402,10 @@ end
 ;;;; Returns a random value from a list ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report getRandomItem [aList]
-  if length aList > 0[
+  if-else length aList > 0[
     report item random length aList aList
   ]
+  [ report -1 ] ;<-- list is empty
   
 end
   
@@ -425,9 +426,9 @@ to addFriend [peer1 peer2]
   
   
   ask T-peer1 [
-    if not link-neighbor? T-peer2 or T-peer1 != T-peer2
+    if not link-neighbor? T-peer2 or T-peer1 != T-peer2                    ;If already linked or trying to link to yourself, don't do anything
     [
-      create-link-with T-peer2
+      create-link-with T-peer2                                             ;add the link
       ;;ask T-peer2[create-link-with T-peer1]
       set currentFriends lput peer2 currentFriends
       if VERBOSE? [ Type "connect:" type peer1 type ":" print peer2 ]
@@ -457,7 +458,7 @@ to show-friend-connections [peer-ID] ;
     foreach currentFriends[
       if is-online? ? [ 
         
-        addFriend peerID ? 
+        addFriend peerID ?                       ;re-add all the friends, because it's easier that way
       
       ] 
     ] 
@@ -480,7 +481,7 @@ to hide-friend-connections [peer-ID]
       if toFile? [file-type ticks file-type ":" file-Type "disconnect:" file-type peer-ID file-type ":" file-print [peerID] of other-end]
       if toFile? [file-type ticks file-type ":" file-Type "disconnect:" file-type [peerID] of other-end file-type ":" file-print peer-ID]
       die 
-      
+                              ;kill all the connections
       ] 
   ]
 end
@@ -541,7 +542,7 @@ to layout
   if not layout? [ stop ]
   ;; the number 10 here is arbitrary; more repetitions slows down the
   ;; model, but too few gives poor layouts
-  repeat 5 [
+  repeat 5 [                                        ;<-- lowering this number increases the simulation speed, but makes it less visually appealing.
     do-layout
     display  ;; so we get smooth animation
   ]

@@ -5,23 +5,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;         Utility is low, because they queries something none of his friends have.
 turtles-own [
   
-  online? ; tells us whether or not the peer is online
-  peerID ; ID of the peer (gets assigned on setup)
-  currentFriends ;
-  happiness;
-  explored?;
-  searchHits;
-  lastSearchedDoc;
-  possibleResults ;; number of peers that might give results
+  online?                           ; tells us whether or not the peer is online
+  peerID                            ; ID of the peer (gets assigned on setup)
+  currentFriends                    ; list of friends
+  happiness;                        ; utility rating
+  explored?;                        ; used for network exploration
+  searchHits;                                        
+  lastSearchedDoc                   ;      
+  possibleResults                   ; number of peers that might give results
   similaritySum ;
   timeSpentOffline;
-  offlineTime;
+  offlineTime                       ; When timeSpentOffline reaches this, the peer goes online 
   onlineTimeTotal;
-  onlineTime;
-  currentDocs;
-  DocsToPublish;
-  searchChance;
-  changeFriendsChance;
+  onlineTime;                       ; When the onlineTimeTotal reaches this, the peer goes offline
+  currentDocs;                      ; List of published documents by the peer
+  DocsToPublish;                    ; Initial list of document waiting to be published (used with the setup button)
+  searchChance;                     ; Percent chance to search for a document versus changing the peers surrounding
+  changeFriendsChance;              ; Percent chance to modify the peers surroundings versus searching for a document
   
   
   ]
@@ -32,22 +32,21 @@ turtles-own [
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 globals [
   
-  PeerNumber ; Number that gets assigned to peers (gets incremented by 1 each time it gets assigned)
-  MAXDOCS ; Maximum amount of documents for each peer
-  docList;
-  onlinePeerList
-  layout?
-  searches
-  peersOnline
-  VERBOSE?
-  toFile?
-  msgID
-  numPeers
-  friendLimit
-  totalHappiness
-  averageHappiness
+  PeerNumber                        ; Number that gets assigned to peers (gets incremented by 1 each time it gets assigned)
+  MAXDOCS                           ; Maximum amount of documents for each peer
+  docList                           ; List of documents taken from the input file
+  onlinePeerList                    ; list of all the online peers
+  layout?                           ; Will use the layout method if this is true              
+  peersOnline                       ; Number of peers online
+  VERBOSE?                          ; will print info to the console if this is true
+  toFile?                           ; will output to an output file if this is true
+  msgID                             ; Unique Identifier for the next message
+  numPeers                          ; Amount of peers that are within the network (both online and offline)
+  friendLimit                       ;
+  totalHappiness                    
+  averageHappiness 
   peerHits; ->temporary
-  lastPeer;
+  lastPeer                          ; Currently used by plot1
   
   ]
 
@@ -61,7 +60,6 @@ to setup
   set-default-shape turtles "circle"
   set peerHits 0
   set msgID 0
-  set searches 0
   set totalHappiness 0
   set averageHappiness 0
   setup-documents
@@ -163,7 +161,6 @@ end
 to go
  
  file-open "fileoutLearn.txt"
- set searches 0
  foreach sort-by [[who] of ?1 < [who] of ?2] turtles [            ;Loop through each peer exactly once
    ask turtles [set explored? false]
    ask ?[
@@ -266,21 +263,21 @@ end
 ;;;; -Publish/Delete a document                                                ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to decide-action
-  let actionDecider random 100
-  if-else actionDecider < changeFriendsChance [
+  let actionDecider random 100                                          
+  if-else actionDecider < changeFriendsChance [                                   ;then modify your friends list
     manage-surroundings 
   ]
   [
-    let docToSearch ((random 965) + 1)
+    let docToSearch ((random 965) + 1)                                            ;else search for a random document (want to add distributions to make this work better)
     search peerID docToSearch msgID
     set msgID msgID + 1
     if searchHits > 0 [ publish docToSearch ]
   ]
   
-  set totalHappiness totalHappiness - happiness
+  set totalHappiness totalHappiness - happiness                                   ;update the happiness
   set happiness checkHappiness
   set totalHappiness totalHappiness + happiness
-  set changeFriendsChance precision ((100 - happiness) / 10) 0
+  set changeFriendsChance precision ((100 - happiness) / 10) 0                    ;update the percentage chance of changing your surroundings and searching
   set searchChance 100 - changeFriendsChance
   ;Type "Peer: " type who type " SearchChance: " type searchChance type " otherChance: " print changeFriendsChance
   
@@ -302,7 +299,7 @@ to manage-surroundings
   ;;;; a peer that has reached his limit gets added by another peer, then he also adds that peer to his list.
   
   
-  let offlineFriends [] 
+  let offlineFriends []                         ;list of friends that are offline
   foreach currentFriends [ 
    
     if not is-online? ? [ set offlineFriends lput ? offlineFriends ] 
@@ -311,7 +308,7 @@ to manage-surroundings
   
   if-else length offlineFriends > 0 [
     let temp random 100
-    if-else temp < 5[
+    if-else temp < 5[                                      ;5% chance to replace offline friend with an online friend
       let sim checkSimilarity who first offlineFriends
       let p first offlineFriends
       foreach offlineFriends [
@@ -324,19 +321,19 @@ to manage-surroundings
       remove-friend who p
       if length currentFriends <= friendLimit [find-new-similar-friend who]
     ]
-    [
-      remove-least-similar-friend who
+    [                                                      ;95% chance to replace the least similar friend
+      remove-least-similar-friend who 
       if length currentFriends <= friendLimit [find-new-similar-friend who]
     ]
   ]
-  [
+  [                                                        ;no friends are offline
     let temp random 100
     if-else temp < 15 [
       
-      if length currentFriends <= friendLimit [find-new-random-friend who]
+      if length currentFriends <= friendLimit [find-new-random-friend who]                   ;if we haven't exceeded the friend limit, add a new random friend (15% chance)
     ]
     [ 
-      if length currentFriends <= friendLimit [find-new-similar-friend who]
+      if length currentFriends <= friendLimit [find-new-similar-friend who]                  ;if we haven't exceeded the friend limit, add a new random friend (85% chance)
     ]
   ]
       
@@ -371,7 +368,7 @@ end
 to search [peer document messageID] 
     set searchHits 0
     explore peer document msgID 
-    unexplore                      ;Used to set all peers explored variable to false (can't do ask turtles [] because we're not in observer mode here)
+    unexplore                                                ;Used to set all peers explored variable to false (can't do ask turtles [] because we're not in observer mode here)
     if peerID = peerNum [ set peerHits searchHits ]
 end
 
@@ -380,7 +377,7 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Recursively visits each node and checks for queryhits ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-to explore [peer document messageID] ;; node procedure
+to explore [peer document messageID] ;; node procedure                   recursively travel through the network
   if explored? [ stop ]
   if peer != who [ 
     
@@ -411,11 +408,21 @@ to unexplore                                     ;Simply travels through the net
   ask link-neighbors [ unexplore ]
 end
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; returns true if the peer calling this method has the document stated as the parameter ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report hasDocument? [ document ]
   if-else member? document currentDocs  [report true]
   [report false]
 end
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Returns the amount of connections the peer used as a parameter has ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report peer-popularity [peer]
   
   report count [link-neighbors] of turtle peer
@@ -510,10 +517,10 @@ end
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Do list1 - list2 (returns a list which is the difference between list1 and list2 ;;;;
-;;;;                                                                                  ;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Do list1 minus list2 (returns a list which is the difference between list1 and list2 ;;;;
+;;;;                                                                                      ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report list-difference [list1 list2]
   let a list1
   foreach list2 [
