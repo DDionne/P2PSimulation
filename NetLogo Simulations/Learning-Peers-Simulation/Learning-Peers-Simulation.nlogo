@@ -1,8 +1,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; PEER VARIABLES ;;;;  -----> Need to add Distributions to the chances or querying which documents. So that instead of having equal chances to query every document, 
-;;;;;;;;;;;;;;;;;;;;;;;;         Peers have a greater chance to query a specific range of documents, meaning an increase in utility (when they randomly query everything, there
-;;;;;;;;;;;;;;;;;;;;;;;;         Utility is low, because they queries something none of his friends have.
+;;;; PEER VARIABLES ;;;;  -----> Need to add Distributions to every peer based off of there starting list of documents, that way they will have higher chances to query
+;;;;;;;;;;;;;;;;;;;;;;;;         the documents they are most interested in instead of having the same chance of querying every document. What this will end up doing it
+;;;;;;;;;;;;;;;;;;;;;;;;         increasing the happiness of the peers because they should have more queryhits (since their friends are mostly chosen by peer
+                       ;         similarity.
 turtles-own [
   
   online?                           ; tells us whether or not the peer is online
@@ -10,9 +11,9 @@ turtles-own [
   currentFriends                    ; list of friends
   happiness;                        ; utility rating
   explored?;                        ; used for network exploration
-  searchHits;                                        
-  lastSearchedDoc                   ;      
-  similaritySum ;
+  searchHits;                       ; used in plot1, every time a peer queries, this number represents the amount of queryhits he received                 
+  lastSearchedDoc                   ; When a peer queries for  document, this variable gets assigned the value of the document      
+  similaritySum ;                   
   timeSpentOffline;
   offlineTime                       ; When timeSpentOffline reaches this, the peer goes online 
   onlineTimeTotal;
@@ -80,28 +81,28 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to setup-turtles
   create-turtles NumPeers
-  foreach sort-by [[who] of ?1 < [who] of ?2] turtles [
+  foreach sort-by [[who] of ?1 < [who] of ?2] turtles [          ; <--- Makes it so that the peers are set up in order according to there who value
     ask ?[ 
     set color red
     set online? false
     set explored? false
     set offlineTime 50 + random 500
     set timeSpentOffline 0
-    set onlineTimeTotal 180 + random 180
+    set onlineTimeTotal 180 + random 180                         ; Peers will remain online for this many ticks
     set onlineTime 0
-    set currentFriends []
-    set searchHits 0
-    set similaritySum 0
-    set peerID PeerNumber
-    set PeerNumber PeerNumber + 1
-    set currentDocs []
+    set currentFriends []                                        ; Start with no friends
+    set searchHits 0                                             ; haven't queried yet, so this is 0
+    set similaritySum 0       
+    set peerID PeerNumber                                        ; This can be removed (since the peers "who" value is equivalent, however, I might use this elsewhere)
+    set PeerNumber PeerNumber + 1                                
+    set currentDocs []                                           
     set DocsToPublish []
     set DocsToPublish item peerID docList
-    set lastSearchedDoc -1
-    set searchChance 95
-    set changeFriendsChance (100 - searchChance)
-    layout-circle turtles max-pxcor - 1  
-    hide-turtle
+    set lastSearchedDoc -1                                       ; Haven't searched yet, so put this to -1 to indicate that
+    set searchChance 95                                          ; Initialize the search chance to 95%
+    set changeFriendsChance (100 - searchChance)                 ; Initialize the chance to change friends to 5%
+    layout-circle turtles max-pxcor - 1                          ; Layout the peers in a circle (will get changed once connections are made)
+    hide-turtle                                                  ; peers start offline, therefore, we do not want them to appear in the simulation until they go online
     ]
   ]
 end
@@ -112,10 +113,10 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to setup-documents
   set docList []
-  file-open "MultiPeer.txt"
-  let docStart false
-  while [not file-at-end?][
-    if-else docStart = false [
+  file-open "MultiPeer.txt"                                  
+  let docStart false                                             
+  while [not file-at-end?][                                    
+    if-else docStart = false [ 
       let line file-read-line
       if-else line != "docs" [
         let number read-from-string line
@@ -1117,6 +1118,8 @@ Turtles are used as peers within a peer-to-peer network. These peers have two se
 The utility function gets called at the end of each tick to see if the odds of changing the peers surroundings need to be increased or lowered. The more queryhits a peer receives vs the amount of peers online, along with the amount of friends that are online vs offline will increase happiness and decrease the chance of changing friends.
 
 ## HOW TO USE IT
+
+-In the same folder as this simulation, there is a python script named "fileAssigner.py", run that file to pick the amount of peers wanted and to assign each of them a random distribution of documents.
 
 -Press the setup button, then press go or step, which ever the user prefers.
 Make sure to have the correct input files (MultiPeer.txt is the current File Name)
