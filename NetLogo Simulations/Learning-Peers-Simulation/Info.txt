@@ -1,0 +1,53 @@
+This NetLogo simulation is used to simulate a Peer to Peer network where the peers learn to modify there list of 
+friends in order to increase their search results.
+
+Every tick that passes during this simulation, the following happens:
+
+1- Peers that are offline (they all start this way) check their timeSpentOffline variable to see if they reached their
+   OfflineTime. Once they reach it, the peer goes online and publishes all his non-published documents. The peer
+   Also connects to every peer on his friend list that is online.
+
+   If a peer is online and their onlineTimeTotal variable reached their online time, then 
+   they disconnect from all their friends and go offline. This means they acting within the network.
+
+2- All online peers then make a decision. This decision is influenced by their search results (if they haven't 
+   previously searched for a document in the network, then they have a default probability per action.
+
+   The two actions are the following:
+  
+     a) Search for a document within the network (95% chance by default, 90-100% otherwise)
+     b) Modify the friends list to either add friends, or simply change friends (5% chance default, 0-10% otherwise)
+
+
+   If the peer decides to proceed with choice a, then he searches for a random document throughout the network.
+   (This needs to be changed so that the document chosen is influenced by a distribution given to the peer at the 
+   beginning of the simulation based on the documents he owns, but has not yet published due to not having been 
+   online).
+
+   If the peer decides to proceed with choice b, then he manages his friends list to try and increase his
+   chances at getting results when searching. This can be done by things such as replacing offline friends with 
+   online ones, removing the friends that are the least similar and replacing them with the most similar friends.
+   
+
+3- Then peer then checks what his happiness is so that he may adjust his action probabilities. The way I went about 
+   making this function was to check the amount of connections the peers have versus their friends list. Meaning,
+   the ratio of friends to online friends. I also take the ratio of queryhits for the last query versus the amounts
+   of peers online (excluding himself). I then take the average of both and make it out of 100. 
+
+   I'm not sure this is absolutely correct, it might not be the best way to go. But if we say it is, then there are
+   still some problems.
+
+   -The fact that document probabilities per peer are currently not in the simulator causes the amount of queryhits
+    to remain incredibly low most of the time, meaning that even with a very good group of friends, it is entirely
+    possible that the peer will be unhappy due to not receiving any queryhits. This leads to constant changes to the
+    peers friendlist.
+
+   -the queryhit versus the number of online peer ratio might not be entirely accurate, it might be better to compare
+    take the ratio of the queryhit versus the current peers component size. Since the netwoke might not end up being 
+    one component.
+
+
+ An important thing to note about the current state of this NetLogo simulation is that there is a friendLimit variable.
+ This variable stops peers from adding more friends once they reach that limit. However, if another peer that hasn't
+ yet reached that limits adds a peers that has reached it, then they still become friends. Meaning that the peer
+ that was already at the limit just exceeded it.

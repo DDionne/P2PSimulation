@@ -12,7 +12,6 @@ turtles-own [
   explored?;                        ; used for network exploration
   searchHits;                                        
   lastSearchedDoc                   ;      
-  possibleResults                   ; number of peers that might give results
   similaritySum ;
   timeSpentOffline;
   offlineTime                       ; When timeSpentOffline reaches this, the peer goes online 
@@ -38,11 +37,11 @@ globals [
   onlinePeerList                    ; list of all the online peers
   layout?                           ; Will use the layout method if this is true              
   peersOnline                       ; Number of peers online
-  VERBOSE?                          ; will print info to the console if this is true
-  toFile?                           ; will output to an output file if this is true
+  ;VERBOSE?                          ; will print info to the console if this is true
+  ;toFile?                           ; will output to an output file if this is true
   msgID                             ; Unique Identifier for the next message
   numPeers                          ; Amount of peers that are within the network (both online and offline)
-  friendLimit                       ;
+  friendLimit                       ; <-- Currently only stops the peer from adding friends passed this limit, others can still add the peer though (increasing his # of friends)
   totalHappiness                    
   averageHappiness 
   peerHits; ->temporary
@@ -67,7 +66,7 @@ to setup
   setup-friends
   set friendLimit precision (numPeers / 10) 0
   set layout? true
-  if file-exists? "fileout.txt" [ file-delete "fileout.txt" ]
+  if file-exists? "fileoutLearn.txt" [ file-delete "fileoutLearn.txt" ]
 ;;  setup-friends <--Currently very innefficient
   set MAXDOCS 50
   set onlinePeerList []
@@ -170,7 +169,7 @@ to go
        [set averageHappiness 0]
      ifelse show-IDs?
        [ set label happiness ]
-       [ set label "" ]
+       [ set label who ]
    ]
  ]
  layout
@@ -205,7 +204,7 @@ to do-something
           ]   
           
           if VERBOSE? [ Type "online:" print peerID ]                 
-          if toFile? [type (ticks * 10000) file-type ":" file-Type "online:" file-print peerID ]         ;;outputs the online message to "fileout.txt"
+          if toFile? [file-type ticks file-type ":" file-Type "online:" file-print peerID ]         ;;outputs the online message to "fileout.txt"
           set peersOnline peersOnline + 1                                                            
           set onlinePeerList lput who onlinePeerList                                                     ;;add the peer to the list of all online peers in the network
           show-turtle                                                                                    ;;show the peer on the visualisation screen
@@ -239,7 +238,7 @@ to do-something
           hide-friend-connections peerID
         ]
         if VERBOSE? [ Type "offline:" print peerID ]
-        if toFile? [ file-type (ticks * 10000) file-type ":" file-type "offline" file-print peerID ]      ;output the offline message to "fileout.txt"
+        if toFile? [ file-type ticks file-type ":" file-type "offline" file-print peerID ]      ;output the offline message to "fileout.txt"
       ]
       [
                                                                                                        ;;Peer stays online for the time being, therefore he needs to do something
@@ -351,7 +350,7 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to delete-document [document]
   if VERBOSE? [ type "remove:" type who type ":" print document]
-  if toFile? [ file-type (ticks * 10000) file-type ":" file-type "remove" file-type ":" file-print document ] ;outputs the remove message to "fileout.txt"
+  if toFile? [ file-type ticks file-type ":" file-type "remove" file-type ":" file-print document ] ;outputs the remove message to "fileout.txt"
   set currentDocs remove document currentDocs  
 end
 
@@ -381,8 +380,8 @@ to explore [peer document messageID] ;; node procedure                   recursi
   if explored? [ stop ]
   if peer != who [ 
     
-    if VERBOSE? [ Type "queryreachespeer:" type who type ":" print messageID ]
-    if toFile? [ file-type "queryreachespeer:" file-type who file-type ":" file-print messageID ]
+    if VERBOSE? [type "hello...:" Type "queryreachespeer:" type who type ":" print messageID ]
+    if toFile? [file-type ticks file-type ":" file-type "queryreachespeer:" file-type who file-type ":" file-print messageID ]
   ]  
   set explored? true
   if hasDocument? document and who != peer [  
@@ -392,7 +391,7 @@ to explore [peer document messageID] ;; node procedure                   recursi
       
     ]
     if VERBOSE? [ Type "queryhit:" type peer type ":" type document type":" print messageID ]
-    if toFile? [ file-type (ticks * 10000) file-type ":" file-type "queryhit" file-type ":" file-type peer file-type ":" file-type document file-type ":" file-type messageID ]
+    if toFile? [ file-type ticks file-type ":" file-type "queryhit" file-type ":" file-type peer file-type ":" file-type document file-type ":" file-print messageID ]
   ]
   ask link-neighbors [ explore peer document messageID]
 end
@@ -603,14 +602,14 @@ to addFriend [peer1 peer2]
       set currentFriends lput peer2 currentFriends                                                                  ;add peer2 to peer1's friendList
       
       if VERBOSE? [ Type "connect:" type peer1 type ":" print peer2 ]
-      if toFile? [file-type (ticks * 10000) file-type ":" file-type "connect" file-type ":" file-type peer1 file-type ":" file-print peer2 ] ;output the connect message
+      if toFile? [file-type ticks file-type ":" file-type "connect" file-type ":" file-type peer1 file-type ":" file-print peer2 ] ;output the connect message
       
       set currentFriends remove-duplicates currentFriends       ;if friend was already there (i.e your going online and your just want to reconnect, we need to remove the second instance of that friend
       ask T-peer2[
          set currentFriends lput peer1 currentFriends
          
          if VERBOSE? [ Type "connect:" type peer2 type ":" print peer1 ]
-         if toFile? [file-type (ticks * 10000) file-type ":" file-type "connect" file-type ":" file-type peer2 file-type ":" file-print peer1 ]
+         if toFile? [file-type ticks file-type ":" file-type "connect" file-type ":" file-type peer2 file-type ":" file-print peer1 ]
          
          set currentFriends remove-duplicates currentFriends
       ]
@@ -660,8 +659,8 @@ to hide-friend-connections [peer-ID]
       
       if VERBOSE? [Type "disconnect:" type peer-ID type ":" print [peerID] of other-end]
       if VERBOSE? [Type "disconnect:" type [peerID] of other-end type ":" print peer-ID]
-      if toFile? [ file-type (ticks * 10000) file-type ":" file-type "disconnect" file-type ":" file-type peer-ID file-type ":" file-print [peerID] of other-end]
-      if toFile? [ file-type (ticks * 10000) file-type ":" file-type "disconnect" file-type ":" file-type [peerID] of other-end file-type ":" file-print peer-ID]
+      if toFile? [ file-type ticks file-type ":" file-type "disconnect" file-type ":" file-type peer-ID file-type ":" file-print [peerID] of other-end]
+      if toFile? [ file-type ticks file-type ":" file-type "disconnect" file-type ":" file-type [peerID] of other-end file-type ":" file-print peer-ID]
       die 
       
       ] 
@@ -685,11 +684,11 @@ to remove-friend [peer-ID otherID]
     ask my-links with [other-end = peer2 ] [ die ]                                       ;Kill the link between peer-ID and otherID, then output the disconnect messages
     set currentFriends remove otherID currentFriends
     if VERBOSE? [Type "disconnect:" type peer-ID type ":" print otherID]
-    if toFile? [ file-type (ticks * 10000) file-type ":" file-type "disconnect" file-type ":" file-type peerID file-type ":" file-print otherID ]
+    if toFile? [ file-type ticks file-type ":" file-type "disconnect" file-type ":" file-type peerID file-type ":" file-print otherID ]
     ask peer2 [
       set currentFriends remove peer-ID currentFriends
       if VERBOSE? [Type "disconnect:" type otherID type ":" print peer-ID]
-      if toFile? [ file-type (ticks * 10000) file-type ":" file-type "disconnect" file-type ":" file-type otherID file-type ":" file-print peer-ID ]
+      if toFile? [ file-type ticks file-type ":" file-type "disconnect" file-type ":" file-type otherID file-type ":" file-print peer-ID ]
     ] 
     
   ]
@@ -1018,7 +1017,7 @@ SWITCH
 107
 Show-IDs?
 Show-IDs?
-0
+1
 1
 -1000
 
@@ -1047,7 +1046,7 @@ PLOT
 269
 plot 2
 Ticks
-Searches
+Average Peer Happiness
 0.0
 10.0
 0.0
@@ -1069,16 +1068,42 @@ peersOnline
 1
 11
 
-INPUTBOX
-17
-133
-172
-193
+SLIDER
+23
+147
+195
+180
 peerNum
-35
-1
+peerNum
 0
-Number
+numPeers
+29
+1
+1
+NIL
+HORIZONTAL
+
+SWITCH
+153
+77
+256
+110
+toFile?
+toFile?
+1
+1
+-1000
+
+SWITCH
+272
+77
+385
+110
+VERBOSE?
+VERBOSE?
+1
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -1093,8 +1118,20 @@ The utility function gets called at the end of each tick to see if the odds of c
 
 ## HOW TO USE IT
 
-Press the setup button, then press go or step, which ever the user prefers.
--make sure to have the correct input files (MultiPeer.txt is the current File Name)
+-Press the setup button, then press go or step, which ever the user prefers.
+Make sure to have the correct input files (MultiPeer.txt is the current File Name)
+
+-If you wish to view a log in the command center window, you may turn on the VERBOSE? switch.
+
+-If you wish to have these logs saved within a text file, you may turn on the toFile?
+switch. Note that if during the simulation, the toFile? switch is changed, you will lose information. (when the switch is off, nothing gets output to the file)
+
+NOTE: When pressing the setup button, the toFile? and VERBOSE variables are set to off by default.
+
+-The show-ID? option allows you to view different things, if it's off, it will show the peer ID's, if it is on, it will display the happiness of each peer.
+
+-Currently, the peerNum slider is used with plot1. This plot will display the amount of queryhits the peer designated by peerNum receives per tick (note that the peer may
+be offline or changing his surroundings, the peer will not receive queryhits during these times).
 
 ## THINGS TO NOTICE
 
@@ -1106,11 +1143,17 @@ Press the setup button, then press go or step, which ever the user prefers.
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
+Many things about this model can be changed. Currently, the online and offline times aren't very accurate, they can be changed to work based off of some distributions. 
+
+Also, the biggest thing that can be extended or changed would be the behaviour of the peers. By changing the decide-action method, the behaviour can be changed to something completely different.
+
+Another extension that can be done is using the NetLogo feature of breeds. Since turtles are the main focus of this simulation, different variations of these turtles could be used within the same simulation to work as different types of peers.
+
+Another possibility would be to make use of patches.
 
 ## NETLOGO FEATURES
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
+I heavily make use of links and turtles.
 
 ## RELATED MODELS
 
@@ -1118,7 +1161,7 @@ P2PSimulationRS is a similar model.
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+A few parts of my code comes from the creator of NetLogo, Uri Wilensky. I've used some of the sample models as reference to do some things. Namely the "Giant Component Model".
 @#$#@#$#@
 default
 true
