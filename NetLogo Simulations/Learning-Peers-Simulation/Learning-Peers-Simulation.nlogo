@@ -1,9 +1,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; PEER VARIABLES ;;;;  -----> Need to add Distributions to every peer based off of there starting list of documents, that way they will have higher chances to query
-;;;;;;;;;;;;;;;;;;;;;;;;         the documents they are most interested in instead of having the same chance of querying every document. What this will end up doing it
-;;;;;;;;;;;;;;;;;;;;;;;;         increasing the happiness of the peers because they should have more queryhits (since their friends are mostly chosen by peer
-                       ;         similarity.
+;;;; PEER VARIABLES ;;;;  -----> Distributions might not be accurate, I wasn't sure which kind of distribution to use, so I just used normal distribution and made the mean be
+;;;;;;;;;;;;;;;;;;;;;;;;         the average of all the document numbers (since documents are numbers...) and I placed the standard deviation to 100.
+;;;;;;;;;;;;;;;;;;;;;;;;         
+                               
 turtles-own [
   
   online?                           ; tells us whether or not the peer is online
@@ -22,6 +22,8 @@ turtles-own [
   DocsToPublish;                    ; Initial list of document waiting to be published (used with the setup button)
   searchChance;                     ; Percent chance to search for a document versus changing the peers surrounding
   changeFriendsChance;              ; Percent chance to modify the peers surroundings versus searching for a document
+  
+  distributionMean;
   
   
   ]
@@ -98,6 +100,7 @@ to setup-turtles
     set currentDocs []                                           
     set DocsToPublish []
     set DocsToPublish item peerID docList
+    set distributionMean findMean DocsToPublish;                 ; Calculate the Mean of the documents
     set lastSearchedDoc -1                                       ; Haven't searched yet, so put this to -1 to indicate that
     set searchChance 95                                          ; Initialize the search chance to 95%
     set changeFriendsChance (100 - searchChance)                 ; Initialize the chance to change friends to 5%
@@ -116,18 +119,18 @@ to setup-documents
   file-open "MultiPeer.txt"                                  
   let docStart false                                             
   while [not file-at-end?][                                    
-    if-else docStart = false [ 
+    if-else docStart = false [                               ;getting the number of peers in the network
       let line file-read-line
       if-else line != "docs" [
         let number read-from-string line
         set numPeers number  
       ]
-      [ set docStart true ] 
+      [ set docStart true ]                                  ;finished getting the number of peers in the network
     ]
     [
       let tempo file-read-line
     
-      if-else tempo != "end"[
+      if-else tempo != "end"[                                ;end signifies the end of the documents for a specific peer
         let temp read-from-string tempo
         if-else length docList = 0
         [
@@ -257,7 +260,7 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Method that decides what the best course of action is for a specific peer ;;;;
 ;;;; Possible actions are :                                                    ;;;;
-;;;;                                                                           ;;;; <--Need to make this work with happiness (need to do that first though)
+;;;;                                                                           ;;;; 
 ;;;; -Search for a document                                                    ;;;;
 ;;;; -Add/Remove a friend                                                      ;;;;
 ;;;; -Publish/Delete a document                                                ;;;;
@@ -268,7 +271,9 @@ to decide-action
     manage-surroundings 
   ]
   [
-    let docToSearch ((random 965) + 1)                                            ;else search for a random document (want to add distributions to make this work better)
+    ;let docToSearch ((random 965) + 1)                                            ;else search for a random document (want to add distributions to make this work better)
+    let docToSearch docDist;
+    
     search peerID docToSearch msgID
     set msgID msgID + 1
     if searchHits > 0 [ publish docToSearch ]
@@ -285,7 +290,15 @@ end
 
 
 
-
+to-report docDist
+  let temp precision (random-normal distributionMean 100) 0
+  if-else temp < 1 or temp > 965 [
+    report docDist
+  ]
+  [
+    report temp
+  ]
+end 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -381,7 +394,7 @@ to explore [peer document messageID] ;; node procedure                   recursi
   if explored? [ stop ]
   if peer != who [ 
     
-    if VERBOSE? [type "hello...:" Type "queryreachespeer:" type who type ":" print messageID ]
+    if VERBOSE? [Type "queryreachespeer:" type who type ":" print messageID ]
     if toFile? [file-type ticks file-type ":" file-type "queryreachespeer:" file-type who file-type ":" file-print messageID ]
   ]  
   set explored? true
@@ -916,6 +929,14 @@ to-report checkHappiness
   if peersOnline > 1 [  set temp2 docPop / (peersOnline - 1)  ]
   report precision (((temp + temp2) / 2) * 100) 0
   
+end
+
+to-report findMean [documents]
+  let total 0
+  foreach documents [
+    set total total + (length documents)
+  ]
+  report total / length documents
 end
   
   

@@ -37,11 +37,6 @@ Every tick that passes during this simulation, the following happens:
    I'm not sure this is absolutely correct, it might not be the best way to go. But if we say it is, then there are
    still some problems.
 
-   -The fact that document probabilities per peer are currently not in the simulator causes the amount of queryhits
-    to remain incredibly low most of the time, meaning that even with a very good group of friends, it is entirely
-    possible that the peer will be unhappy due to not receiving any queryhits. This leads to constant changes to the
-    peers friendlist.
-
    -the queryhit versus the number of online peer ratio might not be entirely accurate, it might be better to compare
     take the ratio of the queryhit versus the current peers component size. Since the netwoke might not end up being 
     one component.
