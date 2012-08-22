@@ -1,0 +1,91 @@
+Online:
+
+	1) Peer X goes online (RandomSurfer -> Online X -> ConnectionManager)
+	
+	2) ConnectionManager -> Online X -> NetworkGraph
+
+	3) Connect (view below)
+
+Connect: 
+
+	1) ConnectionManager -> For Y in Toconnect -> Connect X to Y -> NetworkGraph
+
+	2) For all connections from 1
+
+		NetworkGraph -> Connect X to Y ->
+				Connect Y to X -> ConnectionManager + Router
+
+	2) Message gets sent to both the ConnectionManager and the Router models because
+		-The ConnectionManager needs to update his ToConnect list (remove those that are connected)
+		-The Router model needs to update it's list of connections so that queries get sent to the right places
+
+
+Offline:
+
+	1) Peer X goes offline (RandomSurfer -> Offline X -> ConnectionManager)
+
+	2) ConnectionManager changes to the ShutDown State
+
+	3) For Connections Y in ConnectionList (in the ConnectionManager)
+
+		Disconnect Y to X and X to Y (view below)
+
+	4) When ConnectionList is empty, finally go offline (ConnectionManager -> Offline X -> NetworkGraph)
+
+	5) Remove Node X from the NetworkGraph
+
+
+Disconnect:
+
+	1) ConnectionManager -> Disconnect X from Y -> NetworkGraph
+
+	2) NetworkGraph removes the edge between Nodes X and Y
+
+	3) NetworkGraph -> Disconnect X from Y -> ConnectionManager
+					       -> Router
+	   NetworkGraph -> Disconnect Y from X -> ConnectionManager
+					       -> Router
+
+Query:
+
+	1) There are currently two types of queries:
+		a) A Query for a specific document (query for document 5 is looking for document 5)
+		b) A Query for documents linked to an owned document (query looking for documents linked to document five) (gives many documents)
+
+	2) Query from Peer X -> Query_out -> msgIdGenerator
+
+	3) msgIdGenerator -> Query_in -> Router for peer X
+
+	4) Router for Peer X -> Local_out -> Repository for peer X
+
+	5) 
+		if a)
+			If the repository contains the document associated with the query:
+
+				QueryHit (See queryhit section)
+
+		if b)
+			-Repository for Peer X -> Query with ID -> LinkFinder
+			
+			-LinkFinder -> All documents linked to (Document associated with Query) -> Repository for peer X
+
+			For each document that equals to a document that Peer X has
+		
+				QueryHit (See queryhit section)
+
+	6) From the Router Model
+
+		For each connection C -> q_out -> PhysicalNetwork
+
+	7) PhysicalNetwork -> in_q -> Router for peer C
+
+	8) Repeat 4-7 until the Time to Live (TTL) is 0
+
+
+
+Queryhit:
+
+	Using the Routing Tables inside the Router Model, rout the queryhit back to the peer that initially queried.
+
+	If there isn't an entry in the routing table corresponding to the query, then the peer has been reached	
+		
