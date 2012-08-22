@@ -1,0 +1,2 @@
+Run the LogEventFormatter_RSurfSimu2.py file to receive the logFiles, then run the Statistical info python file.
+Afterwards, your are able to run all the other files, which will give more statistical info on the simulation.
